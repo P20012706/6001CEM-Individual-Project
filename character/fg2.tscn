@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://buw7ttbw6sext"]
+
+[ext_resource type="Texture2D" uid="uid://dfdbxuvjs354a" path="res://assets/sprites/NPC Spritesheet.png" id="1_qem3d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ff1br"]
+atlas = ExtResource("1_qem3d")
+region = Rect2(96, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkjls"]
+atlas = ExtResource("1_qem3d")
+region = Rect2(112, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwtvu"]
+atlas = ExtResource("1_qem3d")
+region = Rect2(128, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_geoun"]
+atlas = ExtResource("1_qem3d")
+region = Rect2(64, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spcjt"]
+atlas = ExtResource("1_qem3d")
+region = Rect2(80, 64, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xe2di"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ff1br")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkjls")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwtvu")
+}],
+"loop": true,
+"name": &"sit",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_geoun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spcjt")
+}],
+"loop": true,
+"name": &"talk",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhubx"]
+size = Vector2(10, 17)
+
+[node name="fg2" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xe2di")
+animation = &"talk"
+frame_progress = 0.168735
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7.5)
+shape = SubResource("RectangleShape2D_rhubx")

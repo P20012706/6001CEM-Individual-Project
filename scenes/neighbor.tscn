@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxklr46wqc5ds"]
+
+[ext_resource type="Texture2D" uid="uid://dfdbxuvjs354a" path="res://assets/sprites/NPC Spritesheet.png" id="1_hbttm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1su3f"]
+atlas = ExtResource("1_hbttm")
+region = Rect2(128, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0net"]
+atlas = ExtResource("1_hbttm")
+region = Rect2(144, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xe2di"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1su3f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0net")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhubx"]
+size = Vector2(10, 15)
+
+[node name="neighbor" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xe2di")
+animation = &"idle"
+frame_progress = 0.281977
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8.5)
+shape = SubResource("RectangleShape2D_rhubx")

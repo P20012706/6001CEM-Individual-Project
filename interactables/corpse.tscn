@@ -1,0 +1,68 @@
+[gd_scene load_steps=13 format=3 uid="uid://bvjkncfu283tv"]
+
+[ext_resource type="Texture2D" uid="uid://bj8no4gol5kta" path="res://assets/sprites/Interactables.png" id="1_eqspj"]
+[ext_resource type="Script" path="res://interactables/corpse.gd" id="1_x24hr"]
+[ext_resource type="Script" path="res://interactables/corpsearea.gd" id="2_7mthr"]
+[ext_resource type="Script" path="res://interactables/info_data.gd" id="2_dlrwr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0s7op"]
+atlas = ExtResource("1_eqspj")
+region = Rect2(48, 0, 32, 16)
+
+[sub_resource type="Resource" id="Resource_cukii"]
+script = ExtResource("2_dlrwr")
+name = "Victim"
+description = "Some of the officers think she's the famous journalist on TV."
+texture = SubResource("AtlasTexture_0s7op")
+category = "People"
+dialogic_timeline_id = ""
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ru1lj"]
+atlas = ExtResource("1_eqspj")
+region = Rect2(48, 0, 32, 16)
+
+[sub_resource type="Resource" id="Resource_0w7oh"]
+script = ExtResource("2_dlrwr")
+name = "Bludgeon Injuries"
+description = "Blunt force injuries to head and face of victim."
+texture = SubResource("AtlasTexture_ru1lj")
+category = "Evidence"
+dialogic_timeline_id = ""
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsrvs"]
+atlas = ExtResource("1_eqspj")
+region = Rect2(48, 0, 32, 16)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ffc28"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6goat"]
+size = Vector2(24, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ko03"]
+size = Vector2(40, 24)
+
+[node name="Corpse" type="Node2D" groups=["interact"]]
+script = ExtResource("1_x24hr")
+infodata = SubResource("Resource_cukii")
+infodata2 = SubResource("Resource_0w7oh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_lsrvs")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_ffc28")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(4, -0.5)
+shape = SubResource("RectangleShape2D_6goat")
+
+[node name="CorpseArea" type="Area2D" parent="." groups=["interact"]]
+position = Vector2(5, 0)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("2_7mthr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CorpseArea"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_0ko03")
+debug_color = Color(0.823529, 0.239216, 0.792157, 0.419608)

@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://bo4t3g8ndmqbt"]
+
+[ext_resource type="Texture2D" uid="uid://dfdbxuvjs354a" path="res://assets/sprites/NPC Spritesheet.png" id="1_x7b0s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7qpj"]
+atlas = ExtResource("1_x7b0s")
+region = Rect2(32, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfko7"]
+atlas = ExtResource("1_x7b0s")
+region = Rect2(48, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_at75e"]
+atlas = ExtResource("1_x7b0s")
+region = Rect2(0, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ew1vh"]
+atlas = ExtResource("1_x7b0s")
+region = Rect2(16, 64, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xe2di"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7qpj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfko7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_at75e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ew1vh")
+}],
+"loop": true,
+"name": &"talk",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhubx"]
+size = Vector2(10, 19)
+
+[node name="manager" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xe2di")
+animation = &"talk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_rhubx")

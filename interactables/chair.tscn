@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://bkwctt3gs46rm"]
+
+[ext_resource type="Texture2D" uid="uid://bj8no4gol5kta" path="res://assets/sprites/Interactables.png" id="1_fnm8m"]
+[ext_resource type="Script" path="res://interactables/chairarea.gd" id="2_ccl0t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akejg"]
+atlas = ExtResource("1_fnm8m")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rv852"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5k6l"]
+size = Vector2(12, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ftdd"]
+size = Vector2(32, 40)
+
+[node name="Chair" type="Node2D" groups=["interact"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_akejg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_rv852")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 7.5)
+shape = SubResource("RectangleShape2D_u5k6l")
+
+[node name="ChairArea" type="Area2D" parent="." groups=["interact"]]
+position = Vector2(3, -3)
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource("2_ccl0t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChairArea"]
+position = Vector2(-3, 7)
+shape = SubResource("RectangleShape2D_5ftdd")
+debug_color = Color(0.819608, 0.192157, 0.678431, 0.419608)
