@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxf5j2ctay2pb"]
+[gd_scene load_steps=6 format=3 uid="uid://bxf5j2ctay2pb"]
 
 [ext_resource type="PackedScene" uid="uid://bkwctt3gs46rm" path="res://interactables/chair.tscn" id="2_gltwg"]
 [ext_resource type="PackedScene" uid="uid://ydqoqmblxxcn" path="res://character/player.tscn" id="2_lqfi2"]
 [ext_resource type="PackedScene" uid="uid://bvjkncfu283tv" path="res://interactables/corpse.tscn" id="3_vjst1"]
+[ext_resource type="PackedScene" uid="uid://b46obhpitmumv" path="res://interactables/paper.tscn" id="4_qvuyn"]
+[ext_resource type="PackedScene" uid="uid://7ibdldsfg178" path="res://interactables/victimcar.tscn" id="5_8emw2"]
 
 [node name="testscene" type="Node2D"]
 
@@ -15,4 +17,12 @@ scale = Vector2(2, 2)
 
 [node name="Corpse" parent="." instance=ExtResource("3_vjst1")]
 position = Vector2(482, 233)
+scale = Vector2(2, 2)
+
+[node name="paper" parent="." instance=ExtResource("4_qvuyn")]
+position = Vector2(320, 357)
+scale = Vector2(1.5, 1.5)
+
+[node name="Victimcar" parent="." instance=ExtResource("5_8emw2")]
+position = Vector2(549, 423)
 scale = Vector2(2, 2)

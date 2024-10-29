@@ -41,7 +41,7 @@ size = Vector2(24, 7)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ko03"]
 size = Vector2(40, 24)
 
-[node name="Corpse" type="Node2D" groups=["interact"]]
+[node name="Corpse" type="Node2D" groups=["evidence", "interact"]]
 script = ExtResource("1_x24hr")
 infodata = SubResource("Resource_cukii")
 infodata2 = SubResource("Resource_0w7oh")
@@ -56,7 +56,7 @@ physics_material_override = SubResource("PhysicsMaterial_ffc28")
 position = Vector2(4, -0.5)
 shape = SubResource("RectangleShape2D_6goat")
 
-[node name="CorpseArea" type="Area2D" parent="." groups=["interact"]]
+[node name="CorpseArea" type="Area2D" parent="." groups=["evidence", "interact"]]
 position = Vector2(5, 0)
 collision_layer = 4
 collision_mask = 0
@@ -66,3 +66,5 @@ script = ExtResource("2_7mthr")
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_0ko03")
 debug_color = Color(0.823529, 0.239216, 0.792157, 0.419608)
+
+[connection signal="first_interaction" from="CorpseArea" to="." method="_on_corpse_area_first_interaction"]

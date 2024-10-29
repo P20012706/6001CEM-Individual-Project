@@ -4,14 +4,14 @@ const speed = 200
 var player_state
 var rayvalue
 var notebook
-signal interact_start
+
 @onready var interactdetect = $RayCast2D
 
 func _ready():
 	pass
 
 func _process(delta):
-	_on_interact()
+	_interact()
 	
 
 func _physics_process(delta):
@@ -83,7 +83,7 @@ func play_anim(dir):
 			$RayCast2D.set_target_position(rayvalue)
 			$AnimatedSprite2D.play("w-walk")
 
-func _on_interact():
+func _interact():
 	if $RayCast2D.is_colliding() and Input.is_action_just_pressed("interact"):
 		var collider = $RayCast2D.get_collider()
 		if collider is ChairArea:
@@ -92,6 +92,11 @@ func _on_interact():
 			print("Chair interaction registered.")
 			$AnimatedSprite2D.play("sit")
 
-		if collider is CorpseArea:
-			Dialogic.start("test")
+		elif collider.is_in_group("evidence"):
+			collider.form_interaction()
+
+
+		elif collider.is_in_group("misc"):
+			print("Just a paper.")
+			
 

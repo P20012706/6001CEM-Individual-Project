@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://b46obhpitmumv"]
+
+[ext_resource type="Texture2D" uid="uid://bj8no4gol5kta" path="res://assets/sprites/Interactables.png" id="1_xc8f7"]
+[ext_resource type="Script" path="res://interactables/paperarea.gd" id="2_el4o7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6va2n"]
+atlas = ExtResource("1_xc8f7")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f1f7j"]
+size = Vector2(27, 26)
+
+[node name="paper" type="Node2D" groups=["interact", "misc"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_6va2n")
+
+[node name="PaperArea" type="Area2D" parent="." groups=["interact", "misc"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("2_el4o7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PaperArea"]
+position = Vector2(0.5, 3)
+shape = SubResource("RectangleShape2D_f1f7j")
+debug_color = Color(0.788235, 0.227451, 0.894118, 0.419608)
