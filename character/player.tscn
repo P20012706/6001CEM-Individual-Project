@@ -241,7 +241,6 @@ sprite_frames = SubResource("SpriteFrames_q1vvt")
 animation = &"s-idle"
 
 [node name="Notebook" parent="." instance=ExtResource("3_gd7pw")]
-visible = false
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(0, 3)

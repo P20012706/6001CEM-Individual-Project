@@ -11,6 +11,9 @@
 [node name="player" parent="." instance=ExtResource("2_lqfi2")]
 position = Vector2(363, 224)
 
+[node name="Camera2D" type="Camera2D" parent="player"]
+zoom = Vector2(2, 2)
+
 [node name="Chair" parent="." instance=ExtResource("2_gltwg")]
 position = Vector2(211, 227)
 scale = Vector2(2, 2)

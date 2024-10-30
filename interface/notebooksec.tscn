@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bblsbi77fb3da"]
+[gd_scene load_steps=12 format=3 uid="uid://bblsbi77fb3da"]
 
 [ext_resource type="Script" path="res://scripts/notebooksec.gd" id="1_1gr25"]
 [ext_resource type="FontFile" uid="uid://x256bhq1irbr" path="res://assets/fonts/Silver.ttf" id="2_cpung"]
@@ -10,6 +10,8 @@ region = Rect2(16, 224, 96, 48)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_husha"]
 texture = SubResource("AtlasTexture_g6h1j")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jrnea"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p6ipv"]
 
@@ -35,10 +37,8 @@ offset_bottom = 605.0
 theme_override_fonts/font = ExtResource("2_cpung")
 theme_override_font_sizes/font_size = 19
 theme_override_styles/panel = SubResource("StyleBoxTexture_husha")
-current_tab = 2
 
 [node name="People" type="MarginContainer" parent="TabContainer"]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 55
 theme_override_constants/margin_top = 45
@@ -66,20 +66,23 @@ theme_override_fonts/font = ExtResource("2_cpung")
 theme_override_font_sizes/font_size = 38
 text = "Testing"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/People/GridContainer"]
+[node name="VBoxContainer" type="Panel" parent="TabContainer/People/GridContainer"]
 custom_minimum_size = Vector2(380, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_jrnea")
 
-[node name="Label" type="Label" parent="TabContainer/People/GridContainer/VBoxContainer"]
+[node name="Label" type="RichTextLabel" parent="TabContainer/People/GridContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_cpung")
-theme_override_font_sizes/font_size = 38
+offset_right = 380.0
+offset_bottom = 42.0
 text = "Testing Again"
 
 [node name="Button" type="Button" parent="TabContainer/People/GridContainer/VBoxContainer"]
 layout_mode = 2
+offset_top = 46.0
+offset_right = 130.0
+offset_bottom = 88.0
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_cpung")
@@ -94,6 +97,9 @@ alignment = 0
 
 [node name="Button2" type="Button" parent="TabContainer/People/GridContainer/VBoxContainer"]
 layout_mode = 2
+offset_top = 92.0
+offset_right = 152.0
+offset_bottom = 134.0
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_cpung")
@@ -171,6 +177,7 @@ text = "Button Test 2"
 alignment = 0
 
 [node name="Locations" type="MarginContainer" parent="TabContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 55
 theme_override_constants/margin_top = 45

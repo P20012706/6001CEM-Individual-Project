@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InfoData" load_steps=2 format=3 uid="uid://bkv7mm2svat3w"]
+
+[ext_resource type="Script" path="res://interactables/info_data.gd" id="1_iggu1"]
+
+[resource]
+script = ExtResource("1_iggu1")
+name = "Victim"
+description = "Some of the officers think she's the famous journalist on TV."
+path = "res://assets/sprites/victimimg.png"
+category = "People"

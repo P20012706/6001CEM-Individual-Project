@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://7ibdldsfg178"]
+[gd_scene load_steps=8 format=3 uid="uid://7ibdldsfg178"]
 
 [ext_resource type="Texture2D" uid="uid://bj8no4gol5kta" path="res://assets/sprites/Interactables.png" id="1_m1wb4"]
 [ext_resource type="Script" path="res://interactables/victimcar.gd" id="1_x3kuo"]
-[ext_resource type="Script" path="res://interactables/cararea.gd" id="3_uk4vt"]
+[ext_resource type="Resource" uid="uid://2aqc5uqt50a" path="res://resource/victimcar.tres" id="2_v222p"]
+[ext_resource type="Script" path="res://interactables/victimcararea.gd" id="3_uk4vt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qq0yi"]
 atlas = ExtResource("1_m1wb4")
@@ -16,6 +17,7 @@ size = Vector2(26, 55)
 
 [node name="Victimcar" type="Node2D" groups=["evidence", "interact"]]
 script = ExtResource("1_x3kuo")
+infodata = ExtResource("2_v222p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_qq0yi")

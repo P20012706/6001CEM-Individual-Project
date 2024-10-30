@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://dar6275tfj6dj"]
+[gd_scene load_steps=18 format=3 uid="uid://dar6275tfj6dj"]
 
 [ext_resource type="Script" path="res://scripts/notebookmain.gd" id="1_0lxe4"]
 [ext_resource type="Theme" uid="uid://cmovo0jhcrolu" path="res://assets/theme/notebook.tres" id="2_ueuwo"]
 [ext_resource type="FontFile" uid="uid://x256bhq1irbr" path="res://assets/fonts/Silver.ttf" id="3_q1dhd"]
 [ext_resource type="Texture2D" uid="uid://b0rgpbmj8wkpp" path="res://assets/sprites/UI books & more.png" id="4_0st5k"]
+[ext_resource type="Script" path="res://interface/casedetail.gd" id="5_tosx0"]
 
 [sub_resource type="Theme" id="Theme_pmwik"]
 
@@ -39,15 +40,9 @@ region = Rect2(16, 224, 96, 48)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hyl4c"]
 texture = SubResource("AtlasTexture_66bxg")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1mhrj"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_872oh"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r06v7"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3ajpm"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j0tql"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_073ke"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q76p3"]
 
 [node name="Notebook" type="CanvasLayer"]
 layer = 10
@@ -83,8 +78,7 @@ theme = ExtResource("2_ueuwo")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_q1dhd")
-theme_override_font_sizes/font_size = 38
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxTexture_7cnr5")
 theme_override_styles/hover = SubResource("StyleBoxTexture_lkyho")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_wpato")
@@ -100,8 +94,7 @@ theme = ExtResource("2_ueuwo")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_q1dhd")
-theme_override_font_sizes/font_size = 38
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxTexture_7cnr5")
 theme_override_styles/hover = SubResource("StyleBoxTexture_lkyho")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_wpato")
@@ -117,26 +110,79 @@ theme = ExtResource("2_ueuwo")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_q1dhd")
-theme_override_font_sizes/font_size = 38
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxTexture_7cnr5")
 theme_override_styles/hover = SubResource("StyleBoxTexture_lkyho")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_wpato")
 text = "Locations"
 
-[node name="Label" type="Label" parent="Control/notemain"]
+[node name="CaseDetail" type="Control" parent="Control/notemain"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_tosx0")
+
+[node name="CaseName" type="RichTextLabel" parent="Control/notemain/CaseDetail"]
 layout_mode = 0
 offset_left = 664.0
 offset_top = 48.0
-offset_right = 904.0
-offset_bottom = 90.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_q1dhd")
-theme_override_font_sizes/font_size = 38
-text = "Case: Ink And Shadows"
+offset_right = 1024.0
+offset_bottom = 77.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Case Name: Ink & Shadows"
+scroll_active = false
+
+[node name="CurrentObjective" type="RichTextLabel" parent="Control/notemain/CaseDetail"]
+layout_mode = 0
+offset_left = 665.0
+offset_top = 91.0
+offset_right = 1025.0
+offset_bottom = 162.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Current Objective: "
+scroll_active = false
+
+[node name="TimeElapsed" type="RichTextLabel" parent="Control/notemain/CaseDetail"]
+layout_mode = 0
+offset_left = 664.0
+offset_top = 177.0
+offset_right = 1024.0
+offset_bottom = 206.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Time Elapsed:"
+scroll_active = false
+
+[node name="EvidencedCollected" type="RichTextLabel" parent="Control/notemain/CaseDetail"]
+layout_mode = 0
+offset_left = 665.0
+offset_top = 220.0
+offset_right = 1025.0
+offset_bottom = 249.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Evidence Collected:"
+scroll_active = false
+
+[node name="CorrectQuestions" type="RichTextLabel" parent="Control/notemain/CaseDetail"]
+layout_mode = 0
+offset_left = 665.0
+offset_top = 263.0
+offset_right = 1025.0
+offset_bottom = 292.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Correct Questions:"
+scroll_active = false
 
 [node name="notesec" type="TabContainer" parent="Control"]
-visible = false
 z_as_relative = false
 layout_mode = 0
 offset_left = 33.0
@@ -156,64 +202,43 @@ theme_override_constants/margin_bottom = 25
 
 [node name="GridContainer" type="GridContainer" parent="Control/notesec/People"]
 layout_mode = 2
-theme_override_constants/h_separation = 200
+theme_override_constants/h_separation = 210
 columns = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Control/notesec/People/GridContainer"]
-custom_minimum_size = Vector2(400, 450)
+[node name="Description" type="RichTextLabel" parent="Control/notesec/People/GridContainer"]
+custom_minimum_size = Vector2(400, 440)
 layout_mode = 2
-horizontal_scroll_mode = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
 
-[node name="Description" type="VBoxContainer" parent="Control/notesec/People/GridContainer/ScrollContainer"]
-custom_minimum_size = Vector2(400, 0)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Control/notesec/People/GridContainer/ScrollContainer/Description"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_q1dhd")
-theme_override_font_sizes/font_size = 38
-text = "Testing"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/notesec/People/GridContainer"]
-custom_minimum_size = Vector2(380, 0)
+[node name="POIPanel" type="Panel" parent="Control/notesec/People/GridContainer"]
+custom_minimum_size = Vector2(360, 380)
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_872oh")
 
-[node name="Label" type="Label" parent="Control/notesec/People/GridContainer/VBoxContainer"]
-layout_mode = 2
+[node name="Label" type="Label" parent="Control/notesec/People/GridContainer/POIPanel"]
+layout_mode = 0
+offset_right = 359.0
+offset_bottom = 31.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_q1dhd")
-theme_override_font_sizes/font_size = 38
-text = "Testing PPL"
+theme_override_font_sizes/font_size = 20
+text = "Person Of Interest:"
 
-[node name="Button" type="Button" parent="Control/notesec/People/GridContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_q1dhd")
-theme_override_font_sizes/font_size = 38
-theme_override_styles/normal = SubResource("StyleBoxEmpty_1mhrj")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_r06v7")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_3ajpm")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_j0tql")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_073ke")
-text = "Button Test"
-alignment = 0
-
-[node name="Button2" type="Button" parent="Control/notesec/People/GridContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_q1dhd")
-theme_override_font_sizes/font_size = 38
-theme_override_styles/normal = SubResource("StyleBoxEmpty_1mhrj")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_r06v7")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_3ajpm")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_j0tql")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_073ke")
-text = "Button Test 2"
-alignment = 0
+[node name="POIList" type="RichTextLabel" parent="Control/notesec/People/GridContainer/POIPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.111
+anchor_bottom = 0.111
+offset_top = -0.180004
+offset_right = 360.0
+offset_bottom = 335.82
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_q1dhd")
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
 
 [node name="Evidence" type="MarginContainer" parent="Control/notesec"]
 visible = false
@@ -228,56 +253,40 @@ layout_mode = 2
 theme_override_constants/h_separation = 200
 columns = 2
 
-[node name="Description" type="VBoxContainer" parent="Control/notesec/Evidence/GridContainer"]
-custom_minimum_size = Vector2(410, 450)
+[node name="Description" type="RichTextLabel" parent="Control/notesec/Evidence/GridContainer"]
+custom_minimum_size = Vector2(410, 440)
 layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
 
-[node name="Label" type="Label" parent="Control/notesec/Evidence/GridContainer/Description"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_q1dhd")
-theme_override_font_sizes/font_size = 38
-text = "Testing"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/notesec/Evidence/GridContainer"]
-custom_minimum_size = Vector2(380, 0)
+[node name="EviPanel" type="Panel" parent="Control/notesec/Evidence/GridContainer"]
+custom_minimum_size = Vector2(360, 380)
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_q76p3")
 
-[node name="Label" type="Label" parent="Control/notesec/Evidence/GridContainer/VBoxContainer"]
-layout_mode = 2
+[node name="Label" type="Label" parent="Control/notesec/Evidence/GridContainer/EviPanel"]
+layout_mode = 0
+offset_right = 180.0
+offset_bottom = 42.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_q1dhd")
-theme_override_font_sizes/font_size = 38
-text = "Testing EVI"
+theme_override_font_sizes/font_size = 20
+text = "Evidence Found: "
 
-[node name="Button" type="Button" parent="Control/notesec/Evidence/GridContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_q1dhd")
-theme_override_font_sizes/font_size = 38
-theme_override_styles/normal = SubResource("StyleBoxEmpty_1mhrj")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_r06v7")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_3ajpm")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_j0tql")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_073ke")
-text = "Button Test"
-alignment = 0
-
-[node name="Button2" type="Button" parent="Control/notesec/Evidence/GridContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_q1dhd")
-theme_override_font_sizes/font_size = 38
-theme_override_styles/normal = SubResource("StyleBoxEmpty_1mhrj")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_r06v7")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_3ajpm")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_j0tql")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_073ke")
-text = "Button Test 2"
-alignment = 0
+[node name="EviList" type="RichTextLabel" parent="Control/notesec/Evidence/GridContainer/EviPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.111
+anchor_bottom = 0.111
+offset_top = -0.180004
+offset_right = 360.0
+offset_bottom = 335.82
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_q1dhd")
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
 
 [node name="Location" type="MarginContainer" parent="Control/notesec"]
 visible = false
@@ -292,56 +301,40 @@ layout_mode = 2
 theme_override_constants/h_separation = 200
 columns = 2
 
-[node name="Description" type="VBoxContainer" parent="Control/notesec/Location/GridContainer"]
-custom_minimum_size = Vector2(410, 450)
+[node name="Description" type="RichTextLabel" parent="Control/notesec/Location/GridContainer"]
+custom_minimum_size = Vector2(410, 440)
 layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
 
-[node name="Label" type="Label" parent="Control/notesec/Location/GridContainer/Description"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_q1dhd")
-theme_override_font_sizes/font_size = 38
-text = "Testing"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/notesec/Location/GridContainer"]
-custom_minimum_size = Vector2(380, 0)
+[node name="LocPanel" type="Panel" parent="Control/notesec/Location/GridContainer"]
+custom_minimum_size = Vector2(360, 380)
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_q76p3")
 
-[node name="Label" type="Label" parent="Control/notesec/Location/GridContainer/VBoxContainer"]
-layout_mode = 2
+[node name="Label" type="Label" parent="Control/notesec/Location/GridContainer/LocPanel"]
+layout_mode = 0
+offset_right = 180.0
+offset_bottom = 42.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_q1dhd")
-theme_override_font_sizes/font_size = 38
-text = "Testing LOC"
+theme_override_font_sizes/font_size = 20
+text = "Known Locations: "
 
-[node name="Button" type="Button" parent="Control/notesec/Location/GridContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_q1dhd")
-theme_override_font_sizes/font_size = 38
-theme_override_styles/normal = SubResource("StyleBoxEmpty_1mhrj")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_r06v7")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_3ajpm")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_j0tql")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_073ke")
-text = "Button Test"
-alignment = 0
-
-[node name="Button2" type="Button" parent="Control/notesec/Location/GridContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_q1dhd")
-theme_override_font_sizes/font_size = 38
-theme_override_styles/normal = SubResource("StyleBoxEmpty_1mhrj")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_r06v7")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_3ajpm")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_j0tql")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_073ke")
-text = "Button Test 2"
-alignment = 0
+[node name="LocList" type="RichTextLabel" parent="Control/notesec/Location/GridContainer/LocPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.111
+anchor_bottom = 0.111
+offset_top = -0.180004
+offset_right = 360.0
+offset_bottom = 335.82
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_q1dhd")
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
 
 [connection signal="pressed" from="Control/notemain/pplbtn" to="Control" method="_on_pplbtn_pressed"]
 [connection signal="pressed" from="Control/notemain/evibtn" to="Control" method="_on_evibtn_pressed"]
