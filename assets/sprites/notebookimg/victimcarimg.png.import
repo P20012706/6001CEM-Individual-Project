@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bokvhr2bildba"
-path="res://.godot/imported/victimcarimg.png-baa081a9a7727ac991de64e080d16191.ctex"
+uid="uid://beqrlvncpc7hv"
+path="res://.godot/imported/victimcarimg.png-9cac0f294d0eba7dcc88e0eb68a74422.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/victimcarimg.png"
-dest_files=["res://.godot/imported/victimcarimg.png-baa081a9a7727ac991de64e080d16191.ctex"]
+source_file="res://assets/sprites/notebookimg/victimcarimg.png"
+dest_files=["res://.godot/imported/victimcarimg.png-9cac0f294d0eba7dcc88e0eb68a74422.ctex"]
 
 [params]
 

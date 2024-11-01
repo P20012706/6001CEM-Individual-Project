@@ -95,6 +95,9 @@ func _on_entry_clicked(meta):
 	print("Clicked meta:", meta)
 	var itemdata = itemdata_map.get(meta, null)
 	if itemdata:
-		description.text = itemdata.description
+		description.text = "DESCRIPTION:\n" + itemdata.description + \
+		"\n\nImage:\n [center] [img=" + \
+		str(itemdata.length*4) + "x" + str(itemdata.height*4) +"]" + itemdata.path \
+		 + "[/img] [/center]"
 	else:
 		print("Item not found")

@@ -5,6 +5,8 @@
 [resource]
 script = ExtResource("1_fo7kw")
 name = "Blood Splash"
-description = "A splash of blood found near the headlights of a car."
-path = "res://assets/sprites/victimcarimg.png"
+description = "Blood splash & fractured headlights. The killer must have sneaked from behind and smashed the victim's head into this area."
+path = "res://assets/sprites/notebookimg/victimcarimg.png"
+length = 80
+height = 80
 category = "Evidence"
