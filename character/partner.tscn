@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://d150gm8vo6yfd"]
+[gd_scene load_steps=24 format=3 uid="uid://d150gm8vo6yfd"]
 
 [ext_resource type="Texture2D" uid="uid://flvdqp6bjnkv" path="res://assets/sprites/Partner Spritesheet.png" id="1_rvykq"]
+[ext_resource type="Script" path="res://character/talkarea.gd" id="2_xmucd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5xoi4"]
 atlas = ExtResource("1_rvykq")
@@ -157,7 +158,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6w6fi"]
-size = Vector2(8, 15.5)
+size = Vector2(10, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpqd1"]
+size = Vector2(32, 48)
 
 [node name="partner" type="CharacterBody2D"]
 
@@ -166,5 +170,12 @@ sprite_frames = SubResource("SpriteFrames_26502")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5.25)
+position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_6w6fi")
+
+[node name="TalkArea" type="Area2D" parent="."]
+script = ExtResource("2_xmucd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TalkArea"]
+shape = SubResource("RectangleShape2D_cpqd1")
+debug_color = Color(0.772549, 0.266667, 0.87451, 0.419608)

@@ -183,6 +183,7 @@ text = "Correct Questions:"
 scroll_active = false
 
 [node name="notesec" type="TabContainer" parent="Control"]
+visible = false
 z_as_relative = false
 layout_mode = 0
 offset_left = 33.0
@@ -336,6 +337,7 @@ theme_override_fonts/normal_font = ExtResource("3_q1dhd")
 theme_override_font_sizes/normal_font_size = 38
 bbcode_enabled = true
 
+[connection signal="update_score_e" from="Control" to="Control/notemain/CaseDetail" method="_on_control_update_score_e"]
 [connection signal="pressed" from="Control/notemain/pplbtn" to="Control" method="_on_pplbtn_pressed"]
 [connection signal="pressed" from="Control/notemain/evibtn" to="Control" method="_on_evibtn_pressed"]
 [connection signal="pressed" from="Control/notemain/locbtn" to="Control" method="_on_locbtn_pressed"]

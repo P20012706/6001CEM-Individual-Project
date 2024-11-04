@@ -1,13 +1,12 @@
 extends Node2D
 @export var infodata: InfoData
 
-
-var interacted = false
-
 func _on_car_area_first_interaction():
-	if not interacted:
-		print(infodata.description)
+	if infodata.extracted == false:
+		#Add A Dialogic Timeline
 		GlobalEventBus.emit_signal("evidence_entry", infodata)
-		interacted = true
-	else:	
-		print("Discovered Item 2.")
+		infodata.extracted = true
+	
+	else:
+		#Add another Dialogic Timeline(Self-Monologue) that says you checked this, Nothing New.
+		print("You have already interacted.")

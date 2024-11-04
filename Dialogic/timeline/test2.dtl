@@ -1,0 +1,17 @@
+Patrolman: I'm going to test your detective skills right now, are you ready?
+- Yes
+	Patrolman: So do you know the cause of death of that dead body over there?
+	- Yep
+		Patrolman: Tell me about it
+		[text_input var="Response"]
+		if {Response} == "Bludgeon Injuries":
+			Patrolman: You're smart.
+			[signal arg="Progress"]
+	- Erm
+		Patrolman: Well I'l tell you
+		Patrolman: She got knocked hard on the head, probably that car over there.
+		[signal arg="Information"]
+		[signal arg="Progress"]
+- No
+	Patrolman: whatbuh
+	[signal arg="Complete"]

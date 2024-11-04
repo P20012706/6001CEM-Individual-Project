@@ -31,7 +31,7 @@ func _physics_process(delta):
 	#Interaction
 	if $RayCast2D.is_colliding():
 		var collider = $RayCast2D.get_collider()
-		if collider.is_in_group("interact"):
+		if collider.is_in_group("interact") or collider.is_in_group("npc"):
 			$interacticon.global_position = collider.global_position
 			$interacticon.position.y -= 20
 			$interacticon.visible = true
@@ -95,8 +95,7 @@ func _interact():
 		elif collider.is_in_group("evidence"):
 			collider.form_interaction()
 
-
-		elif collider.is_in_group("misc"):
-			print("Just a paper.")
+		elif collider.is_in_group("npc"):
+			collider.start_dialogue()
 			
 

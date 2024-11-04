@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://bj8no4gol5kta" path="res://assets/sprites/Interactables.png" id="1_eqspj"]
 [ext_resource type="Script" path="res://interactables/corpse.gd" id="1_x24hr"]
-[ext_resource type="Script" path="res://interactables/corpsearea.gd" id="2_7mthr"]
 [ext_resource type="Resource" uid="uid://bkv7mm2svat3w" path="res://resource/victim.tres" id="2_nkn16"]
 [ext_resource type="Resource" uid="uid://c3f2wjnee6ji5" path="res://resource/injuries.tres" id="3_mnfun"]
+[ext_resource type="Script" path="res://interactables/interactarea.gd" id="5_0rr67"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lsrvs"]
 atlas = ExtResource("1_eqspj")
@@ -33,15 +33,15 @@ physics_material_override = SubResource("PhysicsMaterial_ffc28")
 position = Vector2(4, -0.5)
 shape = SubResource("RectangleShape2D_6goat")
 
-[node name="CorpseArea" type="Area2D" parent="." groups=["evidence", "interact"]]
+[node name="InteractArea" type="Area2D" parent="." groups=["evidence", "interact"]]
 position = Vector2(5, 0)
 collision_layer = 4
 collision_mask = 0
-script = ExtResource("2_7mthr")
+script = ExtResource("5_0rr67")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CorpseArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_0ko03")
 debug_color = Color(0.823529, 0.239216, 0.792157, 0.419608)
 
-[connection signal="first_interaction" from="CorpseArea" to="." method="_on_corpse_area_first_interaction"]
+[connection signal="first_interaction" from="InteractArea" to="." method="_on_corpse_area_first_interaction"]

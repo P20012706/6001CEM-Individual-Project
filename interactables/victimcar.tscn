@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bj8no4gol5kta" path="res://assets/sprites/Interactables.png" id="1_m1wb4"]
 [ext_resource type="Script" path="res://interactables/victimcar.gd" id="1_x3kuo"]
 [ext_resource type="Resource" uid="uid://2aqc5uqt50a" path="res://resource/victimcar.tres" id="2_v222p"]
-[ext_resource type="Script" path="res://interactables/victimcararea.gd" id="3_uk4vt"]
+[ext_resource type="Script" path="res://interactables/interactarea.gd" id="4_icf2t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qq0yi"]
 atlas = ExtResource("1_m1wb4")
@@ -22,12 +22,12 @@ infodata = ExtResource("2_v222p")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_qq0yi")
 
-[node name="CarArea" type="Area2D" parent="." groups=["evidence", "interact"]]
+[node name="InteractArea" type="Area2D" parent="." groups=["evidence", "interact"]]
 collision_layer = 4
 collision_mask = 0
-script = ExtResource("3_uk4vt")
+script = ExtResource("4_icf2t")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CarArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_kin7e")
 debug_color = Color(0.823529, 0.160784, 0.890196, 0.419608)
@@ -38,4 +38,4 @@ debug_color = Color(0.823529, 0.160784, 0.890196, 0.419608)
 position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_7p16x")
 
-[connection signal="first_interaction" from="CarArea" to="." method="_on_car_area_first_interaction"]
+[connection signal="first_interaction" from="InteractArea" to="." method="_on_car_area_first_interaction"]

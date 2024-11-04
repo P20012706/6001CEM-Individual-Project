@@ -10,3 +10,4 @@ path = "res://assets/sprites/notebookimg/victimcarimg.png"
 length = 80
 height = 80
 category = "Evidence"
+extracted = false

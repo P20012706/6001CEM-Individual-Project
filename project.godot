@@ -19,14 +19,27 @@ config/icon="res://icon.svg"
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 GlobalEventBus="*res://scripts/eventbus.gd"
+DialogueManager="*res://scripts/dialoguemanager.gd"
 
 [dialogic]
 
 directories/dch_directory={
-"Hugh": "res://Dialogic/D_character/Hugh.dch"
+"Captain": "res://Dialogic/D_character/Captain.dch",
+"Forensic": "res://Dialogic/D_character/Forensic.dch",
+"Hobo": "res://Dialogic/D_character/Hobo.dch",
+"Hugh": "res://Dialogic/D_character/Hugh.dch",
+"Manager": "res://Dialogic/D_character/Manager.dch",
+"Martin": "res://Dialogic/D_character/Martin.dch",
+"Nathan": "res://Dialogic/D_character/Nathan.dch",
+"Neighbor": "res://Dialogic/D_character/Neighbor.dch",
+"Operator": "res://Dialogic/D_character/Operator.dch",
+"Patrolman": "res://Dialogic/D_character/Patrolman.dch",
+"Roy": "res://Dialogic/D_character/Roy.dch"
 }
 directories/dtl_directory={
-"test": "res://Dialogic/timeline/test.dtl"
+"test": "res://Dialogic/timeline/test.dtl",
+"test2": "res://Dialogic/timeline/test2.dtl",
+"test3": "res://Dialogic/timeline/test3.dtl"
 }
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
@@ -42,7 +55,7 @@ animations/leave_default_wait=true
 animations/cross_fade_default_length=0.5
 choices/autofocus_first=true
 choices/delay=0.2
-choices/reveal_delay=0
+choices/reveal_delay=0.3
 choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
@@ -50,6 +63,10 @@ text/autopauses={}
 glossary/default_case_sensitive=true
 layout/style_list=["res://Dialogic/SpeakerTextBoxStyle.tres"]
 layout/default_style="res://Dialogic/SpeakerTextBoxStyle.tres"
+variables={
+"Response": ""
+}
+text/split_at_new_lines_as=0
 
 [display]
 

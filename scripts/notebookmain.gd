@@ -4,6 +4,7 @@ var note_on = false
 var entry : RichTextLabel
 var description : RichTextLabel
 var itemdata_map = {}
+signal update_score_e
 
 func _ready():
 	hidenote()
@@ -70,6 +71,11 @@ func create_entry():
 func update_people(itemdata):
 	entry = $"../Control/notesec/People/GridContainer/POIPanel/POIList"
 	description = $"../Control/notesec/People/GridContainer/Description"
+	
+	if itemdata_map.has(itemdata.name):
+		print("Entry already exists.")
+		return
+	
 	itemdata_map[itemdata.name] = itemdata
 	entry.append_text("[url=" + itemdata.name + "]" + itemdata.name + "[/url]\n")
 	create_entry()
@@ -78,26 +84,35 @@ func update_people(itemdata):
 func update_evidence(itemdata):
 	entry = $"../Control/notesec/Evidence/GridContainer/EviPanel/EviList"
 	description = $"../Control/notesec/Evidence/GridContainer/Description"
+	
+	if itemdata_map.has(itemdata.name):
+		print("Entry already exists.")
+		return
+	
 	itemdata_map[itemdata.name] = itemdata
 	entry.append_text("[url=" + itemdata.name + "]" + itemdata.name + "[/url]\n")
 	create_entry()
+	emit_signal("update_score_e")
 	return
 
 func update_location(place):
 	entry = $"../Control/notesec/Evidence/GridContainer/LocPanel/LocList"
 	description = $"../Control/notesec/Location/GridContainer/Description"
+	
+	if itemdata_map.has(place.name):
+		print("Entry already exists.")
+		return
+	
 	itemdata_map[place.name] = place
 	entry.append_text("[url=" + place.name + "]" + place.name + "[/url]\n")
 	create_entry()
 	return
 
 func _on_entry_clicked(meta):
-	print("Clicked meta:", meta)
 	var itemdata = itemdata_map.get(meta, null)
 	if itemdata:
 		description.text = "DESCRIPTION:\n" + itemdata.description + \
 		"\n\nImage:\n [center] [img=" + \
 		str(itemdata.length*4) + "x" + str(itemdata.height*4) +"]" + itemdata.path \
 		 + "[/img] [/center]"
-	else:
-		print("Item not found")
+	

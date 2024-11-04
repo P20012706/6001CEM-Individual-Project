@@ -23,7 +23,10 @@ overrides = {}
 [sub_resource type="Resource" id="Resource_bilf8"]
 script = ExtResource("2_xy50y")
 scene = ExtResource("4_vssxj")
-overrides = {}
+overrides = {
+"name_label_custom_size": "12.0",
+"text_custom_size": "12.0"
+}
 
 [sub_resource type="Resource" id="Resource_m5t24"]
 script = ExtResource("2_xy50y")
@@ -33,7 +36,13 @@ overrides = {}
 [sub_resource type="Resource" id="Resource_hto0m"]
 script = ExtResource("2_xy50y")
 scene = ExtResource("6_olcek")
-overrides = {}
+overrides = {
+"font_size_custom": "12.0",
+"sounds_focus": "\"res://assets/sounds/typing4.wav\"",
+"sounds_hover": "\"res://assets/sounds/typing2.wav\"",
+"sounds_pressed": "\"res://assets/sounds/typing1.wav\"",
+"sounds_volume": "10.0"
+}
 
 [sub_resource type="Resource" id="Resource_6ytgn"]
 script = ExtResource("2_xy50y")
@@ -53,4 +62,4 @@ base_overrides = {
 "global_font_size": "20.0"
 }
 layers = Array[ExtResource("2_xy50y")]([SubResource("Resource_tpthr"), SubResource("Resource_0k0tb"), SubResource("Resource_bilf8"), SubResource("Resource_m5t24"), SubResource("Resource_hto0m"), SubResource("Resource_6ytgn"), SubResource("Resource_874kt")])
-metadata/_latest_layer = -1
+metadata/_latest_layer = 3
