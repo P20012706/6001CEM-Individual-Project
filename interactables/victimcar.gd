@@ -10,3 +10,6 @@ func _on_car_area_first_interaction():
 	else:
 		#Add another Dialogic Timeline(Self-Monologue) that says you checked this, Nothing New.
 		print("You have already interacted.")
+
+func get_infodata():
+	return infodata

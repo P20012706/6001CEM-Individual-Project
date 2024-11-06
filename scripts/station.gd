@@ -15,5 +15,9 @@ func _process(delta):
 func _on_exit_body_entered(body):
 	if body is Player:
 		transition.play("fade_to_black")
-		await get_tree().create_timer(0.5).timeout
-		get_tree().change_scene_to_file("res://scenes/map.tscn")
+		$Timer.start()
+		
+
+
+func _on_timer_timeout():
+	get_tree().change_scene_to_file("res://scenes/map.tscn")

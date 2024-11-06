@@ -6,9 +6,14 @@ func _ready():
 
 func _on_talk_area_start_talking():
 	DialogueManager.start_dialogue(dialogues)
-	await DialogueManager.progress_dialogue
-	DialogueManager.progression(dialogues)
 
 func new_info():
 	GlobalEventBus.emit_signal("evidence_entry", dialogues.infodata)
-	print("IT FUCKING WORKED")
+	dialogues.infodata.extracted = true
+	print("ENTRY FROM DIALOGUE REGISTERED")
+
+func get_ddindex():
+	return dialogues.index
+	
+func set_ddindex(index: int):
+	dialogues.index = index

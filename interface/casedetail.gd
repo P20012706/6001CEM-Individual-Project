@@ -30,8 +30,9 @@ func stop() -> void:
 func get_time_formatted() -> String:
 	return "%02d:%02d" % [minutes, seconds]
 
-func _on_control_update_score_e():
+#Question Score
+
+
+func _on_notebook_update_score_e():
 	score_e += 1
 	score_evi.text = "Evidence Collected: " + str(score_e) + " / 13"
-
-#Question Score

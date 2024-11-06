@@ -1,31 +1,33 @@
 extends CharacterBody2D
 class_name Player
 const speed = 200
-var player_state
+enum State { IDLE, WALKING, DISABLED }
+var player_state = State.IDLE
 var rayvalue
-var notebook
 
 @onready var interactdetect = $RayCast2D
 
 func _ready():
-	pass
+	player_state = State.IDLE
 
 func _process(delta):
-	_interact()
-	
+	if player_state != State.DISABLED:
+		_interact()
 
 func _physics_process(delta):
+	if player_state != State.DISABLED:
+		handle_movement()
 	#Movement
-	var direction  = Input.get_vector("left", "right", "up", "down")
+func handle_movement():
+	var direction = Input.get_vector("left", "right", "up", "down")
 	
-	if direction.x == 0 and direction.y == 0:
-		player_state = "idle"
-	elif direction.x != 0 or direction.y != 0:
-		player_state = "walking"	
+	if direction == Vector2.ZERO:
+		player_state = State.IDLE
+	else:
+		player_state = State.WALKING
+		velocity = direction * speed
+		move_and_slide()
 
-	velocity = direction * speed
-	move_and_slide()
-	
 	play_anim(direction)
 	
 	#Interaction
@@ -42,7 +44,7 @@ func _physics_process(delta):
 		$interacticon.visible = false
 
 func play_anim(dir):
-	if player_state == "idle":
+	if player_state == State.IDLE:
 		if Input.is_action_just_released("up"):
 			rayvalue = Vector2(0, -18)
 			$AnimatedSprite2D.play("n-idle")
@@ -64,7 +66,7 @@ func play_anim(dir):
 			$RayCast2D.set_target_position(rayvalue)
 
 
-	if player_state == "walking":
+	elif player_state == State.WALKING:
 		$CollisionShape2D.disabled = false
 		if dir.y < 0:
 			rayvalue = Vector2(0, -18)
@@ -97,5 +99,13 @@ func _interact():
 
 		elif collider.is_in_group("npc"):
 			collider.start_dialogue()
-			
+			await Dialogic.timeline_started
+			disable_input()
+			await Dialogic.timeline_ended
+			enable_input()
 
+func disable_input():
+	player_state = State.DISABLED
+
+func enable_input():
+	player_state = State.IDLE

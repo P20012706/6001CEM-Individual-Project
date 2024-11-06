@@ -1,8 +1,7 @@
-[gd_scene load_steps=31 format=3 uid="uid://ydqoqmblxxcn"]
+[gd_scene load_steps=30 format=3 uid="uid://ydqoqmblxxcn"]
 
 [ext_resource type="Script" path="res://character/player.gd" id="1_hxnx1"]
 [ext_resource type="Texture2D" uid="uid://uu5hr7jvpgy1" path="res://assets/sprites/Hugh Spritesheet.png" id="1_lbddg"]
-[ext_resource type="PackedScene" uid="uid://dar6275tfj6dj" path="res://interface/notebookmain.tscn" id="3_gd7pw"]
 [ext_resource type="Texture2D" uid="uid://b0rgpbmj8wkpp" path="res://assets/sprites/UI books & more.png" id="4_b8e1h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iykmi"]
@@ -239,8 +238,6 @@ shape = SubResource("RectangleShape2D_iykmi")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_q1vvt")
 animation = &"s-idle"
-
-[node name="Notebook" parent="." instance=ExtResource("3_gd7pw")]
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(0, 3)
