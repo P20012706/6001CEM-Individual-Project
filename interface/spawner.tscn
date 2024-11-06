@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cb8vl66q1g7ix"]
+
+[ext_resource type="Texture2D" uid="uid://uu5hr7jvpgy1" path="res://assets/sprites/Hugh Spritesheet.png" id="1_4bqo2"]
+[ext_resource type="Script" path="res://interface/spawner.gd" id="1_pgn5p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bhjg"]
+atlas = ExtResource("1_4bqo2")
+region = Rect2(0, 0, 16, 32)
+
+[node name="Spawner" type="Node2D"]
+script = ExtResource("1_pgn5p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.160784, 0.729412, 0.227451, 1)
+texture = SubResource("AtlasTexture_1bhjg")

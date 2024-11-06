@@ -4,8 +4,8 @@ const speed = 200
 enum State { IDLE, WALKING, DISABLED }
 var player_state = State.IDLE
 var rayvalue
+@export var ray : RayCast2D
 
-@onready var interactdetect = $RayCast2D
 
 func _ready():
 	player_state = State.IDLE
@@ -33,11 +33,12 @@ func handle_movement():
 	#Interaction
 	if $RayCast2D.is_colliding():
 		var collider = $RayCast2D.get_collider()
-		if collider.is_in_group("interact") or collider.is_in_group("npc"):
-			$interacticon.global_position = collider.global_position
-			$interacticon.position.y -= 20
-			$interacticon.visible = true
-			$interacticon.play("default")
+		if collider:
+			if collider.is_in_group("interact") or collider.is_in_group("npc"):
+				$interacticon.global_position = collider.global_position
+				$interacticon.position.y -= 20
+				$interacticon.visible = true
+				$interacticon.play("default")
 		else:
 			$interacticon.visible = false
 	else:
@@ -56,7 +57,7 @@ func play_anim(dir):
 			$RayCast2D.set_target_position(rayvalue)
 			
 		elif Input.is_action_just_released("right"):
-			rayvalue = Vector2(18, 0)
+			rayvalue = Vector2(36, 0)
 			$AnimatedSprite2D.play("e-idle")
 			$RayCast2D.set_target_position(rayvalue)
 		
@@ -103,6 +104,10 @@ func _interact():
 			disable_input()
 			await Dialogic.timeline_ended
 			enable_input()
+		
+		elif collider.is_in_group("map"):
+			collider.travel()
+			print("Map")
 
 func disable_input():
 	player_state = State.DISABLED

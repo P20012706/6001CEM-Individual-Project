@@ -19,10 +19,12 @@ config/icon="res://icon.svg"
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 DialogueManager="*res://scripts/dialoguemanager.gd"
+PlayerManager="*res://scripts/playermanager.gd"
 GlobalEventBus="*res://scripts/eventbus.gd"
 SaveManager="*res://scripts/savemanager.gd"
-PauseMenu="*res://interface/pause_menu.tscn"
+PersistentDataHandler="*res://interface/datahandler.gd"
 Notebookmain="*res://interface/notebookmain.tscn"
+PauseMenu="*res://interface/pause_menu.tscn"
 
 [dialogic]
 

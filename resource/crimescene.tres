@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InfoData" load_steps=2 format=3 uid="uid://gerdqgkee5ur"]
+
+[ext_resource type="Script" path="res://interactables/info_data.gd" id="1_pufgq"]
+
+[resource]
+script = ExtResource("1_pufgq")
+name = "Crime Alley"
+description = "First day on the job and a new dead body, get used to it. They don't call it Crime Alley for nothing."
+path = "res://assets/sprites/notebookimg/crimesceneimg.png"
+length = 80
+height = 80
+category = "Location"
+extracted = false

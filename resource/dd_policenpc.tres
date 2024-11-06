@@ -1,12 +1,16 @@
-[gd_resource type="Resource" script_class="DialogueData" load_steps=5 format=3 uid="uid://ciogmmcsn2bc"]
+[gd_resource type="Resource" script_class="DialogueData" load_steps=7 format=3 uid="uid://ciogmmcsn2bc"]
 
 [ext_resource type="Resource" path="res://Dialogic/timeline/test2.dtl" id="1_mbv4x"]
 [ext_resource type="Script" path="res://character/dialogue_data.gd" id="2_ba0q2"]
 [ext_resource type="Resource" path="res://Dialogic/timeline/test3.dtl" id="2_o7cxf"]
 [ext_resource type="Resource" uid="uid://c3f2wjnee6ji5" path="res://resource/injuries.tres" id="3_h7m2b"]
+[ext_resource type="Resource" uid="uid://gerdqgkee5ur" path="res://resource/crimescene.tres" id="4_kr5kb"]
+[ext_resource type="Resource" uid="uid://c1ltpavwpwttn" path="res://resource/vhome.tres" id="5_07hbe"]
 
 [resource]
 script = ExtResource("2_ba0q2")
 dialogue_array = Array[Resource]([ExtResource("1_mbv4x"), ExtResource("2_o7cxf")])
 infodata = ExtResource("3_h7m2b")
-progression = 0
+infodata2 = ExtResource("4_kr5kb")
+infodata3 = ExtResource("5_07hbe")
+index = 0

@@ -1,41 +1,22 @@
-[gd_scene load_steps=16 format=3 uid="uid://b2qho1nfgij17"]
+[gd_scene load_steps=14 format=3 uid="uid://b2qho1nfgij17"]
 
 [ext_resource type="Script" path="res://scripts/map.gd" id="1_kgnbi"]
 [ext_resource type="Texture2D" uid="uid://bpi7unrtte02" path="res://assets/sprites/maptile.png" id="1_xyy8a"]
 [ext_resource type="FontFile" uid="uid://bj1mb450wr020" path="res://assets/fonts/PixelOperator8.ttf" id="2_rbl2e"]
-[ext_resource type="Texture2D" uid="uid://6mlkhspw7hyi" path="res://assets/sprites/lockicon.png" id="4_651xw"]
-[ext_resource type="Texture2D" uid="uid://dwokxjsu1bwm5" path="res://assets/sprites/Player Icon.png" id="4_ccki7"]
+[ext_resource type="Script" path="res://scripts/maparea.gd" id="4_semty"]
 [ext_resource type="PackedScene" uid="uid://chy8x88p31ouh" path="res://interface/scene_transition.tscn" id="6_52xoe"]
+[ext_resource type="PackedScene" uid="uid://cb8vl66q1g7ix" path="res://interface/spawner.tscn" id="7_lcqmx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mot7m"]
 atlas = ExtResource("1_xyy8a")
 region = Rect2(0, 80, 48, 48)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgrq1"]
+size = Vector2(64, 58.5)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_5st3l"]
 atlas = ExtResource("1_xyy8a")
 region = Rect2(48, 80, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tfdy3"]
-atlas = ExtResource("4_651xw")
-region = Rect2(0, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k7uia"]
-atlas = ExtResource("4_651xw")
-region = Rect2(16, 0, 16, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_5v3y6"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tfdy3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k7uia")
-}],
-"loop": false,
-"name": &"default",
-"speed": 3.0
-}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ke2ci"]
 atlas = ExtResource("1_xyy8a")
@@ -137,6 +118,16 @@ theme_override_font_sizes/font_size = 8
 text = "Police Station"
 horizontal_alignment = 1
 
+[node name="stationarea" type="Area2D" parent="station" groups=["interact", "map"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("4_semty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="station/stationarea"]
+position = Vector2(33, 40)
+shape = SubResource("RectangleShape2D_vgrq1")
+debug_color = Color(0.737255, 0.321569, 0.858824, 0.419608)
+
 [node name="crimescene" type="Control" parent="."]
 anchors_preset = 0
 offset_left = 114.0
@@ -164,9 +155,15 @@ theme_override_font_sizes/font_size = 8
 text = "Crime Scene"
 horizontal_alignment = 1
 
-[node name="lock" type="AnimatedSprite2D" parent="crimescene"]
-position = Vector2(32, 24)
-sprite_frames = SubResource("SpriteFrames_5v3y6")
+[node name="scenearea" type="Area2D" parent="crimescene" groups=["interact", "map"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("4_semty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="crimescene/scenearea"]
+position = Vector2(34, 29)
+shape = SubResource("RectangleShape2D_vgrq1")
+debug_color = Color(0.737255, 0.321569, 0.858824, 0.419608)
 
 [node name="vhome" type="Control" parent="."]
 anchors_preset = 0
@@ -198,9 +195,15 @@ theme_override_font_sizes/font_size = 8
 text = "Victim's Home"
 horizontal_alignment = 1
 
-[node name="lock" type="AnimatedSprite2D" parent="vhome"]
-position = Vector2(32, 24)
-sprite_frames = SubResource("SpriteFrames_5v3y6")
+[node name="vhomearea" type="Area2D" parent="vhome" groups=["interact", "map"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("4_semty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="vhome/vhomearea"]
+position = Vector2(33.5, 23.5)
+shape = SubResource("RectangleShape2D_vgrq1")
+debug_color = Color(0.737255, 0.321569, 0.858824, 0.419608)
 
 [node name="casino" type="Control" parent="."]
 anchors_preset = 0
@@ -229,9 +232,15 @@ theme_override_font_sizes/font_size = 8
 text = "Casino"
 horizontal_alignment = 1
 
-[node name="lock" type="AnimatedSprite2D" parent="casino"]
-position = Vector2(32, 24)
-sprite_frames = SubResource("SpriteFrames_5v3y6")
+[node name="casinoarea" type="Area2D" parent="casino" groups=["interact", "map"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("4_semty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="casino/casinoarea"]
+position = Vector2(34, 23.75)
+shape = SubResource("RectangleShape2D_vgrq1")
+debug_color = Color(0.737255, 0.321569, 0.858824, 0.419608)
 
 [node name="TileMap" type="TileMap" parent="."]
 show_behind_parent = true
@@ -244,18 +253,23 @@ layer_0/tile_data = PackedInt32Array(0, 65537, 1, 65536, 65537, 1, 65537, 65537,
 position = Vector2(270, 151)
 zoom = Vector2(2.14, 2.14)
 
-[node name="PlayerIcon" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 125.0
-offset_top = 28.0
-offset_right = 165.0
-offset_bottom = 68.0
-texture = ExtResource("4_ccki7")
-
 [node name="SceneTransition" parent="." instance=ExtResource("6_52xoe")]
-position = Vector2(-9, -1)
+visible = false
+position = Vector2(-20, -91)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 
+[node name="Spawner" parent="." instance=ExtResource("7_lcqmx")]
+position = Vector2(148, 69)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(4, 301, 540, 301, 532, 5, -4, 5, 4, 309, -12, 317, -20, -19, 548, -11, 548, 309, -20, 309, 4, 293)
+
+[connection signal="location_entered" from="station/stationarea" to="." method="_on_stationarea_location_entered"]
+[connection signal="location_entered" from="crimescene/scenearea" to="." method="_on_scenearea_location_entered"]
+[connection signal="location_entered" from="vhome/vhomearea" to="." method="_on_vhomearea_location_entered"]
+[connection signal="location_entered" from="casino/casinoarea" to="." method="_on_casinoarea_location_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InfoData" load_steps=2 format=3 uid="uid://c1ltpavwpwttn"]
+
+[ext_resource type="Script" path="res://interactables/info_data.gd" id="1_eblwp"]
+
+[resource]
+script = ExtResource("1_eblwp")
+name = "Victim's Home"
+description = "The Operator managed to get the victim's address, quite a fancy neighborhood."
+path = "res://assets/sprites/notebookimg/vhomeimg.png"
+length = 80
+height = 80
+category = "Location"
+extracted = false

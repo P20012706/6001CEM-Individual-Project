@@ -224,12 +224,13 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="player" type="CharacterBody2D" groups=["interact", "player"]]
+[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("ray") groups=["interact", "player"]]
 z_index = 1
 position = Vector2(372, 245)
 scale = Vector2(2, 2)
 collision_layer = 2
 script = ExtResource("1_hxnx1")
+ray = NodePath("RayCast2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6.5)
@@ -252,3 +253,6 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_m0sb3")
 frame = 1
 frame_progress = 0.717596
+
+[node name="playercam" type="Camera2D" parent="."]
+zoom = Vector2(2.5, 2.5)

@@ -9,12 +9,12 @@ var current_save: Dictionary = {
 	scene_path = "",
 	extracted_item = [],
 	npc_index = {},
-	player_data = {}
+	persistence = {}
 }
 
 func save_game():
 	update_savedata()
-	update_player()
+	save_scene()
 	var savefile := FileAccess.open(SAVEPATH + "savefile.json",FileAccess.WRITE)
 	var save_json = JSON.stringify(current_save)
 	savefile.store_line(save_json)
@@ -40,9 +40,6 @@ func load_game():
 			var saved_index = current_save.npc_index[n.name]
 			n.set_ddindex(saved_index)
 	
-	var player = get_node("player")
-	Player.global_position.x = current_save.player_data["pos_x"]
-	Player.global_position.y = current_save.player_data["pos_y"]
 	get_tree().change_scene_to_file(current_save.scene_path)
 	print("Loaded from Latest Save!")
 	
@@ -59,11 +56,21 @@ func update_savedata():
 	for n in npc:
 		if n.has_method("get_ddindex"):
 			var dialoguedata = n.get_ddindex()
-			current_save.npc_index[n.name] = dialoguedata
-	
-func update_player():
-	var player: Player = get_node("player")
-	current_save.player_data["pos_x"] = Player.global_position.x
-	current_save.player_data["pos_y"] = Player.global_position.y
+			current_save["npc_index"][n.name] = dialoguedata.index
+
+func add_persistent_data(resource:Resource, data:Dictionary):
+	if resource != null:
+		var resource_id = resource.get_path()
+		current_save.persistence[resource_id] = data
+
+func check_persistent_data(resource:Resource):
+	var resource_id = resource.get_path()
+	return current_save.persistence.has(resource_id)
+
+func get_persistent_data(resource:Resource) -> Dictionary:
+	var resource_id = resource.get_path()  # Using path as identifier
+	return current_save.persistence.get(resource_id, {})
+
+func save_scene():
 	current_save.scene_path = get_tree().current_scene.scene_file_path
 	print(current_save.scene_path)

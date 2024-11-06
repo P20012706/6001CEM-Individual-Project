@@ -1,11 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwal4rm3e0cfa"]
+[gd_scene load_steps=6 format=3 uid="uid://cwal4rm3e0cfa"]
 
 [ext_resource type="TileSet" uid="uid://ciiavrf4ir217" path="res://scenes/stationtileset.tres" id="1_4gklb"]
+[ext_resource type="Script" path="res://scripts/capoffice.gd" id="1_yy0ey"]
 [ext_resource type="PackedScene" uid="uid://ddabgwr81jowt" path="res://character/cap.tscn" id="2_f0jnh"]
+[ext_resource type="PackedScene" uid="uid://cb8vl66q1g7ix" path="res://interface/spawner.tscn" id="3_ov8en"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ucobr"]
+size = Vector2(34.75, 9.5)
 
 [node name="capoffice" type="Node2D"]
-position = Vector2(400, 200)
+position = Vector2(400, 160)
 scale = Vector2(2, 2)
+script = ExtResource("1_yy0ey")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-10, 16)
@@ -22,3 +28,17 @@ layer_3/tile_data = PackedInt32Array()
 
 [node name="cap" parent="." instance=ExtResource("2_f0jnh")]
 position = Vector2(65, 59)
+
+[node name="Spawner" parent="." instance=ExtResource("3_ov8en")]
+position = Vector2(129, 115.5)
+
+[node name="office_exit" type="Area2D" parent="."]
+position = Vector2(85.5, 147)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="office_exit"]
+position = Vector2(1.125, 1.75)
+shape = SubResource("RectangleShape2D_ucobr")
+
+[connection signal="area_entered" from="office_exit" to="." method="_on_office_exit_area_entered"]

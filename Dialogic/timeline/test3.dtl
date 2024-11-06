@@ -1,3 +1,7 @@
 Hugh: If you see this, the progression REALLY REALLY worked!
+[signal arg="Information"]
 Patrolman: YIPPEE
+[signal arg="Information"]
+Hugh: TEST LOCATION
+[signal arg="Information"]
 [signal arg="Complete"]
