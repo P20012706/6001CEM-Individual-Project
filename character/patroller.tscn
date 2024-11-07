@@ -1,26 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://6d0dv275oe1s"]
+[gd_scene load_steps=9 format=3 uid="uid://c6jemi2cw75yf"]
 
-[ext_resource type="Texture2D" uid="uid://dfdbxuvjs354a" path="res://assets/sprites/NPC Spritesheet.png" id="1_2cs7o"]
-[ext_resource type="Script" path="res://character/policenpc.gd" id="1_en350"]
-[ext_resource type="Script" path="res://character/talkarea.gd" id="2_at5kg"]
-[ext_resource type="Resource" uid="uid://ciogmmcsn2bc" path="res://resource/dd_policenpc.tres" id="2_t7hr3"]
+[ext_resource type="Script" path="res://character/operator.gd" id="1_umu7p"]
+[ext_resource type="Resource" uid="uid://ciogmmcsn2bc" path="res://resource/dd_policenpc.tres" id="2_jd5vf"]
+[ext_resource type="Texture2D" uid="uid://dfdbxuvjs354a" path="res://assets/sprites/NPC Spritesheet.png" id="3_m25tt"]
+[ext_resource type="Script" path="res://character/talkarea.gd" id="4_h7aa7"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_taiem"]
-atlas = ExtResource("1_2cs7o")
-region = Rect2(64, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k3tpe"]
-atlas = ExtResource("1_2cs7o")
+[sub_resource type="AtlasTexture" id="AtlasTexture_5kxsq"]
+atlas = ExtResource("3_m25tt")
 region = Rect2(80, 0, 16, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xe2di"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_taiem")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k3tpe")
+"texture": SubResource("AtlasTexture_5kxsq")
 }],
 "loop": true,
 "name": &"default",
@@ -34,8 +27,8 @@ size = Vector2(10, 20)
 size = Vector2(32, 48)
 
 [node name="policenpc" type="CharacterBody2D" groups=["npc"]]
-script = ExtResource("1_en350")
-dialogues = ExtResource("2_t7hr3")
+script = ExtResource("1_umu7p")
+dialogues = ExtResource("2_jd5vf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xe2di")
@@ -48,7 +41,7 @@ shape = SubResource("RectangleShape2D_ipe7o")
 [node name="TalkArea" type="Area2D" parent="." groups=["npc"]]
 collision_layer = 4
 collision_mask = 0
-script = ExtResource("2_at5kg")
+script = ExtResource("4_h7aa7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TalkArea"]
 shape = SubResource("RectangleShape2D_r4ch2")

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InfoData" load_steps=2 format=3 uid="uid://wdajt4ey0gjx"]
+
+[ext_resource type="Script" path="res://interactables/info_data.gd" id="1_2swu8"]
+
+[resource]
+script = ExtResource("1_2swu8")
+name = "Hobo"
+description = "No signs of other people at the scene besides this hobo, he might be an eye-witness or a major suspect."
+path = "res://Dialogic/Character Portraits/HoboPortrait.png"
+length = 80
+height = 80
+category = "People"
+extracted = false

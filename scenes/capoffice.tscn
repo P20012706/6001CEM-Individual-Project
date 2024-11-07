@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://ddabgwr81jowt" path="res://character/cap.tscn" id="2_f0jnh"]
 [ext_resource type="PackedScene" uid="uid://cb8vl66q1g7ix" path="res://interface/spawner.tscn" id="3_ov8en"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ucobr"]
-size = Vector2(34.75, 9.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3pfnl"]
+size = Vector2(38.5, 20)
 
 [node name="capoffice" type="Node2D"]
 position = Vector2(400, 160)
@@ -32,13 +32,12 @@ position = Vector2(65, 59)
 [node name="Spawner" parent="." instance=ExtResource("3_ov8en")]
 position = Vector2(129, 115.5)
 
-[node name="office_exit" type="Area2D" parent="."]
-position = Vector2(85.5, 147)
-collision_layer = 0
-collision_mask = 2
+[node name="exit" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="office_exit"]
-position = Vector2(1.125, 1.75)
-shape = SubResource("RectangleShape2D_ucobr")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exit"]
+position = Vector2(85, 147)
+shape = SubResource("RectangleShape2D_3pfnl")
 
-[connection signal="area_entered" from="office_exit" to="." method="_on_office_exit_area_entered"]
+[connection signal="body_entered" from="exit" to="." method="_on_exit_body_entered"]

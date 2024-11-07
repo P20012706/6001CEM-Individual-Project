@@ -119,12 +119,13 @@ text = "Police Station"
 horizontal_alignment = 1
 
 [node name="stationarea" type="Area2D" parent="station" groups=["interact", "map"]]
+position = Vector2(32, 30)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("4_semty")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="station/stationarea"]
-position = Vector2(33, 40)
+position = Vector2(1, 9)
 shape = SubResource("RectangleShape2D_vgrq1")
 debug_color = Color(0.737255, 0.321569, 0.858824, 0.419608)
 
@@ -156,12 +157,13 @@ text = "Crime Scene"
 horizontal_alignment = 1
 
 [node name="scenearea" type="Area2D" parent="crimescene" groups=["interact", "map"]]
+position = Vector2(33, 10)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("4_semty")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="crimescene/scenearea"]
-position = Vector2(34, 29)
+position = Vector2(-1, 10)
 shape = SubResource("RectangleShape2D_vgrq1")
 debug_color = Color(0.737255, 0.321569, 0.858824, 0.419608)
 
@@ -196,12 +198,13 @@ text = "Victim's Home"
 horizontal_alignment = 1
 
 [node name="vhomearea" type="Area2D" parent="vhome" groups=["interact", "map"]]
+position = Vector2(32, 16)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("4_semty")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="vhome/vhomearea"]
-position = Vector2(33.5, 23.5)
+position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_vgrq1")
 debug_color = Color(0.737255, 0.321569, 0.858824, 0.419608)
 
@@ -233,12 +236,13 @@ text = "Casino"
 horizontal_alignment = 1
 
 [node name="casinoarea" type="Area2D" parent="casino" groups=["interact", "map"]]
+position = Vector2(32, 18)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("4_semty")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="casino/casinoarea"]
-position = Vector2(34, 23.75)
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_vgrq1")
 debug_color = Color(0.737255, 0.321569, 0.858824, 0.419608)
 

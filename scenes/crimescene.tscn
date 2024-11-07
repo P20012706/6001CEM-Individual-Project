@@ -1,10 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://b4weo6vtp5g1c"]
+[gd_scene load_steps=16 format=3 uid="uid://b4weo6vtp5g1c"]
 
 [ext_resource type="Script" path="res://scripts/crimescene.gd" id="1_hbbot"]
 [ext_resource type="Texture2D" uid="uid://b4lbk03bd0i83" path="res://assets/sprites/Crime Scene Tile Map.png" id="1_onv3t"]
 [ext_resource type="PackedScene" uid="uid://dxho0bu3c4dnw" path="res://character/forensic.tscn" id="2_fjkvq"]
-[ext_resource type="PackedScene" uid="uid://6d0dv275oe1s" path="res://character/policenpc.tscn" id="3_vafj6"]
 [ext_resource type="PackedScene" uid="uid://ijm8rvrvrqbq" path="res://character/hobo.tscn" id="4_f6u06"]
+[ext_resource type="PackedScene" uid="uid://c6jemi2cw75yf" path="res://character/patroller.tscn" id="5_pkij1"]
+[ext_resource type="PackedScene" uid="uid://cb8vl66q1g7ix" path="res://interface/spawner.tscn" id="6_yp5vh"]
+[ext_resource type="PackedScene" uid="uid://bvjkncfu283tv" path="res://interactables/corpse.tscn" id="7_xh1kq"]
+[ext_resource type="PackedScene" uid="uid://bbib1ry83putv" path="res://interactables/grate.tscn" id="8_ihkn3"]
+[ext_resource type="PackedScene" uid="uid://7ibdldsfg178" path="res://interactables/victimcar.tscn" id="9_bwpgt"]
+[ext_resource type="PackedScene" uid="uid://ck5s725jv6rxh" path="res://interactables/bin.tscn" id="10_hxspd"]
+[ext_resource type="PackedScene" uid="uid://dnaxkg22gqxs4" path="res://interactables/trash.tscn" id="11_e5jxp"]
+[ext_resource type="PackedScene" uid="uid://dtqlpfdspsxjh" path="res://interactables/phonebooth.tscn" id="12_tuceq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ow0sf"]
 texture = ExtResource("1_onv3t")
@@ -945,25 +952,59 @@ layer_1/name = "Objects"
 layer_1/y_sort_origin = 2
 layer_1/tile_data = PackedInt32Array(-327680, 1048577, 10, -262144, 1048577, 11, -196608, 1048577, 12, -131072, 1048577, 13, -65536, 1048577, 14, 0, 1048577, 15, -983039, 1114113, 0, -917503, 1114113, 1, -851967, 1114113, 2, -786431, 1114113, 3, -720895, 1114113, 4, -655359, 1114113, 5, -589823, 1114113, 6, -524287, 1114113, 7, -458751, 1114113, 8, -393215, 1114113, 9, -327679, 1114113, 10, -262143, 1114113, 11, -196607, 1114113, 12, -131071, 1114113, 13, -65535, 1114113, 14, 1, 1114113, 15, -983038, 1179649, 0, -917502, 1179649, 1, -851966, 1179649, 2, -786430, 1179649, 3, -720894, 1179649, 4, -655358, 1179649, 5, -589822, 1179649, 6, -524286, 1179649, 7, -458750, 1179649, 8, -393214, 1179649, 9, -327678, 1179649, 10, -262142, 1179649, 11, -196606, 1179649, 12, -131070, 1179649, 13, -65534, 1179649, 14, 2, 1179649, 15, -983037, 1245185, 0, -917501, 1245185, 1, -851965, 1245185, 2, -786429, 1245185, 3, -720893, 1245185, 4, -655357, 1245185, 5, -589821, 1245185, 6, -524285, 1245185, 7, -458749, 1245185, 8, -393213, 1245185, 9, -327677, 1245185, 10, -262141, 1245185, 11, -196605, 1245185, 12, -131069, 1245185, 13, -65533, 1245185, 14, 3, 1245185, 15, -983036, 1310721, 0, -917500, 1310721, 1, -851964, 1310721, 2, -786428, 1310721, 3, -720892, 1310721, 4, -655356, 1310721, 5, -589820, 1310721, 6, -524284, 1310721, 7, -458748, 1310721, 8, -393212, 1310721, 9, -327676, 1310721, 10, -262140, 1310721, 11, -196604, 1310721, 12, -131068, 1310721, 13, -65532, 1310721, 14, 4, 1310721, 15, -983035, 1376257, 0, -917499, 1376257, 1, -851963, 1376257, 2, -786427, 1376257, 3, -720891, 1376257, 4, -655355, 1376257, 5, -589819, 1376257, 6, -524283, 1376257, 7, -458747, 1376257, 8, -393211, 1376257, 9, -327675, 1376257, 10, -262139, 1376257, 11, -196603, 1376257, 12, -131067, 1376257, 13, -65531, 1376257, 14, 5, 1376257, 15, -786412, 1507329, 0, -720876, 1769473, 1, -655340, 1769473, 2, -589804, 1769473, 3, -524268, 1769473, 4, -458732, 1769473, 5, -393196, 1769473, 6, -327660, 1769473, 7, -262124, 1769473, 8, -196588, 1769473, 9, -131052, 1769473, 10, -65516, 1769473, 11, -786411, 1572865, 0, -720875, 1835009, 1, -655339, 1835009, 2, -589803, 1835009, 3, -524267, 1835009, 4, -458731, 1835009, 5, -393195, 1835009, 6, -327659, 1835009, 7, -262123, 1835009, 8, -196587, 1835009, 9, -131051, 1835009, 10, -65515, 1835009, 11, -196601, 589825, 2, -196600, 655361, 2, -196599, 720897, 2, -196598, 589825, 2, -196597, 655361, 2, -196596, 720897, 2, -196595, 589825, 2, -196594, 655361, 2, -196593, 720897, 2, -786416, 1507329, 0, -720880, 1507329, 1, -655344, 1507329, 2, -589808, 1507329, 3, -524272, 1507329, 4, -458736, 1507329, 5, -393200, 1507329, 6, -327664, 1507329, 7, -262128, 1507329, 8, -196592, 1507329, 9, -131056, 1507329, 10, -65520, 1507329, 11, -786415, 1572865, 0, -720879, 1572865, 1, -655343, 1572865, 2, -589807, 1572865, 3, -524271, 1572865, 4, -458735, 1572865, 5, -393199, 1572865, 6, -327663, 1572865, 7, -262127, 1572865, 8, -196591, 1572865, 9, -131055, 1572865, 10, -65519, 1572865, 11, -720878, 1638401, 1, -655342, 1638401, 2, -589806, 1638401, 3, -524270, 1638401, 4, -458734, 1638401, 5, -393198, 1638401, 6, -327662, 1638401, 7, -262126, 1638401, 8, -196590, 1638401, 9, -131054, 1638401, 10, -65518, 1638401, 11, -720877, 1703937, 1, -655341, 1703937, 2, -589805, 1703937, 3, -524269, 1703937, 4, -458733, 1703937, 5, -393197, 1703937, 6, -327661, 1703937, 7, -262125, 1703937, 8, -196589, 1703937, 9, -131053, 1703937, 10, -65517, 1703937, 11, 327682, 1, 6, 393218, 1, 7, 262147, 65537, 5, 327683, 65537, 6, 393219, 65537, 7, 262148, 131073, 5, 327684, 131073, 6, 393220, 131073, 7, 262149, 196609, 5, 327685, 196609, 6, 393221, 196609, 7, 327686, 262145, 6, 393222, 262145, 7, -524273, 589825, 3, -458737, 589825, 4, -393201, 589825, 5)
 layer_2/name = "Details"
-layer_2/tile_data = PackedInt32Array(-131054, 786433, 0, -65518, 786433, 1, 18, 786433, 2, -131053, 851969, 0, -65517, 851969, 1, 19, 851969, 2, -65516, 917505, 0, 20, 917505, 1, -65515, 983041, 0, 21, 983041, 1, 458762, 589825, 1, 327691, 917505, 2, 393227, 917505, 3, 458763, 917505, 4, 524299, 917505, 5, 327692, 983041, 2, 393228, 983041, 3, 458764, 983041, 4, 524300, 983041, 5, 131079, 327681, 6, 131080, 393217, 6, 131091, 720897, 6, 196627, 720897, 7, 262163, 720897, 8, 327699, 720897, 9, 393235, 720897, 10, 131092, 786433, 6, 196628, 786433, 7, 262164, 786433, 8, 327700, 786433, 9, 393236, 786433, 10, 131093, 851969, 6, 196629, 851969, 7, 262165, 851969, 8, 327701, 851969, 9, 393237, 851969, 10)
+layer_2/tile_data = PackedInt32Array()
 
 [node name="NPCs" type="Node2D" parent="."]
+
+[node name="hobo" parent="NPCs" instance=ExtResource("4_f6u06")]
+position = Vector2(282, -1)
 
 [node name="forensic" parent="NPCs" instance=ExtResource("2_fjkvq")]
 position = Vector2(176, 34)
 
-[node name="policenpc" parent="NPCs" instance=ExtResource("3_vafj6")]
-position = Vector2(161, -64)
-
-[node name="policenpc2" parent="NPCs" instance=ExtResource("3_vafj6")]
-position = Vector2(224, -3)
-
-[node name="hobo" parent="." instance=ExtResource("4_f6u06")]
-position = Vector2(282, -1)
+[node name="policenpc" parent="NPCs" instance=ExtResource("5_pkij1")]
+position = Vector2(228, -2)
 
 [node name="exit" type="Area2D" parent="."]
 position = Vector2(-15, 56)
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="exit"]
 position = Vector2(25, 15)
 shape = SubResource("RectangleShape2D_ssog2")
+
+[node name="Spawner" parent="." instance=ExtResource("6_yp5vh")]
+position = Vector2(56.5, 41)
+
+[node name="Interactables" type="Node" parent="."]
+
+[node name="Corpse" parent="Interactables" instance=ExtResource("7_xh1kq")]
+position = Vector2(448, 441)
+scale = Vector2(2, 2)
+
+[node name="Grate" parent="Interactables" instance=ExtResource("8_ihkn3")]
+position = Vector2(539, 569)
+scale = Vector2(2, 2)
+
+[node name="Victimcar" parent="Interactables" instance=ExtResource("9_bwpgt")]
+position = Vector2(586, 558)
+scale = Vector2(2, 2)
+
+[node name="bin" parent="Interactables" instance=ExtResource("10_hxspd")]
+position = Vector2(810, 334)
+scale = Vector2(2, 2)
+
+[node name="Trash" parent="Interactables" instance=ExtResource("11_e5jxp")]
+position = Vector2(881, 344)
+scale = Vector2(2, 2)
+
+[node name="phonebooth" parent="Interactables" instance=ExtResource("12_tuceq")]
+position = Vector2(860, 489)
+scale = Vector2(2, 2)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(15, -4, 93, -4, 94, -97.5, 366.5, -101, 369, 143, 16, 144, 15.5, 151, 379, 148.5, 373.5, -112.5, 90, -110, 87, -10.5, 12, -10.5)
+
+[connection signal="body_entered" from="exit" to="." method="_on_exit_body_entered"]

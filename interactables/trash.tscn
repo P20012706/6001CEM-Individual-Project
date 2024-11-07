@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://dnaxkg22gqxs4"]
+
+[ext_resource type="Script" path="res://interactables/trash.gd" id="1_q2rhe"]
+[ext_resource type="Texture2D" uid="uid://bj8no4gol5kta" path="res://assets/sprites/Interactables.png" id="2_xo0ym"]
+[ext_resource type="Script" path="res://interactables/interactarea.gd" id="3_4wyub"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ki72"]
+atlas = ExtResource("2_xo0ym")
+region = Rect2(112, 0, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lyujm"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1rg5j"]
+size = Vector2(31.5, 23)
+
+[node name="Trash" type="Node2D"]
+script = ExtResource("1_q2rhe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_5ki72")
+
+[node name="InteractArea" type="Area2D" parent="." groups=["evidence", "interact"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("3_4wyub")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_lyujm")
+debug_color = Color(0.823529, 0.160784, 0.890196, 0.419608)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.25, 4.5)
+shape = SubResource("RectangleShape2D_1rg5j")

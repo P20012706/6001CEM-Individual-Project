@@ -1,6 +1,10 @@
 extends Node2D
 
 
-func _on_office_exit_area_entered(body):
+
+func _on_exit_body_entered(body):
 	if body is Player:
-		get_tree().change_scene_to_file("res://scenes/station.tscn")
+		call_deferred("switch_scene")
+
+func switch_scene():
+	get_tree().change_scene_to_file("res://scenes/station.tscn")

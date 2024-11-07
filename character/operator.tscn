@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://6d0dv275oe1s"]
+
+[ext_resource type="Texture2D" uid="uid://dfdbxuvjs354a" path="res://assets/sprites/NPC Spritesheet.png" id="1_2cs7o"]
+[ext_resource type="Script" path="res://character/operator.gd" id="1_en350"]
+[ext_resource type="Script" path="res://character/talkarea.gd" id="2_at5kg"]
+[ext_resource type="Resource" uid="uid://ciogmmcsn2bc" path="res://resource/dd_policenpc.tres" id="2_t7hr3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_taiem"]
+atlas = ExtResource("1_2cs7o")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xe2di"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_taiem")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ipe7o"]
+size = Vector2(10, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r4ch2"]
+size = Vector2(32, 48)
+
+[node name="policenpc" type="CharacterBody2D" groups=["npc"]]
+script = ExtResource("1_en350")
+dialogues = ExtResource("2_t7hr3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xe2di")
+frame_progress = 0.400713
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_ipe7o")
+
+[node name="TalkArea" type="Area2D" parent="." groups=["npc"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("2_at5kg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TalkArea"]
+shape = SubResource("RectangleShape2D_r4ch2")
+debug_color = Color(0.772549, 0.266667, 0.87451, 0.419608)
+
+[connection signal="start_talking" from="TalkArea" to="." method="_on_talk_area_start_talking"]

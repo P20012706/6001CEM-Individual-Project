@@ -3,6 +3,7 @@ extends Node
 var mid_dialogue = false
 signal progress_dialogue
 signal add_entry
+signal update_score_q
 
 func start_dialogue(dialogue):
 	if mid_dialogue:
@@ -35,6 +36,9 @@ func on_dialogic_signal(arguement: String):
 		
 		"Information":
 			emit_signal("add_entry")
+		
+		"Correct":
+			emit_signal("update_score_q")
 
 func progression(dialogue):
 	if dialogue.index < dialogue.dialogue_array.size() - 1:

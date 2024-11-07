@@ -3,30 +3,26 @@ extends Node2D
 @onready var transition = $SceneTransition/AnimationPlayer
 
 func _ready():
-	pass 
-
+	pass
 
 func _process(delta):
 	pass
 
-func _on_exit_body_entered(body):
+func switch_scene(path):
+	if path:
+		get_tree().change_scene_to_file(path)
+
+func _on_exit(body):
 	if body is Player:
-		transition.play("fade_to_black")
-		$Timer.start()
+		var path = "res://scenes/map.tscn"
+		call_deferred("switch_scene",path)
 
-func _on_timer_timeout():
-	get_tree().change_scene_to_file("res://scenes/map.tscn")
-
-func _on_office_body_entered(body):
+func _on_office_exit(body):
 	if body is Player:
-		get_tree().change_scene_to_file("res://scenes/capoffice.tscn")
+		var path = "res://scenes/capoffice.tscn"
+		call_deferred("switch_scene",path)
 
-
-func _on_ir_1_body_entered(body):
+func _on_ir_exit(body):
 	if body is Player:
-		get_tree().change_scene_to_file("res://scenes/ir.tscn")
-
-
-func _on_ir_2_body_entered(body):
-	if body is Player:
-		get_tree().change_scene_to_file("res://scenes/ir.tscn")
+		var path = "res://scenes/ir.tscn"
+		call_deferred("switch_scene",path)

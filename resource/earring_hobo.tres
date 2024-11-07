@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InfoData" load_steps=2 format=3 uid="uid://dr8dmhtj2neib"]
+
+[ext_resource type="Script" path="res://interactables/info_data.gd" id="1_ql5vu"]
+
+[resource]
+script = ExtResource("1_ql5vu")
+name = "Jade Earring (Right)"
+description = "I found the other piece of the earring, guess the hobo stole it from the victim for his personal gain. "
+path = "res://assets/sprites/notebookimg/earringrightimg.png"
+length = 80
+height = 80
+category = "Evidence"
+extracted = false

@@ -42,9 +42,10 @@ directories/dch_directory={
 "Roy": "res://Dialogic/D_character/Roy.dch"
 }
 directories/dtl_directory={
-"test": "res://Dialogic/timeline/test.dtl",
-"test2": "res://Dialogic/timeline/test2.dtl",
-"test3": "res://Dialogic/timeline/test3.dtl"
+"corpse": "res://Dialogic/timeline/corpse.dtl",
+"forensic2": "res://Dialogic/timeline/test3.dtl",
+"hobo": "res://Dialogic/timeline/hobo.dtl",
+"test2": "res://Dialogic/timeline/test2.dtl"
 }
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01

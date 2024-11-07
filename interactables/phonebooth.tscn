@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtqlpfdspsxjh"]
+
+[ext_resource type="Script" path="res://interactables/phonebooth.gd" id="1_h5q8d"]
+[ext_resource type="Texture2D" uid="uid://bj8no4gol5kta" path="res://assets/sprites/Interactables.png" id="2_3d266"]
+[ext_resource type="Script" path="res://interactables/interactarea.gd" id="3_rfn4i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bur7t"]
+atlas = ExtResource("2_3d266")
+region = Rect2(80, 48, 48, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1orqg"]
+size = Vector2(24, 19.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0q7u5"]
+size = Vector2(35, 24.5)
+
+[node name="phonebooth" type="Node2D"]
+script = ExtResource("1_h5q8d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_bur7t")
+
+[node name="InteractArea" type="Area2D" parent="." groups=["evidence", "interact"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("3_rfn4i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2(0, 15.25)
+shape = SubResource("RectangleShape2D_1orqg")
+debug_color = Color(0.823529, 0.160784, 0.890196, 0.419608)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-0.5, -8.75)
+shape = SubResource("RectangleShape2D_0q7u5")

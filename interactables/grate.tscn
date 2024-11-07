@@ -1,0 +1,97 @@
+[gd_scene load_steps=16 format=3 uid="uid://bbib1ry83putv"]
+
+[ext_resource type="Texture2D" uid="uid://bj8no4gol5kta" path="res://assets/sprites/Interactables.png" id="1_cpj8k"]
+[ext_resource type="Script" path="res://interactables/grate.gd" id="1_yfdxv"]
+[ext_resource type="Resource" uid="uid://7tb4g73mmt48" path="res://resource/grate.tres" id="2_fydex"]
+[ext_resource type="Script" path="res://interactables/interactarea.gd" id="2_qsbqq"]
+[ext_resource type="Texture2D" uid="uid://bcnomhs2fpmve" path="res://assets/sprites/spark.png" id="3_hlq3d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trhmx"]
+atlas = ExtResource("1_cpj8k")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0b0pv"]
+atlas = ExtResource("3_hlq3d")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hvbw"]
+atlas = ExtResource("3_hlq3d")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o78lr"]
+atlas = ExtResource("3_hlq3d")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bs2b"]
+atlas = ExtResource("3_hlq3d")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_558ey"]
+atlas = ExtResource("3_hlq3d")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vw8fk"]
+atlas = ExtResource("3_hlq3d")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3f06g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0b0pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hvbw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o78lr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bs2b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_558ey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vw8fk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cd5ie"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ej7vq"]
+size = Vector2(15, 14)
+
+[node name="Grate" type="Node2D"]
+script = ExtResource("1_yfdxv")
+infodata = ExtResource("2_fydex")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_trhmx")
+
+[node name="spark" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 0)
+scale = Vector2(0.21875, 0.21875)
+sprite_frames = SubResource("SpriteFrames_3f06g")
+frame_progress = 0.941971
+
+[node name="InteractArea" type="Area2D" parent="." groups=["evidence", "interact"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("2_qsbqq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+shape = SubResource("RectangleShape2D_cd5ie")
+debug_color = Color(0.823529, 0.160784, 0.890196, 0.419608)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_ej7vq")
+
+[connection signal="first_interaction" from="InteractArea" to="." method="_on_interact_area_first_interaction"]

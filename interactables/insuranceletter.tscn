@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://covych1mvid12"]
+
+[ext_resource type="Script" path="res://interactables/insuranceletter.gd" id="1_od24k"]
+[ext_resource type="Texture2D" uid="uid://bj8no4gol5kta" path="res://assets/sprites/Interactables.png" id="2_kxm1o"]
+[ext_resource type="Script" path="res://interactables/interactarea.gd" id="3_td1t4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jp5nd"]
+atlas = ExtResource("2_kxm1o")
+region = Rect2(192, 0, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hd7ef"]
+size = Vector2(32, 32)
+
+[node name="insuranceletter" type="Node2D"]
+script = ExtResource("1_od24k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_jp5nd")
+
+[node name="InteractArea" type="Area2D" parent="." groups=["evidence", "interact"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("3_td1t4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+shape = SubResource("RectangleShape2D_hd7ef")
+debug_color = Color(0.823529, 0.160784, 0.890196, 0.419608)

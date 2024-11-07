@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqidjlx3snftx"]
+
+[ext_resource type="Script" path="res://interactables/phone.gd" id="1_e4mjr"]
+[ext_resource type="Texture2D" uid="uid://bj8no4gol5kta" path="res://assets/sprites/Interactables.png" id="2_obb64"]
+[ext_resource type="Script" path="res://interactables/interactarea.gd" id="3_k4lhm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qtqg"]
+atlas = ExtResource("2_obb64")
+region = Rect2(208, 0, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4i31c"]
+size = Vector2(32, 32)
+
+[node name="phone" type="Node2D"]
+script = ExtResource("1_e4mjr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_1qtqg")
+
+[node name="InteractArea" type="Area2D" parent="." groups=["evidence", "interact"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("3_k4lhm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+shape = SubResource("RectangleShape2D_4i31c")
+debug_color = Color(0.823529, 0.160784, 0.890196, 0.419608)

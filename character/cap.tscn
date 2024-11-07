@@ -41,7 +41,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rhubx"]
 size = Vector2(10, 19)
 
-[node name="cap" type="StaticBody2D"]
+[node name="cap" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xe2di")

@@ -4,7 +4,7 @@ extends Node2D
 
 func _on_corpse_area_first_interaction():
 	if infodata.extracted == false and infodata2.extracted == false:
-		Dialogic.start("test")
+		Dialogic.start("corpse")
 		GlobalEventBus.emit_signal("people_entry", infodata)
 		GlobalEventBus.emit_signal("evidence_entry", infodata2)
 		infodata.extracted = true

@@ -7,6 +7,7 @@ var rayvalue
 @export var ray : RayCast2D
 
 
+
 func _ready():
 	player_state = State.IDLE
 
@@ -57,7 +58,7 @@ func play_anim(dir):
 			$RayCast2D.set_target_position(rayvalue)
 			
 		elif Input.is_action_just_released("right"):
-			rayvalue = Vector2(36, 0)
+			rayvalue = Vector2(18, 0)
 			$AnimatedSprite2D.play("e-idle")
 			$RayCast2D.set_target_position(rayvalue)
 		
@@ -94,9 +95,15 @@ func _interact():
 			global_position = collider.global_position
 			print("Chair interaction registered.")
 			$AnimatedSprite2D.play("sit")
+			rayvalue = Vector2(50, 0)
+			$RayCast2D.set_target_position(rayvalue)
 
 		elif collider.is_in_group("evidence"):
 			collider.form_interaction()
+			await Dialogic.timeline_started
+			disable_input()
+			await Dialogic.timeline_ended
+			enable_input()
 
 		elif collider.is_in_group("npc"):
 			collider.start_dialogue()

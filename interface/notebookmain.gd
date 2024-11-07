@@ -9,11 +9,13 @@ extends CanvasLayer
 @onready var entry_loc : RichTextLabel = $Control/notesec/Location/GridContainer/LocPanel/LocList
 @onready var description_loc : RichTextLabel = $Control/notesec/Location/GridContainer/Description
 
+
 var entry
 var description
 var note_on = false
 var itemdata_map = {}
 signal update_score_e
+
 
 func _ready():
 	hidenote()

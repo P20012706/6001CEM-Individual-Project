@@ -1,6 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxho0bu3c4dnw"]
+[gd_scene load_steps=10 format=3 uid="uid://dxho0bu3c4dnw"]
 
 [ext_resource type="Texture2D" uid="uid://dfdbxuvjs354a" path="res://assets/sprites/NPC Spritesheet.png" id="1_e8c6m"]
+[ext_resource type="Script" path="res://character/forensic.gd" id="1_fevo8"]
+[ext_resource type="Resource" uid="uid://dwht5kny48wjp" path="res://resource/dd_forensic.tres" id="2_fg8pv"]
+[ext_resource type="Script" path="res://character/talkarea.gd" id="4_ao8hl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uhkof"]
 atlas = ExtResource("1_e8c6m")
@@ -27,7 +30,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rhubx"]
 size = Vector2(10, 19)
 
-[node name="forensic" type="StaticBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2dkdr"]
+size = Vector2(32, 48)
+
+[node name="forensic" type="CharacterBody2D"]
+script = ExtResource("1_fevo8")
+dialogues = ExtResource("2_fg8pv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xe2di")
@@ -36,3 +44,14 @@ frame_progress = 0.487647
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6.5)
 shape = SubResource("RectangleShape2D_rhubx")
+
+[node name="TalkArea" type="Area2D" parent="." groups=["npc"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("4_ao8hl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TalkArea"]
+shape = SubResource("RectangleShape2D_2dkdr")
+debug_color = Color(0.772549, 0.266667, 0.87451, 0.419608)
+
+[connection signal="start_talking" from="TalkArea" to="." method="_on_talk_area_start_talking"]

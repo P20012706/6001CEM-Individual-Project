@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/station.gd" id="1_xab30"]
 [ext_resource type="TileSet" uid="uid://ciiavrf4ir217" path="res://scenes/stationtileset.tres" id="2_0147l"]
 [ext_resource type="PackedScene" uid="uid://d150gm8vo6yfd" path="res://character/partner.tscn" id="2_a2v2u"]
-[ext_resource type="PackedScene" uid="uid://6d0dv275oe1s" path="res://character/policenpc.tscn" id="4_wr48y"]
+[ext_resource type="PackedScene" uid="uid://6d0dv275oe1s" path="res://character/operator.tscn" id="4_wr48y"]
 [ext_resource type="FontFile" uid="uid://x256bhq1irbr" path="res://assets/fonts/Silver.ttf" id="5_l2eq2"]
 [ext_resource type="PackedScene" uid="uid://cb8vl66q1g7ix" path="res://interface/spawner.tscn" id="7_8s8sf"]
 [ext_resource type="PackedScene" uid="uid://chy8x88p31ouh" path="res://interface/scene_transition.tscn" id="8_5lbtw"]
@@ -80,48 +80,45 @@ visible = false
 z_index = 5
 position = Vector2(-101.5, -42)
 
-[node name="Timer" type="Timer" parent="."]
-
 [node name="Zones" type="Node" parent="."]
 
-[node name="exit" type="Area2D" parent="Zones"]
+[node name="map_exit" type="Area2D" parent="Zones"]
 position = Vector2(392, 612)
 scale = Vector2(2, 2)
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/exit"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/map_exit"]
 shape = SubResource("RectangleShape2D_mbyca")
 
-[node name="office" type="Area2D" parent="Zones"]
+[node name="office_exit" type="Area2D" parent="Zones"]
 position = Vector2(390, 81)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/office"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/office_exit"]
 shape = SubResource("RectangleShape2D_b7heu")
 
-[node name="ir1" type="Area2D" parent="Zones"]
+[node name="ir1_exit" type="Area2D" parent="Zones"]
 position = Vector2(808, 464)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/ir1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/ir1_exit"]
 position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_8nobm")
 
-[node name="ir2" type="Area2D" parent="Zones"]
+[node name="ir2_exit" type="Area2D" parent="Zones"]
 position = Vector2(872, 453)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/ir2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/ir2_exit"]
 shape = SubResource("RectangleShape2D_8nobm")
 
 [node name="Spawner" parent="." instance=ExtResource("7_8s8sf")]
-position = Vector2(140, 86.5)
+position = Vector2(142.5, 86)
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="body_entered" from="Zones/exit" to="." method="_on_exit_body_entered"]
-[connection signal="body_entered" from="Zones/office" to="." method="_on_office_body_entered"]
-[connection signal="body_entered" from="Zones/ir1" to="." method="_on_ir_1_body_entered"]
-[connection signal="body_entered" from="Zones/ir2" to="." method="_on_ir_2_body_entered"]
+[connection signal="body_entered" from="Zones/map_exit" to="." method="_on_exit"]
+[connection signal="body_entered" from="Zones/office_exit" to="." method="_on_office_exit"]
+[connection signal="body_entered" from="Zones/ir1_exit" to="." method="_on_ir_exit"]
+[connection signal="body_entered" from="Zones/ir2_exit" to="." method="_on_ir_exit"]

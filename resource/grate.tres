@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InfoData" load_steps=2 format=3 uid="uid://7tb4g73mmt48"]
+
+[ext_resource type="Script" path="res://interactables/info_data.gd" id="1_ay2on"]
+
+[resource]
+script = ExtResource("1_ay2on")
+name = "Jade Earring (Left)"
+description = "I saw a spark around a sewer grate near the crime scene. I guess this dropped when the victim was attacked. I wonder where's the other piece"
+path = "res://assets/sprites/notebookimg/earringleftimg.png"
+length = 80
+height = 80
+category = "Evidence"
+extracted = false

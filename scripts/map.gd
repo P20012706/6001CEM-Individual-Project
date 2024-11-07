@@ -13,7 +13,7 @@ var requirement = {
 var location_to_scene = {
 	"stationarea": "res://scenes/station.tscn",
 	"scenearea": "res://scenes/crimescene.tscn",  
-	"vhomearea": "res://scenes/vhome.tscn",  
+	"vhomearea": "res://scenes/vhome(out).tscn",  
 	"casinoarea": "res://scenes/casino.tscn"  
 }
 
