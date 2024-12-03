@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InfoData" load_steps=2 format=3 uid="uid://umc0xcf7uwud"]
+
+[ext_resource type="Script" path="res://interactables/info_data.gd" id="1_fb8b1"]
+
+[resource]
+script = ExtResource("1_fb8b1")
+name = "Neighbor Statement"
+description = "Miss Ariel, the victim's neighbor testified against Nathan's alibi. Nathan was kicked out of the house since the day they argued."
+path = "res://assets/sprites/notebookimg/neighborimg.png"
+length = 80
+height = 80
+category = "Evidence"
+extracted = false

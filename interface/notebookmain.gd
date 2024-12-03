@@ -36,10 +36,12 @@ func open():
 	note_on = true
 	section.visible = false
 	main.visible = true
+	
 
 func hidenote():
 	visible = false
 	note_on = false
+	
 
 func _on_pplbtn_pressed():
 	section.current_tab = 0
@@ -72,31 +74,41 @@ func on_tab_selected(index):
 		entry.meta_clicked.connect(_on_entry_clicked)
 
 func update_people(itemdata):
-	if itemdata_map.has(itemdata.name):
-		print("Entry already exists.")
-		return
-	
-	itemdata_map[itemdata.name] = itemdata
-	entry_ppl.append_text("[url=" + itemdata.name + "]" + itemdata.name + "[/url]\n")
+	if itemdata is Array:
+		for info in itemdata:
+			if not itemdata_map.has(info.name) and info.category == "People":
+				itemdata_map[info.name] = info
+				entry_ppl.append_text("[url=" + info.name + "]" + info.name + "[/url]\n")
+	else:
+		if not itemdata_map.has(itemdata.name) and itemdata.category == "People":
+			itemdata_map[itemdata.name] = itemdata
+			entry_ppl.append_text("[url=" + itemdata.name + "]" + itemdata.name + "[/url]\n")
 	return
 
 func update_evidence(itemdata):
-	if itemdata_map.has(itemdata.name):
-		print("Entry already exists.")
-		return
+	if itemdata is Array:
+		for info in itemdata:
+			if not itemdata_map.has(info.name) and info.category == "Evidence":
+				itemdata_map[info.name] = info
+				entry_evi.append_text("[url=" + info.name + "]" + info.name + "[/url]\n")
 	
-	itemdata_map[itemdata.name] = itemdata
-	entry_evi.append_text("[url=" + itemdata.name + "]" + itemdata.name + "[/url]\n")
-	emit_signal("update_score_e")
+	else:
+		if not itemdata_map.has(itemdata.name) and itemdata.category == "Evidence":
+			itemdata_map[itemdata.name] = itemdata
+			entry_evi.append_text("[url=" + itemdata.name + "]" + itemdata.name + "[/url]\n")
+			emit_signal("update_score_e")
 	return
 
-func update_location(place):
-	if itemdata_map.has(place.name):
-		print("Entry already exists.")
-		return
-	
-	itemdata_map[place.name] = place
-	entry_loc.append_text("[url=" + place.name + "]" + place.name + "[/url]\n")
+func update_location(itemdata):
+	if itemdata is Array:
+		for info in itemdata:
+			if not itemdata_map.has(info.name) and info.category == "Location":
+				itemdata_map[info.name] = info
+				entry_loc.append_text("[url=" + info.name + "]" + info.name + "[/url]\n")
+	else:
+		if not itemdata_map.has(itemdata.name) and itemdata.category == "Location":
+			itemdata_map[itemdata.name] = itemdata
+			entry_loc.append_text("[url=" + itemdata.name + "]" + itemdata.name + "[/url]\n")
 	return
 
 func _on_entry_clicked(meta):

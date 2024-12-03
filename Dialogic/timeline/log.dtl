@@ -1,0 +1,8 @@
+Operator: Welcome to Cognito! This is a game about teaching people how to enhance their critical thinking skills.
+Operator: How does it work? Simple—by putting you, the player, in the shoes of a detective.
+Operator: As a detective, you'll rely on essential critical thinking skills like Observation, Analysis, Inference, Communication, and Evaluation to crack cases and uncover the truth.
+Operator: Good luck and have fun!
+Hugh: Ok...
+Hugh: I think I should start with meeting the captain.
+[signal arg="O"]
+[signal arg="Complete"]

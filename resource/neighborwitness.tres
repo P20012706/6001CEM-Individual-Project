@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InfoData" load_steps=2 format=3 uid="uid://brj4exce0m8xq"]
+
+[ext_resource type="Script" path="res://interactables/info_data.gd" id="1_qkrgs"]
+
+[resource]
+script = ExtResource("1_qkrgs")
+name = "Ariel's Witness"
+description = "Miss Ariel saw Isabella going out with someone during the night of the tragedy. This could be Martin"
+path = "res://assets/sprites/notebookimg/neighborimg.png"
+length = 80
+height = 80
+category = "Evidence"
+extracted = false

@@ -1,23 +1,3 @@
-Hugh: Ok, I never expected my 1st case to be so gruesome. Guess they don't call this place Crime Alley for nothing.
-Hugh: I assuming you're the forensic?
-Forensic: Yes I am, and you are?
-Hugh: Detective Hugh Galloway, I just got into this district, care to fill me in?
-Forensic: No knife wounds, no strangle marks so the murder weapon might be something blunt and strong.
-[signal arg="Information"]
-Hugh: Any idea who this is?
-Forensic: Patrolman Henry over there suggest that she's some kind of hostess on TV? What do you think?
-- Let's not jump to conclusions so quickly
-	Forensic: Try to find some sort of evidence to pinpoint her identity and your job might just get easier
-	jump Point
-- Yeah probably
-	Forensic: Really? You're just going to assume? You know the 1st rule of Detective work is not to make quick assumptions
-	jump Point
-label Point
-Forensic: Also there's sign of jewellery being forcefully if you look at the victim's right ring finger. Probably  a wedding ring.
-Hugh: Time of death?
-Forensic: From the wounds, I would assume around 2\:00 am but I need to get back to the lab for the real results.
-Hugh: Any eye-witnesses?
-Forensic: See that hobo beside Patrolman Henry? He's your man.
-[signal arg="Information"]
-Hugh: Alright, thanks.
-[signal arg="Progress"]
+Hugh: This is not what I expected for my first day of work. Ugh.
+Hugh: Hmm I should just ask the forensic for the details.
+[signal arg="Complete"]

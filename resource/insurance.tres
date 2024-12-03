@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InfoData" load_steps=2 format=3 uid="uid://cylk1smlbl8pf"]
+
+[ext_resource type="Script" path="res://interactables/info_data.gd" id="1_kdf2s"]
+
+[resource]
+script = ExtResource("1_kdf2s")
+name = "Insurance Letter"
+description = "I found an insurance letter on the countertop detailing a $200,000 payout to Nathan Carrington. It seems overlooked, but the timing raises questions. With a family connection involved, this could hint at motives tied to financial gain and personal relationships. I need to explore this further; it feels crucial to the case. "
+path = "res://assets/sprites/notebookimg/insuranceimg.png"
+length = 80
+height = 80
+category = "Evidence"
+extracted = false

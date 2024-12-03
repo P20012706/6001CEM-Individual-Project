@@ -1,38 +1,37 @@
 Hugh: Detective Galloway, what's your name sir?
-Hobo: Piss off, I'm trying to sleep here
-Hugh: It's only going to be just a few minutes
+Hobo: Go away, I'm trying to sleep here.
+Hugh: It’ll only take a few minutes.
 Hobo: What do you want from me?
-Hugh: See that body over there? The police said you're the first on scene and there's other people around
+Hugh: See that body over there? The police said you were the first on the scene, and there’s no one else around.
 Hobo: So?
-Hugh: That makes you a suspect, and if you want to come clear you gotta answer some question.
-Hobo: Just ask and get over with it
+Hugh: That makes you a witness—or a suspect. Answer my questions, and we’ll see where you stand.
+Hobo: Just ask and get over with it.
 label Q
 - What are you doing here?
 	Hobo: Can't you see I live here?
 	- Persuade: He's telling the truth
-		Hugh: I know, but you're our only lead so if you can cooperate maybe you'll get something out of it
-		Hobo: Ok, all I know is I heard an arguement happening here while I was looking for food, it was between 		a man and a woman.
-		[signal arg="Information"]
-		Hugh: Did you saw that faces? Or overheard the content of the arguement
-		Hobo: Nope, I was hungry, couldn't care less about some arguement
-		jump Q
+		Hugh: "I understand, but you’re our only lead. Cooperate, and maybe this won’t take long."  
+		Hobo: "Fine. All I know is I heard an argument between a man and a woman. Didn’t see much—was looking for food."
+		[signal arg="Correct"]
+		jump Q2
 	- Pressure: I think he's hiding something but I don't have evidence
 		Hugh: (leaning closer) Look, I know you saw something. You can help us out here.
 		Hobo: You think I’m hiding something? Why would I care about some couples' drama?
-		jump Q
+		jump Q2
 	- Accuse: I know he's lying and I have the evidence for it
 		Hugh: You're lying, nobody can stand this place not even say to live here
 		Hobo: Do you have any proof?
-		- Yes
-			[text_input var="Response"]
-		if {Response} != "":
+		[text_input var="Response"]
+		if {Response} != "Cancel":
 			Hobo: What kind of proof is that? Hah, sounds like a stretch to me.
-			jump Q
-		- No
+			jump Q2
+		else:
 			Hugh: Sorry for doubting you
+			jump Q
+label Q2
 - Wait, what's that over there?
 	Hobo: Hey give it back.
-	[signal arg="Information"]
+	[signal arg="Info"]
 	Hugh: Wait, where did you get this?
 	Hobo: None of your business
 	Hugh: There's a dead body over there and you're in possession of a stolen earring
@@ -41,9 +40,6 @@ label Q
 		Hobo: Look, I need the money, ok? Please, I'll tell you anything
 		Hugh: Did you see anyone suspicious last night?
 		Hobo: All I saw was a couple arguing I SWEAR!
-		[signal arg="Information"]
-		[signal arg="Progress"]
+		[signal arg="O"]
+		[signal arg="Complete"]
 		[end_timeline]
-- End Conversation
-	[end_timeline]
-	[signal arg="Progress"]

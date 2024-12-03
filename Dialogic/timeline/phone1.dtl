@@ -1,0 +1,7 @@
+Hugh: Alright, let’s see if the Operator can dig up something useful.
+Operator: Detective Hugh? What do you need?
+Hugh: I found an ID card that probably belongs to the victim. Isabella Carrington. Could you look it up for her address for me?
+Operator: Sure thing, be right back with you. 
+Operator: Good job, Detective. The victim’s name matches our records. Isabella Carrington — she lived in on Sunset Drive. I’ll send you the address now. Check your notebook for the location.  
+[signal arg="O"]
+[signal arg="Complete"]

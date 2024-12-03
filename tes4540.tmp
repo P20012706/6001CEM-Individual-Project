@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://bxf5j2ctay2pb"]
+
+[ext_resource type="PackedScene" uid="uid://bkwctt3gs46rm" path="res://interactables/chair.tscn" id="2_gltwg"]
+[ext_resource type="PackedScene" uid="uid://bvjkncfu283tv" path="res://interactables/corpse.tscn" id="3_vjst1"]
+[ext_resource type="PackedScene" uid="uid://cb8vl66q1g7ix" path="res://interface/spawner.tscn" id="5_1pwof"]
+[ext_resource type="PackedScene" uid="uid://7ibdldsfg178" path="res://interactables/victimcar.tscn" id="5_8emw2"]
+[ext_resource type="PackedScene" uid="uid://6d0dv275oe1s" path="res://character/operator.tscn" id="6_g3aaq"]
+[ext_resource type="PackedScene" uid="uid://bbib1ry83putv" path="res://interactables/grate.tscn" id="6_jly2x"]
+[ext_resource type="PackedScene" uid="uid://buw7ttbw6sext" path="res://character/fg2.tscn" id="7_g6imi"]
+
+[node name="testscene" type="Node2D"]
+
+[node name="Chair" parent="." instance=ExtResource("2_gltwg")]
+position = Vector2(276, 514)
+scale = Vector2(2, 2)
+
+[node name="Corpse" parent="." instance=ExtResource("3_vjst1")]
+position = Vector2(217, 314)
+scale = Vector2(2, 2)
+
+[node name="Victimcar" parent="." instance=ExtResource("5_8emw2")]
+position = Vector2(549, 423)
+scale = Vector2(2, 2)
+
+[node name="policenpc" parent="." instance=ExtResource("6_g3aaq")]
+position = Vector2(361, 326)
+scale = Vector2(2, 2)
+
+[node name="Spawner" parent="." instance=ExtResource("5_1pwof")]
+position = Vector2(269, 419)
+
+[node name="Grate" parent="." instance=ExtResource("6_jly2x")]
+position = Vector2(208, 422)
+
+[node name="fg2" parent="." instance=ExtResource("7_g6imi")]
+position = Vector2(420, 475)
+scale = Vector2(2, 2)

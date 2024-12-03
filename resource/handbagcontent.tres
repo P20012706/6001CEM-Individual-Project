@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InfoData" load_steps=2 format=3 uid="uid://cnyjg65c6fvva"]
+
+[ext_resource type="Script" path="res://interactables/info_data.gd" id="1_gaa24"]
+
+[resource]
+script = ExtResource("1_gaa24")
+name = "Handbag Content"
+description = "Inside her handbag, I found an ID card—Isabella Carrington. Nothing unusual, just a name and a face, but something about it feels distant. Along with that, a jewellery receipt. The name on it is 'Martin Rose.' No other clues, but this name... it’s unfamiliar. The receipt’s for an expensive piece, and that’s not something you forget easily. Who is Martin Rose, and what’s his connection to Isabella? Another puzzle piece, or just another dead end?"
+path = "res://assets/sprites/notebookimg/handbagcontentimg.png"
+length = 80
+height = 80
+category = "Evidence"
+extracted = false

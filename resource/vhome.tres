@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_eblwp")
 name = "Victim's Home"
-description = "The Operator managed to get the victim's address, quite a fancy neighborhood."
+description = "The Operator managed to get the victim's address, Sunset Drive. Sounds like a nice place to live, let's go check it out."
 path = "res://assets/sprites/notebookimg/vhomeimg.png"
 length = 80
 height = 80

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="InfoData" load_steps=2 format=3 uid="uid://dr5x2r5hjcwxw"]
+
+[ext_resource type="Script" path="res://interactables/info_data.gd" id="1_md68m"]
+
+[resource]
+script = ExtResource("1_md68m")
+name = "Manager Statement"
+description = "The casino manager confirms that Nathan was at the casino last night, arriving as usual but leaving before midnight—no surprise given his quick losses. However, his departure was unusual; just before he left, someone mocked him at the table, taunting him about his failures and his wife’s infidelity.
+Furious, Nathan stormed out, ready to snap. The manager notes that this inappropriate behavior, along with hitting his debt limit, led to his removal from the casino."
+path = "res://assets/sprites/notebookimg/managerimg.png"
+length = 80
+height = 80
+category = "Evidence"
+extracted = false

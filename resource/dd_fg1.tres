@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=5 format=3 uid="uid://bxhykfegm8fwm"]
+
+[ext_resource type="Resource" path="res://Dialogic/timeline/Martin1.dtl" id="1_v261g"]
+[ext_resource type="Resource" path="res://Dialogic/timeline/Martin2.dtl" id="2_fp7su"]
+[ext_resource type="Resource" path="res://Dialogic/timeline/Martin3.dtl" id="3_dvgpp"]
+[ext_resource type="Script" path="res://character/dialogue_data.gd" id="4_jqbav"]
+
+[resource]
+script = ExtResource("4_jqbav")
+dialogue_array = Array[Resource]([ExtResource("1_v261g"), ExtResource("2_fp7su"), ExtResource("3_dvgpp")])
+infodata_array = Array[Resource]([])
+index = 0

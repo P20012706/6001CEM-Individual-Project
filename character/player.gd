@@ -93,7 +93,6 @@ func _interact():
 		if collider is ChairArea:
 			$CollisionShape2D.disabled = true
 			global_position = collider.global_position
-			print("Chair interaction registered.")
 			$AnimatedSprite2D.play("sit")
 			rayvalue = Vector2(50, 0)
 			$RayCast2D.set_target_position(rayvalue)
@@ -114,7 +113,6 @@ func _interact():
 		
 		elif collider.is_in_group("map"):
 			collider.travel()
-			print("Map")
 
 func disable_input():
 	player_state = State.DISABLED

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://05fqjfy12onu"]
+
+[ext_resource type="Script" path="res://character/talkarea.gd" id="1_ovcd7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpqd1"]
+size = Vector2(32, 48)
+
+[node name="TalkArea" type="Area2D" groups=["npc"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_ovcd7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["npc"]]
+shape = SubResource("RectangleShape2D_cpqd1")
+debug_color = Color(0.772549, 0.266667, 0.87451, 0.419608)

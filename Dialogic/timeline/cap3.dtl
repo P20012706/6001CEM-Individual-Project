@@ -1,0 +1,14 @@
+Captain: So, detective, you've reached the end of the line. It's time to make the call. Who are we pressing charges against?
+- Martin
+	Player: I've decided to press charges against Martin.
+	Captain: You’ve made the right call. Martin Rose may seem like just another suspect, but you saw through him.
+	Captain: He’s not exactly the innocent man he wants us to believe. There’s a trail of complaints—intimidation, coercion, manipulation. He’s no stranger to bending the rules to serve himself. You’ve proven you can see the bigger picture. Good judgement.
+	jump End
+- Nathan
+	Player: I've decided to press charges against Nathan.
+	Captain: Interesting choice. Nathan’s involvement is undeniable, but sometimes it’s better to look past the hard evidence and ask why. Still, justice has to follow the evidence, and you made your call. Let’s hope it holds up in court.
+	jump End
+	
+label End
+Captain: This was more than a case, detective—it was a test of your instincts. You did well, even if the pieces didn’t all fall into place. We’ll be keeping a closer eye on you. Now, take some rest. Tomorrow’s another day.
+[signal arg="Complete"]

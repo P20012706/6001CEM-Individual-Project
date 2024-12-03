@@ -1,9 +1,13 @@
 extends Node
 
+@onready var transition = "res://interface/scene_transition.tscn"
+
 var mid_dialogue = false
-signal progress_dialogue
 signal add_entry
 signal update_score_q
+signal fade
+signal update_o
+signal ending
 
 func start_dialogue(dialogue):
 	if mid_dialogue:
@@ -28,21 +32,25 @@ func on_dialogic_signal(arguement: String):
 	match arguement:
 		"Complete":
 			mid_dialogue = false
-			print("Dialogue Complete, but no Progress.")
-
-		"Progress":
-			mid_dialogue = false
-			emit_signal("progress_dialogue")
+			print("Dialogue Complete")
 		
-		"Information":
+		"Info":
 			emit_signal("add_entry")
 		
 		"Correct":
 			emit_signal("update_score_q")
+		
+		"O":
+			emit_signal("update_o")
+		
+		"Fade":
+			emit_signal("fade")
+		
+		"Outro":
+			emit_signal("ending")
 
 func progression(dialogue):
 	if dialogue.index < dialogue.dialogue_array.size() - 1:
 		dialogue.index += 1
-		print("Progressing to next")
 	elif dialogue.index == dialogue.dialogue_array.size() - 1:
 		dialogue.dialogue_array.back()

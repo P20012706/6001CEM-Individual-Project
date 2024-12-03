@@ -1,9 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://6d0dv275oe1s"]
+[gd_scene load_steps=12 format=3 uid="uid://6d0dv275oe1s"]
 
 [ext_resource type="Texture2D" uid="uid://dfdbxuvjs354a" path="res://assets/sprites/NPC Spritesheet.png" id="1_2cs7o"]
-[ext_resource type="Script" path="res://character/operator.gd" id="1_en350"]
+[ext_resource type="Script" path="res://character/BaseNPC.gd" id="1_op08w"]
+[ext_resource type="Resource" path="res://Dialogic/timeline/operator.dtl" id="2_0j6oe"]
 [ext_resource type="Script" path="res://character/talkarea.gd" id="2_at5kg"]
-[ext_resource type="Resource" uid="uid://ciogmmcsn2bc" path="res://resource/dd_policenpc.tres" id="2_t7hr3"]
+[ext_resource type="Script" path="res://character/dialogue_data.gd" id="3_hxq61"]
+[ext_resource type="Resource" path="res://Dialogic/timeline/operator2.dtl" id="3_u8ppw"]
+
+[sub_resource type="Resource" id="Resource_aji40"]
+script = ExtResource("3_hxq61")
+dialogue_array = Array[Resource]([ExtResource("2_0j6oe"), ExtResource("3_u8ppw")])
+infodata_array = Array[Resource]([])
+index = 0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_taiem"]
 atlas = ExtResource("1_2cs7o")
@@ -27,8 +35,8 @@ size = Vector2(10, 20)
 size = Vector2(32, 48)
 
 [node name="policenpc" type="CharacterBody2D" groups=["npc"]]
-script = ExtResource("1_en350")
-dialogues = ExtResource("2_t7hr3")
+script = ExtResource("1_op08w")
+dialogues = SubResource("Resource_aji40")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xe2di")

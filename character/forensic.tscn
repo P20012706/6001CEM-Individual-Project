@@ -1,9 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://dxho0bu3c4dnw"]
+[gd_scene load_steps=15 format=3 uid="uid://dxho0bu3c4dnw"]
 
+[ext_resource type="Script" path="res://character/BaseNPC.gd" id="1_0ikde"]
 [ext_resource type="Texture2D" uid="uid://dfdbxuvjs354a" path="res://assets/sprites/NPC Spritesheet.png" id="1_e8c6m"]
-[ext_resource type="Script" path="res://character/forensic.gd" id="1_fevo8"]
-[ext_resource type="Resource" uid="uid://dwht5kny48wjp" path="res://resource/dd_forensic.tres" id="2_fg8pv"]
+[ext_resource type="Resource" path="res://Dialogic/timeline/forensic.dtl" id="2_aq7db"]
+[ext_resource type="Resource" path="res://Dialogic/timeline/forensic2.dtl" id="3_6umsb"]
+[ext_resource type="Resource" uid="uid://c3f2wjnee6ji5" path="res://resource/injuries.tres" id="4_0j3nm"]
 [ext_resource type="Script" path="res://character/talkarea.gd" id="4_ao8hl"]
+[ext_resource type="Resource" uid="uid://wdajt4ey0gjx" path="res://resource/hobo.tres" id="5_wokdl"]
+[ext_resource type="Script" path="res://character/dialogue_data.gd" id="6_vxug0"]
+
+[sub_resource type="Resource" id="Resource_qxohs"]
+script = ExtResource("6_vxug0")
+dialogue_array = Array[Resource]([ExtResource("2_aq7db"), ExtResource("3_6umsb")])
+infodata_array = Array[Resource]([ExtResource("4_0j3nm"), ExtResource("5_wokdl")])
+index = 0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uhkof"]
 atlas = ExtResource("1_e8c6m")
@@ -30,12 +40,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rhubx"]
 size = Vector2(10, 19)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2dkdr"]
-size = Vector2(32, 48)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qkclu"]
+size = Vector2(32, 49)
 
 [node name="forensic" type="CharacterBody2D"]
-script = ExtResource("1_fevo8")
-dialogues = ExtResource("2_fg8pv")
+script = ExtResource("1_0ikde")
+dialogues = SubResource("Resource_qxohs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xe2di")
@@ -51,7 +61,8 @@ collision_mask = 0
 script = ExtResource("4_ao8hl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TalkArea"]
-shape = SubResource("RectangleShape2D_2dkdr")
-debug_color = Color(0.772549, 0.266667, 0.87451, 0.419608)
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_qkclu")
+debug_color = Color(0.721569, 0.333333, 0.862745, 0.419608)
 
 [connection signal="start_talking" from="TalkArea" to="." method="_on_talk_area_start_talking"]

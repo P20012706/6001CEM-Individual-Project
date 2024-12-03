@@ -1,26 +1,41 @@
 extends Node2D
-@export var infodata: InfoData
-@export var infodata2: InfoData
+@export var dialoguedata: DialogueData
+
+func _ready():
+	if dialoguedata:
+		PersistentDataHandler.set_resource(dialoguedata)
+		PersistentDataHandler.get_value()
+		apply_persistent_data()
+
+func apply_persistent_data():
+	var persistent_data = SaveManager.get_persistent_data(dialoguedata)
+	if persistent_data.has("dialogue_index"):
+		dialoguedata.index = persistent_data["dialogue_index"]
+		print("Dialogue index restored to:", dialoguedata.index)
 
 func _on_corpse_area_first_interaction():
-	if infodata.extracted == false and infodata2.extracted == false:
-		Dialogic.start("corpse")
-		GlobalEventBus.emit_signal("people_entry", infodata)
-		GlobalEventBus.emit_signal("evidence_entry", infodata2)
-		infodata.extracted = true
-		infodata2.extracted = true
-	
-	else:
-		#Add another Dialogic Timeline(Self-Monologue) that says you checked this
-		print("You have already interacted.")
+	if dialoguedata != null:
+		var new_info_found := false
+
+		for infodata in dialoguedata.infodata_array:
+			if infodata != null and not infodata.extracted:
+				GlobalEventBus.emit_signal("people_entry", dialoguedata.infodata_array[0])
+				GlobalEventBus.emit_signal("evidence_entry", dialoguedata.infodata_array[1])
+				infodata.extracted = true
+				new_info_found = true
+
+		if new_info_found:
+			DialogueManager.start_dialogue(dialoguedata)
+		else:
+			DialogueManager.start_dialogue(dialoguedata)
 
 func get_infodata():
-	return infodata
-	return infodata2
+	return dialoguedata.infodata_array[0]
+	return dialoguedata.infodata_array[1]
 
 func set_infodata():
-	infodata.extracted = true
-	infodata2.extracted = true
-	GlobalEventBus.emit_signal("people_entry", infodata)
-	GlobalEventBus.emit_signal("evidence_entry", infodata2)
+	dialoguedata.infodata_array[0].extracted = true
+	dialoguedata.infodata_array[1].extracted = true
+	GlobalEventBus.emit_signal("people_entry", dialoguedata.infodata_array[0])
+	GlobalEventBus.emit_signal("evidence_entry", dialoguedata.infodata_array[1])
 	

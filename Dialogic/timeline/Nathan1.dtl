@@ -1,0 +1,69 @@
+Hugh: Nathan Carrington? I need a word. Your wife, Isabella Carrington, was found dead this morning. You’re now the primary suspect in her murder.
+Nathan (Shocked): W-What? Isabella’s... dead? No, no... that can’t be true.
+Hugh: It’s true. And now, I need some answers. Let’s start.
+label Q1
+Hugh: Where were you yesterday night?
+Nathan (Default): I was... I was home, sleeping.
+- Persuade
+	Hugh: Really? That’s all you’ve got? Sleeping at home while your wife was murdered? Convince me.
+	Nathan: (defensive) I told you, I was home. I didn’t do anything to Isabella!
+	jump Q2
+
+- Pressure
+	Hugh: Lying is not going to help your case. Where were you really?
+	Nathan: I told you! I was at home. That’s the truth!
+	jump Q2
+
+- Accuse
+	[text_input var="Response"]
+	if {Response} == "Neighbor Statement":
+		Hugh: Don’t lie to me, Nathan. Miss Ariel saw you arguing with Isabella a few days ago and got kicked out. Care to explain?
+		Nathan: (stammering) I... Fine. Yes, I got kicked out. So what? The casino was the only place worth going. I got no where else to be. You're looking at the wrong guy.
+		[signal arg="Correct"]
+		jump Q2
+	elif {Response} == "Cancel":
+		Hugh: Sorry about that.
+		jump Q1
+	else:
+		Nathan: This is not evidence, just slander.
+		jump Q2
+
+label Q2
+Hugh: What about your financial state, Nathan? Can you explain that?
+Nathan: My financial state? It’s great. I just need a couple of big wins and I'll be set for the day.
+- Persuade
+	Hugh: You’re dodging the question. “Great” doesn’t cut it. Tell me the truth.
+	Nathan: I don’t have to explain my finances to you! What are you, the IRS?
+	jump End
+
+- Pressure
+	Hugh: Enough of the vague answers. Start being honest. How bad is it?
+	Nathan: (defensive) I said I’m doing okay. That’s the truth!
+	jump End
+
+- Accuse
+	[text_input var="Response"]
+	if {Response} == "Gambling Debts":
+		Hugh: Don’t play dumb, Nathan. This gambling debt here says otherwise. You’ve maxed out your limit, haven’t you?
+		Nathan: (sighs) Fine. Yes, I have debts. But that has nothing to do with Isabella!
+		Hugh: Oh, really? A mountain of debt and a wife thats live a luxurious life. Sounds a good pair to me.  
+		Nathan: (defensive) No! That’s not what happened. I was... I was trying to handle it myself. I wouldn’t hurt her!  
+		Hugh: Handle it? How? By gambling your life away? Face it, Nathan, every path leads back to you.  
+		Nathan: (shaking his head) You don’t understand! Isabella was trying to leave me, and I couldn’t take it, but I didn’t kill her!  
+		[signal arg="Correct"]
+		jump End
+	elif {Response} == "Cancel":
+		Hugh: Sorry about that.
+		jump Q2
+	else:
+		Nathan: This is not evidence, just slander.
+		jump End
+
+label End
+Hugh: That’s all I need for now. But I need to investigate your belongings. Where’s your vehicle?
+Nathan: My car? It’s the orange sedan parked right there.
+Hugh: Nathan Carrington, you’re still a primary suspect in Isabella’s murder.
+Hugh: Get yourself sitted at Greyborough P.D. We're not done yet.
+[signal arg="Fade"]
+[signal arg="O"]
+[signal arg="Complete"]

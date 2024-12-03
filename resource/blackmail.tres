@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InfoData" load_steps=2 format=3 uid="uid://t30cchci31um"]
+
+[ext_resource type="Script" path="res://interactables/info_data.gd" id="1_u31p4"]
+
+[resource]
+script = ExtResource("1_u31p4")
+name = "Blackmail Material"
+description = "The blackmail material... it’s practically a death wish wrapped in paper and ink. She must’ve thought she had control, but in this city, power like this doesn’t just come with strings attached—it’s a noose."
+path = "res://assets/sprites/notebookimg/blackmailimg.png"
+length = 80
+height = 80
+category = "Evidence"
+extracted = false

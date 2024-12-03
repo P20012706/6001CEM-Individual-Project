@@ -1,0 +1,95 @@
+Hugh: Good morning, ma’am. I’m Detective Hugh Galloway. I’d like to ask you a few questions.
+Hugh: I’m here regarding Isabella Carrington’s death. I understand you lived next door?
+Ariel: (pauses briefly) Indeed. It’s dreadful, truly. She didn’t deserve such a fate.
+Hugh: I’ll need your cooperation to help piece together what happened. Let’s start with a few questions.
+
+label Q1
+Hugh: Can you tell me about Isabella’s personal life? Anything unusual or troubling?
+Ariel: (speaking carefully) Well... Isabella had a glamorous life, but not all glitters, Detective. She was married to Nathan, but her relationship wasn’t... perfect, shall we say?
+
+- Persuade
+	Ariel: (reserved) I’ve already told you what I know. Isn’t that enough?
+	Hugh: If that’s all you’re willing to share, I’ll leave it at that—for now.
+	jump Q2
+
+- Pressure
+	Ariel: (sighs) Fine. Their marriage was falling apart. Isabella... started seeing another man recently. I thought it might bring her happiness, but perhaps it caused more harm.
+	Hugh: That’s more helpful, Miss Ariel. Thank you for being honest.
+	[signal arg="Correct"]
+	jump Q2
+
+- Accuse
+	[text_input var="Response"]
+	if {Response} != "Cancel":
+		Ariel: (offended) How dare you suggest that? I’m trying to help, not hinder your investigation!
+		Hugh: My apologies. I don’t mean to offend, but I have to explore every angle.
+		jump Q2
+	else:
+		Hugh: Sorry about that.
+		jump Q1
+
+label Q2
+Hugh: Did you notice anything unusual happened in the days leading up to the murder?
+Ariel: (a measured tone) Just the usual quarrels, nothing serious.
+
+- Persuade
+	Ariel: (shrugs) I already told you. Nothing worth noting besides a little argument.
+	Hugh: Alright, but if you remember anything else, please let me know.
+	jump Q3
+
+- Pressure
+	Ariel: (looks away) I heard a commotion between Isabella and her husband. But couples argue all the time, don’t they?
+	Hugh: Arguments can be telling, Miss Ariel. Even small details might lead to something bigger.
+	jump Q3
+
+- Accuse
+	[text_input var="Response"]
+	if {Response} == "Broken Window":
+		Hugh: You’re lying. The broken window proves there was more than a simple argument.
+		Ariel: (sighs, giving in) Alright, yes. Isabella had a fight with Nathan a few nights ago. She kicked him out, said she couldn’t bear to look at him anymore.
+		Hugh: That’s what I needed to know. It helps paint a clearer picture between them.
+		[signal arg="Correct"]
+		[signal arg="Info"]
+		jump Q3
+	elif {Response} == "Cancel":
+		Hugh: Sorry about that.
+		jump Q2
+	else:
+		Ariel: This is absurd! How dare you make such baseless accusations against me!
+		jump Q3
+
+
+label Q3
+Hugh: Miss Ariel, one last thing. Did you see Miss Isabella yesterday, or anything unusual about her?
+Ariel: Hmm, Detective, I’m not sure what you’re hoping to find out. I don’t make it my business to spy on my neighbours.
+
+- Persuade
+	Hugh: I understand, Miss Ariel. But even small details can help. Did you notice anything—perhaps her mood or who she was with?
+	Ariel: Honestly, I didn’t pay much attention. She seemed normal to me, just busy as usual. I really can’t say more than that.
+	[signal arg="O"]
+	[signal arg="Complete"]
+	[end_timeline]
+
+- Pressure
+	Hugh: You’re holding something back, Miss Ariel. If you know something, now’s the time to come clean.
+	Ariel: Well, if you must know, I did see her leaving in the evening. She was with a man, dressed very formally. Looked like they were going out on a date.
+	Hugh: Any more details?
+	Ariel: The guy had brown hair and I think they left around 6:00 pm yesterday.
+	Hugh: Thank you, Miss Ariel. You been a great help.
+	[signal arg="Correct"]
+	[signal arg="Info"]
+	[signal arg="O"]
+	[signal arg="Complete"]
+	[end_timeline]
+
+- Accuse
+	[text_input var="Response"]
+	if {Response} != "Cancel":
+		Hugh: You saw her, didn’t you? And you know exactly who she was with!
+		Ariel: That’s absurd! How dare you make such baseless accusations against me!
+		[signal arg="O"]
+		[signal arg="Complete"]
+		[end_timeline]
+	else:
+		Hugh: Sorry about that.
+		jump Q3

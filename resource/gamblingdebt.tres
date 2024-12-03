@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InfoData" load_steps=2 format=3 uid="uid://dtqmge8w11i4m"]
+
+[ext_resource type="Script" path="res://interactables/info_data.gd" id="1_ljpnw"]
+
+[resource]
+script = ExtResource("1_ljpnw")
+name = "Gambling Debt"
+description = "A brick through the window, and tied to it, a note. The message was simple—'PAY UP OR ELSE.' No name, no context, just a cold, hard threat. Whoever is behind this isn’t playing games. It’s a message, and I’m betting the sender is tied up in all this mess somehow. But the question is... who exactly?"
+path = "res://assets/sprites/notebookimg/brickwnoteimg.png"
+length = 80
+height = 80
+category = "Evidence"
+extracted = false

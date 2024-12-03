@@ -5,8 +5,9 @@
 [resource]
 script = ExtResource("1_xxde8")
 name = "Bludgeon Injuries"
-description = "Blunt force injuries to head and face of victim."
+description = "Blunt force trauma to the head and face suggests repeated strikes with a heavy object. Signs of forced removal of a wedding ring are evident on the victim's right ring finger. "
 path = "res://assets/sprites/notebookimg/victimimg.png"
 length = 80
 height = 80
 category = "Evidence"
+extracted = false

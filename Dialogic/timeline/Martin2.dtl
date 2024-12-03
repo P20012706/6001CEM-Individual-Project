@@ -1,0 +1,75 @@
+label Q1
+Hugh: Let’s cut to the chase, Martin. What exactly were you doing in Isabella’s house?  
+Martin: (sighs) Fine. I was trying to erase anything that could incriminate me. She had... records, okay? Things that could destroy me.  
+
+- Persuade  
+	Hugh: Martin, if it was just about protecting yourself, you wouldn’t have been so reckless. What did she have on you?  
+	Martin: (hesitates) She had evidence of my... mistakes. Financial missteps. Affairs. Things that could ruin my career. I couldn’t let that come out.
+	Martin: Isabella is an opportunist, her husband's downfall changed her and now she had to resort to this to get back to what her life once was.
+	Hugh: Do you know who was she meeting?
+	Martin: No clue, probably another victim of her blackmail if I were to guess.
+	[signal arg="Correct"]  
+	jump Q2  
+
+- Pressure  
+	Hugh: You expect me to believe you broke into her house just to tidy up some records? What was it, Martin? What was so damning?  
+	Martin: (defensive) I told you! She had dirt on me. I just wanted it gone before anyone else saw it.  
+	jump Q2  
+
+- Accuse
+	[text_input var="Response"]
+	if {Response} != "Cancel":
+		Hugh: Spare me the excuses. You were caught red-handed trying to destroy blackmail material. That’s not something you can just explain away.  
+		Martin: (glares) You’re reaching, Detective. Unless you can prove I was destroying evidence, you’ve got nothing on me.  
+		jump Q2
+	else:
+		Hugh: Sorry about that.
+		jump Q1
+
+
+label Q2
+Hugh: Fine. Let’s move on. What about the bloody clothes found in your car? Care to explain that?  
+Martin: (nervously) I... I don’t know what you’re talking about.  
+
+- Persuade  
+	Hugh: Look, Martin. If you’re being honest, now’s the time to prove it. Help me understand how those clothes ended up in your car.  
+	Martin: (hesitates) I’m telling you, Detective, I don’t know! They’re not mine. Someone must have planted them.
+	jump End
+
+- Pressure  
+	Hugh: Martin, this story of yours isn’t holding up. Bloody clothes don’t just show up in someone’s car by accident. What aren’t you telling me?  
+	Martin: (frustrated) I swear, I don’t know! Maybe... someone’s trying to frame me or something!
+	jump End
+
+- Accuse
+	[text_input var="Response"]
+	if {Response} == "Bloody Clothes":
+		Hugh: Enough with the lies, Martin. You were there, weren’t you? Those clothes are evidence, not a coincidence.  
+		Martin: (sighs deeply) Fine. Yes, I got mugged outside the bar. Some guy jumped me — I don’t even know who. He roughed me up pretty bad. That’s where the blood came from, I swear! It wasn’t murder.
+		[signal arg="Correct"]
+		jump End
+
+	elif {Response} == "Cancel":
+		Hugh: Sorry about that.
+		jump Q2
+	else:
+		Martin: I don't think you are making the correct accusations.
+		jump End
+
+
+label End
+	Hugh: You really think I would just believe that?
+	Martin: Look, you're new here right? Listen, this is Greyborough and Crime Alley you're talking about, no ones goes there and gets out cleanly. To be honest, this is just a good riddance.
+Martin: (bitterly) Look, Detective, you don’t know Isabella like I do. She wasn’t some angel. She was a thorn by my side.  
+	Hugh: (pressing) Thorn by your side? Sounded like you two were close.  
+	Martin: (laughs coldly) Close? Is that what you think? No, Detective, she didn’t care about me. She just wanted to leech off me, take what she could to gain for herself.  
+	Hugh: Blackmail. That’s what you’re saying, isn’t it?  
+	Martin: (reluctantly nods) Yeah. She dug up dirt on me, enough to ruin everything I’ve built. All so she could keep me in her pocket.  
+	Hugh: And now you’re glad she’s dead?  
+	Martin: (pauses, then smirks) Glad? I’m relieved, Detective. That thorn is finally gone.  
+	Hugh: (firmly) That’s quite a statement, Martin. Almost like a confession.  
+	Martin: (snaps back) Confession? You’ve got nothing on me! I didn’t kill her. Am I happy she’s gone? Sure. But that doesn’t mean I did it.  
+	Hugh: (staring him down) We’ll see, Martin. We’ll see.
+	Hugh: That’ll do for now. You’ve been cooperative, but don’t think this clears your name. We’re far from done here.
+	[signal arg="O"]
+	[signal arg="Complete"]

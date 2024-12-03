@@ -1,28 +1,46 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxf5j2ctay2pb"]
+[gd_scene load_steps=10 format=3 uid="uid://bxf5j2ctay2pb"]
 
 [ext_resource type="PackedScene" uid="uid://bkwctt3gs46rm" path="res://interactables/chair.tscn" id="2_gltwg"]
+[ext_resource type="PackedScene" uid="uid://dtqlpfdspsxjh" path="res://interactables/phonebooth.tscn" id="3_3tc3w"]
 [ext_resource type="PackedScene" uid="uid://bvjkncfu283tv" path="res://interactables/corpse.tscn" id="3_vjst1"]
 [ext_resource type="PackedScene" uid="uid://cb8vl66q1g7ix" path="res://interface/spawner.tscn" id="5_1pwof"]
 [ext_resource type="PackedScene" uid="uid://7ibdldsfg178" path="res://interactables/victimcar.tscn" id="5_8emw2"]
-[ext_resource type="PackedScene" uid="uid://6d0dv275oe1s" path="res://character/operator.tscn" id="6_g3aaq"]
+[ext_resource type="PackedScene" uid="uid://dnaxkg22gqxs4" path="res://interactables/trash.tscn" id="6_ebq8f"]
+[ext_resource type="PackedScene" uid="uid://bbib1ry83putv" path="res://interactables/grate.tscn" id="6_jly2x"]
+[ext_resource type="PackedScene" uid="uid://bvryw5sm1ljhj" path="res://interactables/fg1car.tscn" id="8_35jw7"]
+[ext_resource type="PackedScene" uid="uid://ddabgwr81jowt" path="res://character/cap.tscn" id="9_p4ssv"]
 
 [node name="testscene" type="Node2D"]
 
 [node name="Chair" parent="." instance=ExtResource("2_gltwg")]
-position = Vector2(211, 227)
+position = Vector2(272, 546)
 scale = Vector2(2, 2)
 
 [node name="Corpse" parent="." instance=ExtResource("3_vjst1")]
-position = Vector2(482, 233)
+position = Vector2(402, 561)
 scale = Vector2(2, 2)
 
 [node name="Victimcar" parent="." instance=ExtResource("5_8emw2")]
 position = Vector2(549, 423)
 scale = Vector2(2, 2)
 
-[node name="policenpc" parent="." instance=ExtResource("6_g3aaq")]
-position = Vector2(514, 129)
+[node name="Spawner" parent="." instance=ExtResource("5_1pwof")]
+position = Vector2(269, 419)
+
+[node name="Grate" parent="." groups=["evidence"] instance=ExtResource("6_jly2x")]
+position = Vector2(155, 425)
 scale = Vector2(2, 2)
 
-[node name="Spawner" parent="." instance=ExtResource("5_1pwof")]
-position = Vector2(344, 217)
+[node name="Trash" parent="." instance=ExtResource("6_ebq8f")]
+position = Vector2(402, 339)
+scale = Vector2(2, 2)
+
+[node name="phonebooth" parent="." instance=ExtResource("3_3tc3w")]
+position = Vector2(270, 263)
+scale = Vector2(2, 2)
+
+[node name="fg1car" parent="." instance=ExtResource("8_35jw7")]
+position = Vector2(159, 302)
+
+[node name="cap" parent="." groups=["npc"] instance=ExtResource("9_p4ssv")]
+position = Vector2(323, 416)

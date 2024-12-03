@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://conhkb64vge5d"]
+
+[ext_resource type="AudioStream" uid="uid://clwec656mks5q" path="res://assets/music/Investigation Theme.mp3" id="1_aoowl"]
+
+[node name="BGM" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_aoowl")
+autoplay = true
+bus = &"BGM"

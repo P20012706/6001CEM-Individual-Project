@@ -24,6 +24,7 @@ overrides = {}
 script = ExtResource("2_xy50y")
 scene = ExtResource("4_vssxj")
 overrides = {
+"box_size": "Vector2(800, 200)",
 "name_label_custom_size": "12.0",
 "text_custom_size": "12.0"
 }
@@ -62,4 +63,4 @@ base_overrides = {
 "global_font_size": "20.0"
 }
 layers = Array[ExtResource("2_xy50y")]([SubResource("Resource_tpthr"), SubResource("Resource_0k0tb"), SubResource("Resource_bilf8"), SubResource("Resource_m5t24"), SubResource("Resource_hto0m"), SubResource("Resource_6ytgn"), SubResource("Resource_874kt")])
-metadata/_latest_layer = 3
+metadata/_latest_layer = 2

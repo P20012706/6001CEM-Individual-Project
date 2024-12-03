@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=4 format=3 uid="uid://c4nl2tjtl0urv"]
+
+[ext_resource type="Resource" path="res://Dialogic/timeline/Martin1.dtl" id="1_wyqnp"]
+[ext_resource type="Resource" path="res://Dialogic/timeline/repeat.dtl" id="2_8ltvh"]
+[ext_resource type="Script" path="res://character/dialogue_data.gd" id="3_4k813"]
+
+[resource]
+script = ExtResource("3_4k813")
+dialogue_array = Array[Resource]([ExtResource("1_wyqnp"), ExtResource("2_8ltvh")])
+infodata_array = Array[Resource]([])
+index = 0

@@ -1,6 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxklr46wqc5ds"]
+[gd_scene load_steps=14 format=3 uid="uid://bxklr46wqc5ds"]
 
 [ext_resource type="Texture2D" uid="uid://dfdbxuvjs354a" path="res://assets/sprites/NPC Spritesheet.png" id="1_hbttm"]
+[ext_resource type="Script" path="res://character/BaseNPC.gd" id="1_wdvlq"]
+[ext_resource type="Resource" path="res://Dialogic/timeline/neighbor.dtl" id="2_t5e2a"]
+[ext_resource type="Resource" path="res://Dialogic/timeline/neighbor2.dtl" id="3_ci8d6"]
+[ext_resource type="Resource" uid="uid://umc0xcf7uwud" path="res://resource/neighborstatement.tres" id="4_yqo6n"]
+[ext_resource type="Resource" uid="uid://brj4exce0m8xq" path="res://resource/neighborwitness.tres" id="5_wwqio"]
+[ext_resource type="Script" path="res://character/dialogue_data.gd" id="6_qwx1m"]
+[ext_resource type="PackedScene" uid="uid://05fqjfy12onu" path="res://scripts/talk_area.tscn" id="8_jj60w"]
+
+[sub_resource type="Resource" id="Resource_g0iko"]
+script = ExtResource("6_qwx1m")
+dialogue_array = Array[Resource]([ExtResource("2_t5e2a"), ExtResource("3_ci8d6")])
+infodata_array = Array[Resource]([ExtResource("4_yqo6n"), ExtResource("5_wwqio")])
+index = 0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1su3f"]
 atlas = ExtResource("1_hbttm")
@@ -20,7 +33,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_t0net")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"default",
 "speed": 2.0
 }]
 
@@ -28,12 +41,16 @@ animations = [{
 size = Vector2(10, 15)
 
 [node name="neighbor" type="CharacterBody2D"]
+script = ExtResource("1_wdvlq")
+dialogues = SubResource("Resource_g0iko")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xe2di")
-animation = &"idle"
-frame_progress = 0.281977
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8.5)
 shape = SubResource("RectangleShape2D_rhubx")
+
+[node name="TalkArea" parent="." instance=ExtResource("8_jj60w")]
+
+[connection signal="start_talking" from="TalkArea" to="." method="_on_talk_area_start_talking"]

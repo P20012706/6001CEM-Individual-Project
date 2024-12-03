@@ -1,8 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://ck5s725jv6rxh"]
+[gd_scene load_steps=10 format=3 uid="uid://ck5s725jv6rxh"]
 
-[ext_resource type="Script" path="res://interactables/bin.gd" id="1_idtg0"]
+[ext_resource type="Script" path="res://interactables/misc.gd" id="1_idtg0"]
 [ext_resource type="Texture2D" uid="uid://bj8no4gol5kta" path="res://assets/sprites/Interactables.png" id="2_meado"]
+[ext_resource type="Resource" path="res://Dialogic/timeline/misc.dtl" id="2_obesy"]
 [ext_resource type="Script" path="res://interactables/interactarea.gd" id="3_5iuyb"]
+[ext_resource type="Script" path="res://character/dialogue_data.gd" id="3_8goyb"]
+
+[sub_resource type="Resource" id="Resource_yqc84"]
+script = ExtResource("3_8goyb")
+dialogue_array = Array[Resource]([ExtResource("2_obesy")])
+infodata_array = Array[Resource]([])
+index = 0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_moe8e"]
 atlas = ExtResource("2_meado")
@@ -16,6 +24,7 @@ size = Vector2(28, 25.25)
 
 [node name="bin" type="Node2D"]
 script = ExtResource("1_idtg0")
+dialoguedata = SubResource("Resource_yqc84")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_moe8e")
@@ -35,3 +44,5 @@ debug_color = Color(0.823529, 0.160784, 0.890196, 0.419608)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, 11.625)
 shape = SubResource("RectangleShape2D_s6px5")
+
+[connection signal="first_interaction" from="InteractArea" to="." method="_on_interact_area_first_interaction"]

@@ -8,14 +8,18 @@ var minutes: int = 0
 var seconds: int = 0
 var score_e: int = 0
 var score_q: int = 0
-var objectives = ["Objective 1", "Objective 2", "Objective 3"]
+var objectives = ["", "Report To Captain", "Meet Roy", 
+ 				"Identify the victim", "Question the Hobo", "Call Operator with Phone",
+ 				"Check Around the Victim's House", "Ask the Neighbor for Info", 
+ 				"Search The House", "Question the Man in Blue", "Call Operator with Phone",
+ 				"Find the Manager", "Question Nathan","Investigate the Orange Sedan",
+ 				"Question Martin in I.Room 1", "Question Nathan in I.Room 2", "Select One to Press Charges", "Report To Captain Again"]
 var current_objective = 0
 
 func _ready():
 	DialogueManager.update_score_q.connect(_on_notebook_update_score_q)
-	update_objective()
+	DialogueManager.update_o.connect(update_objective)
 
-#Objective
 
 
 #Timer
@@ -25,11 +29,6 @@ func _process(delta) -> void:
 	minutes = fmod(time, 3600) / 60
 	timer.text = "Time Elapsed: " + "%02d : " % minutes + "%02d" % seconds
 	
-	if check_objective():
-		current_objective += 1
-		update_objective()
-	
-
 func stop() -> void:
 	set_process(false)
 
@@ -38,24 +37,13 @@ func get_time_formatted() -> String:
 
 func _on_notebook_update_score_e():
 	score_e += 1
-	score_evi.text = "Evidence Collected: " + str(score_e) + " / 15"
+	score_evi.text = "Evidence Collected: " + str(score_e) + " / 16"
 
 func _on_notebook_update_score_q():
 	score_q += 1
-	score_que.text = "Correct Questions: " + str(score_q) + " / 10"
+	score_que.text = "Correct Questions: " + str(score_q) + " / 16"
 
 func update_objective():
 	if current_objective < objectives.size():
+		current_objective += 1
 		objective.text = "Current Objective: " + objectives[current_objective]
-	
-func check_objective():
-	if current_objective == 0:
-		return Notebookmain.itemdata_map.has("Blood Splash")
-	elif current_objective == 1:
-		#Check
-		return Notebookmain.itemdata_map.has("entry_2")
-	elif current_objective == 2:
-		#check
-		return Notebookmain.itemdata_map.has("entry_3")
-	return false
-	

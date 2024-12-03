@@ -1,0 +1,76 @@
+Hugh: Good evening. Detective Galloway, I’m investigating a case. Mind if I ask you a few questions about one of your patrons, Nathan Carrington?
+Manager: Of course, Detective. Nathan's standing right here in front of me if you want to talk to him. Getting desperate for a big win as usual. What do you need to know?
+
+label Q1
+Hugh: Was Nathan Carrington seen here last night. I need to know if he has an alibi to the crime scene.
+Manager: (calmly) Yes, he was here, as always. Tried his luck but caused a scene after hitting his debt limit.
+- Persuade
+	Hugh: Go on. What's next?
+	Manager: (sighs) He was angry—caused enough of a ruckus to get himself kicked out. Told him he wouldn’t be welcome until he settles what he owes.
+	[signal arg="Correct"]
+	Hugh: Did he leave quietly?
+	Manager: He left shouting about how the tables were "rigged."
+	Hugh: What time was he leaving?
+	Manager: Around 12\:00 am midnight.
+	Hugh: Hmm, that doesn't still put him in the clear.
+	Hugh: Do you have any idea where he might gone to after that?
+	Manager: Why don't you ask him yourself. I only attend to matters within the casino, what happens outside is none of my concern.
+	jump Q2
+
+- Pressure
+	Hugh: You’re running a casino. You don’t want law enforcement snooping around because of him, do you?
+	Manager: Calm down, Detective. I don’t need threats to answer questions. Nathan was here, he got drunk and disorderly, and we kicked him out. That’s all I know.
+	[signal arg="Correct"]
+	Hugh: What time was he leaving?
+	Manager: Around 12\:00 am midnight.
+	Hugh: Hmm, that doesn't still put him in the clear.
+	Hugh: Do you have any idea where he might gone to after that?
+	Manager: Why don't you ask him yourself. I only attend to matters within the casino, what happens after is none of my concern.
+	jump Q2
+
+- Accuse
+	[text_input var="Response"]
+	if {Response} != "Cancel":
+		Hugh: You’re lying. You know something about what Nathan’s been up to!
+		Manager: Excuse me, Detective. I don’t appreciate baseless accusations. If you want cooperation, you need to show respect.
+		jump Q2
+	else:
+		Hugh: Sorry about that.
+		jump Q1
+	
+
+label Q2
+Hugh: What can you tell me about Nathan’s recent behaviour?
+Manager: (reserved) I don’t disclose personal information about my clients.
+
+- Persuade
+	Hugh: I understand your position, but this could be a matter of life and death. Even the smallest detail might help the investigation.
+	Manager: I can’t divulge private matters, Detective. It’s against my principles.
+	[signal arg="O"]
+	[signal arg="Complete"]	
+	[end_timeline]
+
+- Pressure
+	Hugh: This isn’t about protecting your clients—it’s about justice. Nathan might be involved in something much bigger. If you know anything, now’s the time to speak up.
+	Manager: (sighs) Fine. Someone mocked him at the table, called him a failure, and rubbed in that his wife was seeing another man.
+	Manager: He was furious, storming out like he was ready to snap.
+	Hugh: When did this happen?
+	Manager: It all happened yesterday, that's why he was kicked out. Inappropriate behaviour along with hitting the debt limit.
+	Hugh: This is starting to look worse for Nathan.
+	[signal arg="Info"]
+	[signal arg="Correct"]
+	[signal arg="O"]
+	[signal arg="Complete"]
+	[end_timeline]
+
+- Accuse
+	[text_input var="Response"]
+	if {Response} != "Cancel":
+		Hugh: You’re holding back. I know you saw something—you’re trying to cover for him, aren’t you?
+		Manager: (glares) That’s an outrageous accusation. I run a legitimate establishment, Detective. If you keep this up, you’ll find yourself escorted out.
+		[signal arg="O"]
+		[signal arg="Complete"]
+		[end_timeline]
+	else:
+		Hugh: Sorry about that.
+		jump Q2

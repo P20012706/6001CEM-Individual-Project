@@ -1,8 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvryw5sm1ljhj"]
+[gd_scene load_steps=12 format=3 uid="uid://bvryw5sm1ljhj"]
 
-[ext_resource type="Script" path="res://interactables/fg1car.gd" id="1_0hqye"]
+[ext_resource type="Script" path="res://interactables/BaseItem.gd" id="1_a3omc"]
 [ext_resource type="Texture2D" uid="uid://bj8no4gol5kta" path="res://assets/sprites/Interactables.png" id="2_ojgbw"]
+[ext_resource type="Resource" path="res://Dialogic/timeline/car1.dtl" id="2_q8cc0"]
+[ext_resource type="Resource" path="res://Dialogic/timeline/repeat.dtl" id="3_ddl4c"]
 [ext_resource type="Script" path="res://interactables/interactarea.gd" id="3_u5si1"]
+[ext_resource type="Resource" uid="uid://b503qloxjb74m" path="res://resource/bloodyclothes.tres" id="4_xvahl"]
+[ext_resource type="Script" path="res://character/dialogue_data.gd" id="5_jiklg"]
+
+[sub_resource type="Resource" id="Resource_c6pua"]
+script = ExtResource("5_jiklg")
+dialogue_array = Array[Resource]([ExtResource("2_q8cc0"), ExtResource("3_ddl4c")])
+infodata_array = Array[Resource]([ExtResource("4_xvahl")])
+index = 0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j0t0w"]
 atlas = ExtResource("2_ojgbw")
@@ -15,7 +25,8 @@ size = Vector2(48, 80)
 size = Vector2(31.5, 63)
 
 [node name="fg1car" type="Node2D"]
-script = ExtResource("1_0hqye")
+script = ExtResource("1_a3omc")
+dialoguedata = SubResource("Resource_c6pua")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_j0t0w")
@@ -34,3 +45,5 @@ debug_color = Color(0.823529, 0.160784, 0.890196, 0.419608)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0.25, 0.5)
 shape = SubResource("RectangleShape2D_dmgsa")
+
+[connection signal="first_interaction" from="InteractArea" to="." method="_on_interact_area_first_interaction"]

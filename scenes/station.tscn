@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://l1ftdtmf05j7"]
+[gd_scene load_steps=12 format=3 uid="uid://l1ftdtmf05j7"]
 
 [ext_resource type="Script" path="res://scripts/station.gd" id="1_xab30"]
 [ext_resource type="TileSet" uid="uid://ciiavrf4ir217" path="res://scenes/stationtileset.tres" id="2_0147l"]
-[ext_resource type="PackedScene" uid="uid://d150gm8vo6yfd" path="res://character/partner.tscn" id="2_a2v2u"]
+[ext_resource type="PackedScene" uid="uid://d150gm8vo6yfd" path="res://character/roy.tscn" id="2_a2v2u"]
 [ext_resource type="PackedScene" uid="uid://6d0dv275oe1s" path="res://character/operator.tscn" id="4_wr48y"]
 [ext_resource type="FontFile" uid="uid://x256bhq1irbr" path="res://assets/fonts/Silver.ttf" id="5_l2eq2"]
 [ext_resource type="PackedScene" uid="uid://cb8vl66q1g7ix" path="res://interface/spawner.tscn" id="7_8s8sf"]
 [ext_resource type="PackedScene" uid="uid://chy8x88p31ouh" path="res://interface/scene_transition.tscn" id="8_5lbtw"]
+[ext_resource type="FontFile" uid="uid://bj1mb450wr020" path="res://assets/fonts/PixelOperator8.ttf" id="8_u371q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mbyca"]
 size = Vector2(54, 12)
@@ -23,7 +24,7 @@ position = Vector2(150, 9)
 scale = Vector2(2, 2)
 script = ExtResource("1_xab30")
 
-[node name="partner" parent="." instance=ExtResource("2_a2v2u")]
+[node name="roy" parent="." groups=["npc"] instance=ExtResource("2_a2v2u")]
 y_sort_enabled = true
 position = Vector2(60, 63)
 
@@ -76,9 +77,8 @@ position = Vector2(183, 196)
 collision_mask = 2
 
 [node name="SceneTransition" parent="." instance=ExtResource("8_5lbtw")]
-visible = false
 z_index = 5
-position = Vector2(-101.5, -42)
+position = Vector2(-211, -150)
 
 [node name="Zones" type="Node" parent="."]
 
@@ -118,7 +118,17 @@ shape = SubResource("RectangleShape2D_8nobm")
 [node name="Spawner" parent="." instance=ExtResource("7_8s8sf")]
 position = Vector2(142.5, 86)
 
+[node name="Label" type="Label" parent="."]
+offset_left = 67.5
+offset_top = 7.5
+offset_right = 167.5
+offset_bottom = 28.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_u371q")
+theme_override_font_sizes/font_size = 8
+text = "Captain's Office"
+
 [connection signal="body_entered" from="Zones/map_exit" to="." method="_on_exit"]
 [connection signal="body_entered" from="Zones/office_exit" to="." method="_on_office_exit"]
 [connection signal="body_entered" from="Zones/ir1_exit" to="." method="_on_ir_exit"]
-[connection signal="body_entered" from="Zones/ir2_exit" to="." method="_on_ir_exit"]
+[connection signal="body_entered" from="Zones/ir2_exit" to="." method="_on_ir_2_exit"]

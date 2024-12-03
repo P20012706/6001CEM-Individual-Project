@@ -1,6 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://bo4t3g8ndmqbt"]
+[gd_scene load_steps=15 format=3 uid="uid://bo4t3g8ndmqbt"]
 
+[ext_resource type="Script" path="res://character/manager.gd" id="1_brneb"]
 [ext_resource type="Texture2D" uid="uid://dfdbxuvjs354a" path="res://assets/sprites/NPC Spritesheet.png" id="1_x7b0s"]
+[ext_resource type="Resource" path="res://Dialogic/timeline/manager.dtl" id="2_88kv3"]
+[ext_resource type="Resource" path="res://Dialogic/timeline/manager2.dtl" id="3_ifatb"]
+[ext_resource type="Resource" uid="uid://dr5x2r5hjcwxw" path="res://resource/managerstatement.tres" id="4_gqjiu"]
+[ext_resource type="Script" path="res://character/dialogue_data.gd" id="5_70fi5"]
+[ext_resource type="PackedScene" uid="uid://05fqjfy12onu" path="res://scripts/talk_area.tscn" id="7_lrjyg"]
+
+[sub_resource type="Resource" id="Resource_3i2s6"]
+script = ExtResource("5_70fi5")
+dialogue_array = Array[Resource]([ExtResource("2_88kv3"), ExtResource("3_ifatb")])
+infodata_array = Array[Resource]([ExtResource("4_gqjiu")])
+index = 0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d7qpj"]
 atlas = ExtResource("1_x7b0s")
@@ -28,7 +40,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_sfko7")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"default",
 "speed": 2.0
 }, {
 "frames": [{
@@ -47,11 +59,16 @@ animations = [{
 size = Vector2(10, 19)
 
 [node name="manager" type="CharacterBody2D"]
+script = ExtResource("1_brneb")
+dialogues = SubResource("Resource_3i2s6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xe2di")
-animation = &"talk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6.5)
 shape = SubResource("RectangleShape2D_rhubx")
+
+[node name="TalkArea" parent="." instance=ExtResource("7_lrjyg")]
+
+[connection signal="start_talking" from="TalkArea" to="." method="_on_talk_area_start_talking"]

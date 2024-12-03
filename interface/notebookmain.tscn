@@ -12,13 +12,6 @@
 atlas = ExtResource("4_0st5k")
 region = Rect2(16, 224, 96, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y5afa"]
-atlas = ExtResource("4_0st5k")
-region = Rect2(768, 64, 48, 48)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7cnr5"]
-texture = SubResource("AtlasTexture_y5afa")
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_xo8vo"]
 atlas = ExtResource("4_0st5k")
 region = Rect2(768, 64, 48, 48)
@@ -32,6 +25,13 @@ region = Rect2(768, 64, 48, 48)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wpato"]
 texture = SubResource("AtlasTexture_msaxo")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5afa"]
+atlas = ExtResource("4_0st5k")
+region = Rect2(768, 64, 48, 48)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7cnr5"]
+texture = SubResource("AtlasTexture_y5afa")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_66bxg"]
 atlas = ExtResource("4_0st5k")
@@ -75,13 +75,13 @@ offset_top = 92.0
 offset_right = 420.0
 offset_bottom = 172.0
 theme = ExtResource("2_ueuwo")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxTexture_7cnr5")
 theme_override_styles/hover = SubResource("StyleBoxTexture_lkyho")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_wpato")
+theme_override_styles/normal = SubResource("StyleBoxTexture_7cnr5")
 text = "People"
 
 [node name="evibtn" type="Button" parent="Control/notemain"]
@@ -91,13 +91,13 @@ offset_top = 222.0
 offset_right = 420.0
 offset_bottom = 302.0
 theme = ExtResource("2_ueuwo")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxTexture_7cnr5")
 theme_override_styles/hover = SubResource("StyleBoxTexture_lkyho")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_wpato")
+theme_override_styles/normal = SubResource("StyleBoxTexture_7cnr5")
 text = "Evidence "
 
 [node name="locbtn" type="Button" parent="Control/notemain"]
@@ -107,13 +107,13 @@ offset_top = 352.0
 offset_right = 420.0
 offset_bottom = 432.0
 theme = ExtResource("2_ueuwo")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxTexture_7cnr5")
 theme_override_styles/hover = SubResource("StyleBoxTexture_lkyho")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_wpato")
+theme_override_styles/normal = SubResource("StyleBoxTexture_7cnr5")
 text = "Locations"
 
 [node name="CaseDetail" type="Control" parent="Control/notemain"]
@@ -193,6 +193,7 @@ offset_bottom = 605.0
 theme_override_fonts/font = ExtResource("3_q1dhd")
 theme_override_font_sizes/font_size = 19
 theme_override_styles/panel = SubResource("StyleBoxTexture_hyl4c")
+current_tab = 0
 
 [node name="People" type="MarginContainer" parent="Control/notesec"]
 layout_mode = 2
@@ -200,6 +201,7 @@ theme_override_constants/margin_left = 55
 theme_override_constants/margin_top = 45
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
+metadata/_tab_index = 0
 
 [node name="GridContainer" type="GridContainer" parent="Control/notesec/People"]
 layout_mode = 2
@@ -248,6 +250,7 @@ theme_override_constants/margin_left = 55
 theme_override_constants/margin_top = 45
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
+metadata/_tab_index = 1
 
 [node name="GridContainer" type="GridContainer" parent="Control/notesec/Evidence"]
 layout_mode = 2
@@ -296,6 +299,7 @@ theme_override_constants/margin_left = 55
 theme_override_constants/margin_top = 45
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
+metadata/_tab_index = 2
 
 [node name="GridContainer" type="GridContainer" parent="Control/notesec/Location"]
 layout_mode = 2

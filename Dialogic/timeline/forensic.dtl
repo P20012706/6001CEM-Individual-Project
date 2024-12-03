@@ -1,0 +1,25 @@
+Hugh: Ok, I never expected my first case to be so gruesome. Guess they don’t call this place Crime Alley for nothing.
+Hugh: I assuming you're the forensic?
+Forensic: Yes I am, and you are?
+Hugh: Detective Hugh Galloway. Just transferred here. Care to fill me in?
+Forensic: Welcome to Greyborough. You’ll get used to it—or you’ll quit.
+Forensic: Anyway, no knife wounds, no strangle marks. I’d bet the murder weapon was blunt and strong. Could be a pipe, bat, or even a rock.
+Hugh: Any idea who this is?
+Forensic: Patrolman Henry thinks she’s some kind of TV hostess. I’d hold off on that conclusion. What do you think?
+- Let's not jump to conclusions so quickly
+	Forensic: Smart answer. Find evidence to confirm her identity—it’ll save you a lot of trouble later.
+	jump Point
+- Yeah, probably
+	Forensic: Really? Guess they didn’t teach you this in detective school: never make assumptions without evidence.
+	jump Point
+label Point
+Forensic: One more thing: the victim’s right ring finger shows signs of a ring being forcibly removed. Likely a wedding ring.
+Hugh: Time of death?
+Forensic: Rough guess? Around 2:00 am. But I’ll need to get back to the lab to confirm that.
+Hugh: Any eye-witnesses?
+Forensic: See the hobo near Patrolman Henry? He’s your guy. Probably saw more than he wants to admit.
+[signal arg="Info"]
+Hugh: Alright, thanks.
+Forensic: Good luck, detective. And remember—assumptions get people killed.
+[signal arg="O"]
+[signal arg="Complete"]

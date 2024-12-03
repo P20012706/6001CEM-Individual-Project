@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InfoData" load_steps=2 format=3 uid="uid://cd4hms5pvcox4"]
+
+[ext_resource type="Script" path="res://interactables/info_data.gd" id="1_ekfkr"]
+
+[resource]
+script = ExtResource("1_ekfkr")
+name = "Bloody Ring"
+description = "The ring was caked in blood, just sitting there in the trunk of Nathan’s car. It’s hard to even grasp how it got there—was he wearing it when the murder happened? The forensic report mentioned a forced removal in the victim’s right hand, likely her wedding ring. Was this it? The presence of the ring and the blood raises more questions than answers. Nathan’s involvement seems more real now, but there’s still a part of me that refuses to believe it. Could he really have done it? Or is someone else pulling the strings?"
+path = "res://assets/sprites/notebookimg/ringimg.png"
+length = 80
+height = 80
+category = "Evidence"
+extracted = false

@@ -1,0 +1,16 @@
+Captain: Detective, welcome to Greyborough. You’ve got big shoes to fill here, and I won’t sugarcoat it. This city eats the faint-hearted alive.
+
+Hugh: I didn’t sign up for this job to be coddled, Captain. What’s the situation?
+
+Captain: Good. We need that kind of fire. Now listen up—our resources are thin, and our hands are tied on half the cases piling up. That means you’ll be jumping straight into the deep end. No time to warm up.
+
+Hugh: Understood. What am I working with?
+
+Captain:"Your first case just came in—murder. A body’s been found in Crime Alley. Nasty place, even by Greyborough’s standards. Locals don’t talk, and anyone who saw something probably doesn’t want to admit it.
+[signal arg="Info1"]
+Hugh: Sounds like a welcoming party. I’ll handle it.
+
+Captain: I hope you do. And, Detective? If you need tips or guidance, find Detective Roy just outside my office. He’s been around long enough to know how to navigate this mess.
+[signal arg="Info2"]
+[signal arg="O"]
+[signal arg="Complete"]

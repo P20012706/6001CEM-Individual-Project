@@ -1,8 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://covych1mvid12"]
+[gd_scene load_steps=11 format=3 uid="uid://covych1mvid12"]
 
-[ext_resource type="Script" path="res://interactables/insuranceletter.gd" id="1_od24k"]
+[ext_resource type="Script" path="res://interactables/BaseItem.gd" id="1_0nv1t"]
 [ext_resource type="Texture2D" uid="uid://bj8no4gol5kta" path="res://assets/sprites/Interactables.png" id="2_kxm1o"]
+[ext_resource type="Resource" path="res://Dialogic/timeline/insurance.dtl" id="2_rqsqp"]
+[ext_resource type="Resource" path="res://Dialogic/timeline/repeat.dtl" id="3_7esly"]
 [ext_resource type="Script" path="res://interactables/interactarea.gd" id="3_td1t4"]
+[ext_resource type="Resource" uid="uid://cylk1smlbl8pf" path="res://resource/insurance.tres" id="4_qw0nu"]
+[ext_resource type="Script" path="res://character/dialogue_data.gd" id="5_dfe8w"]
+
+[sub_resource type="Resource" id="Resource_13qg7"]
+script = ExtResource("5_dfe8w")
+dialogue_array = Array[Resource]([ExtResource("2_rqsqp"), ExtResource("3_7esly")])
+infodata_array = Array[Resource]([ExtResource("4_qw0nu")])
+index = 0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jp5nd"]
 atlas = ExtResource("2_kxm1o")
@@ -12,7 +22,8 @@ region = Rect2(192, 0, 16, 16)
 size = Vector2(32, 32)
 
 [node name="insuranceletter" type="Node2D"]
-script = ExtResource("1_od24k")
+script = ExtResource("1_0nv1t")
+dialoguedata = SubResource("Resource_13qg7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_jp5nd")
@@ -25,3 +36,5 @@ script = ExtResource("3_td1t4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
 shape = SubResource("RectangleShape2D_hd7ef")
 debug_color = Color(0.823529, 0.160784, 0.890196, 0.419608)
+
+[connection signal="first_interaction" from="InteractArea" to="." method="_on_interact_area_first_interaction"]

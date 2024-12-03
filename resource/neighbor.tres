@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InfoData" load_steps=2 format=3 uid="uid://bn555hiiaulvg"]
+
+[ext_resource type="Script" path="res://interactables/info_data.gd" id="1_boq5n"]
+
+[resource]
+script = ExtResource("1_boq5n")
+name = "Ariel Jones"
+description = "Ariel Jones, the victim’s neighbour, claims to have heard and seen nothing unusual on the night of the murder. Living in a quiet, upscale area, they assume the broken window was just an isolated act of vandalism. Yet, their aloof attitude seems strangely dismissive for someone living so close to a crime scene."
+path = "res://Dialogic/Character Portraits/NeighbourPortrait.png"
+length = 80
+height = 80
+category = "People"
+extracted = false

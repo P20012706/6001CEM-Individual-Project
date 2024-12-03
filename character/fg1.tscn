@@ -1,6 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bh3x5s66i2sh7"]
+[gd_scene load_steps=13 format=3 uid="uid://bh3x5s66i2sh7"]
 
+[ext_resource type="Script" path="res://character/fg1.gd" id="1_kw5x2"]
 [ext_resource type="Texture2D" uid="uid://dfdbxuvjs354a" path="res://assets/sprites/NPC Spritesheet.png" id="1_l3lrv"]
+[ext_resource type="Resource" uid="uid://bxhykfegm8fwm" path="res://resource/dd_fg1.tres" id="2_xblkt"]
+[ext_resource type="PackedScene" uid="uid://05fqjfy12onu" path="res://scripts/talk_area.tscn" id="7_rghd5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xjbhk"]
 atlas = ExtResource("1_l3lrv")
@@ -36,7 +39,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_sv84w")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"default",
 "speed": 2.0
 }, {
 "frames": [{
@@ -66,11 +69,16 @@ animations = [{
 size = Vector2(10, 15)
 
 [node name="fg1" type="CharacterBody2D"]
+script = ExtResource("1_kw5x2")
+dialogues = ExtResource("2_xblkt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xe2di")
-animation = &"shock"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8.5)
 shape = SubResource("RectangleShape2D_rhubx")
+
+[node name="TalkArea" parent="." instance=ExtResource("7_rghd5")]
+
+[connection signal="start_talking" from="TalkArea" to="." method="_on_talk_area_start_talking"]

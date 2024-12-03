@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c6jemi2cw75yf"]
 
-[ext_resource type="Script" path="res://character/operator.gd" id="1_umu7p"]
-[ext_resource type="Resource" uid="uid://ciogmmcsn2bc" path="res://resource/dd_policenpc.tres" id="2_jd5vf"]
+[ext_resource type="Script" path="res://character/patroller.gd" id="1_1ff70"]
+[ext_resource type="Resource" uid="uid://wf6jk48eiymo" path="res://resource/dd_patrol.tres" id="2_a2cmp"]
 [ext_resource type="Texture2D" uid="uid://dfdbxuvjs354a" path="res://assets/sprites/NPC Spritesheet.png" id="3_m25tt"]
 [ext_resource type="Script" path="res://character/talkarea.gd" id="4_h7aa7"]
 
@@ -26,9 +26,9 @@ size = Vector2(10, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r4ch2"]
 size = Vector2(32, 48)
 
-[node name="policenpc" type="CharacterBody2D" groups=["npc"]]
-script = ExtResource("1_umu7p")
-dialogues = ExtResource("2_jd5vf")
+[node name="patroller" type="CharacterBody2D" groups=["npc"]]
+script = ExtResource("1_1ff70")
+dialogues = ExtResource("2_a2cmp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xe2di")

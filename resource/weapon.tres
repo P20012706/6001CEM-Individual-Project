@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InfoData" load_steps=2 format=3 uid="uid://lsfjtw6i1wph"]
+
+[ext_resource type="Script" path="res://interactables/info_data.gd" id="1_aftcx"]
+
+[resource]
+script = ExtResource("1_aftcx")
+name = "Bloody Tire Iron"
+description = "A tire iron, soaked in blood, hidden away in the trunk of Nathan’s car. The forensic report confirmed that the cause of death was bludgeoning injuries to the skull, which ties the weapon directly to the murder. Finding it here is a crucial piece of the puzzle, but it’s too early to jump to conclusions. There’s still much more to uncover, and Nathan isn’t off the hook just yet."
+path = "res://assets/sprites/notebookimg/tireironimg.png"
+length = 80
+height = 80
+category = "Evidence"
+extracted = false

@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://ijm8rvrvrqbq"]
 
+[ext_resource type="Script" path="res://character/hobo.gd" id="1_m2w5d"]
 [ext_resource type="Texture2D" uid="uid://dfdbxuvjs354a" path="res://assets/sprites/NPC Spritesheet.png" id="1_u4j4p"]
-[ext_resource type="Script" path="res://character/hobo.gd" id="1_yive8"]
-[ext_resource type="Resource" uid="uid://c17acihrrflsp" path="res://resource/dd_hobo.tres" id="2_4wvqn"]
+[ext_resource type="Resource" uid="uid://c17acihrrflsp" path="res://resource/dd_hobo.tres" id="2_yaioq"]
 [ext_resource type="Script" path="res://character/talkarea.gd" id="4_sicvn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n7hli"]
@@ -35,7 +35,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_ma5jd")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"default",
 "speed": 2.0
 }, {
 "frames": [{
@@ -60,12 +60,11 @@ size = Vector2(10, 19)
 size = Vector2(32, 48)
 
 [node name="hobo" type="CharacterBody2D"]
-script = ExtResource("1_yive8")
-dialogues = ExtResource("2_4wvqn")
+script = ExtResource("1_m2w5d")
+dialogues = ExtResource("2_yaioq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xe2di")
-animation = &"stand"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6.5)

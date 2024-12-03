@@ -1,8 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://dm3w1ae08qhf1"]
+[gd_scene load_steps=12 format=3 uid="uid://dm3w1ae08qhf1"]
 
-[ext_resource type="Script" path="res://interactables/blackmail.gd" id="1_1myv1"]
+[ext_resource type="Script" path="res://interactables/BaseItem.gd" id="1_mt4hh"]
+[ext_resource type="Resource" path="res://Dialogic/timeline/blackmail.dtl" id="2_nmtd5"]
 [ext_resource type="Texture2D" uid="uid://bj8no4gol5kta" path="res://assets/sprites/Interactables.png" id="2_wsaf4"]
 [ext_resource type="Script" path="res://interactables/interactarea.gd" id="3_2tbff"]
+[ext_resource type="Resource" path="res://Dialogic/timeline/repeat.dtl" id="3_p4h4u"]
+[ext_resource type="Resource" uid="uid://t30cchci31um" path="res://resource/blackmail.tres" id="4_46lkl"]
+[ext_resource type="Script" path="res://character/dialogue_data.gd" id="5_r4u3r"]
+
+[sub_resource type="Resource" id="Resource_ophrt"]
+script = ExtResource("5_r4u3r")
+dialogue_array = Array[Resource]([ExtResource("2_nmtd5"), ExtResource("3_p4h4u")])
+infodata_array = Array[Resource]([ExtResource("4_46lkl")])
+index = 0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l8tc0"]
 atlas = ExtResource("2_wsaf4")
@@ -15,7 +25,8 @@ size = Vector2(64, 32)
 size = Vector2(44, 13)
 
 [node name="blackmail" type="Node2D"]
-script = ExtResource("1_1myv1")
+script = ExtResource("1_mt4hh")
+dialoguedata = SubResource("Resource_ophrt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_l8tc0")
@@ -34,3 +45,5 @@ debug_color = Color(0.823529, 0.160784, 0.890196, 0.419608)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_yhcps")
+
+[connection signal="first_interaction" from="InteractArea" to="." method="_on_interact_area_first_interaction"]

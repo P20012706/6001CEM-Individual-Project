@@ -1,0 +1,16 @@
+Hugh: Where were you last night around 2:00 am?
+Nathan: I was at home, I was tired from work yesterday.
+[signal arg="Information"]
+- TRUTH - Believe in Statement
+	Hugh: Let's say I believe you, do you have any proof?
+	[signal arg="Progress"]
+	[end_timeline]
+- LIE - Requires Evidence to Testify against Claims
+	Hugh: You're lying and I have the proof to that
+	Nathan: You better have some solid evidence for this accuisation
+	[text_input var="Response"]
+	if {Response} == "Neighbor Statement":
+		Hugh: Your neighbor, Miss Ariel proof that you weren't home last night because you went to the casino where you usually spend your nights
+		Nathan: Okok, you got me, I wasn't home. That alone doesn't make me a suspect right?
+	else:
+		Nathan: This is outrageous, keep that up and you'll receive a lawsuit

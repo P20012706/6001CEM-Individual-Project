@@ -1,0 +1,101 @@
+Hugh: Nathan, you're in far more trouble than you think. You're the prime suspect in your wife’s murder. Every step you take now decides the rest of your life.  
+Nathan: (stammering) What? No... you’ve got this all wrong! I didn’t do anything!
+
+label Q1
+Hugh: Let’s talk about your state of mind, Nathan. You were kicked out of your home, drowning in debt. How did it feel, losing everything?
+Nathan: (defensive) I wasn’t losing anything! I had plans to fix things... to make it right!
+
+- Persuade
+	Hugh: Plans? Like what? Turning things around at the casino? You’ve been spiraling, Nathan.
+	Nathan: (stammering) I... I just needed time! Time to work things out! It’s not easy, but I didn’t hurt her! You're looking at the wrong guy!
+	jump Q2
+
+- Pressure
+	Hugh: Face it, Nathan. You couldn’t control yourself—gambling, arguing with Isabella... everything was slipping through your fingers.
+	Nathan: (angrily) No! I was trying! I loved her, damn it! You're looking at the wrong guy!
+	jump Q2
+
+- Accuse
+	[text_input var="Response"]
+	if {Response} == "Manager Statement":
+		Hugh: Let’s stop pretending. You were unstable, Nathan. Your business went bad and you developed a gambling addiction. Isabella was your last straw, she tried to leave you and now she’s gone for good.
+		Nathan:  I wasn’t... I didn’t mean for this to happen! I was angry, yes, but I didn’t kill her! You're looking at the wrong guy!
+		[signal arg="Correct"]
+		jump Q2
+	elif {Response} == "Cancel":
+		Hugh: Sorry about that.
+		jump Q1
+	else:
+		Nathan: This is not evidence, just slander.
+		jump Q2
+
+
+label Q2
+Hugh: You said I am looking at the wrong guy but guess what did I found in your car.
+Hugh: Now explain the murder weapon and her missing wedding ring found in your car.
+Nathan: (panicked) I don’t know how those got there! Someone must be trying to frame me!
+
+- Persuade
+	Hugh: A frame job? That’s convenient, who do you was trying to frame you? Did you made any enemies?
+	Nathan: (pleading) I swear, I don’t know! This isn’t fair—I didn’t do this!
+	jump Q3
+
+- Pressure
+	Hugh: Enough with the excuses. Those items didn’t just magically appear in your car. Start talking.
+	Nathan: (frustrated) I’ve told you everything! I don’t know how they got there!
+	jump Q3
+
+- Accuse
+	[text_input var="Response"]
+	if {Response} == "Bloody Tire Iron":
+		label A
+		[signal arg="Correct"]
+		Hugh: Don’t lie, Nathan. That tire iron is the murder weapon, and the bloody ring proves it was Isabella's. You had her blood on your hands—literally.
+		Nathan: Look, someone’s setting me up! Why would I leave those things in my car if I did it? That doesn't make any sense.
+		jump Q3
+	elif {Response} == "Bloody Ring":
+		jump A
+	elif {Response} == "Cancel":
+		Hugh: Sorry about that.
+		jump Q2
+	else:
+		Nathan: This is not evidence, just slander.
+		jump Q3
+	
+label Q3
+Hugh: Let’s get real, Nathan. You’re drowning in debt. Isabella had a life insurance policy. How much was it worth?
+Nathan: I—I didn’t even know about it until you mentioned it!
+
+- Persuade
+	Hugh: You didn’t know? You expect me to believe that? A desperate man like you, with so much to gain?
+	Nathan: (pleading) I swear! I didn’t know about the policy. I just wanted to get back on my feet, not... not this!
+	jump End
+
+- Pressure
+	Hugh: Stop playing innocent. You were desperate for money, and you knew Isabella was worth more dead than alive.
+	Nathan: (angrily) No! That’s not true! I didn’t want her dead—I didn’t even know about the damn insurance!
+	jump End
+
+- Accuse
+	[text_input var="Response"]
+	if {Response} == "Insurance Letter":
+		[signal arg="Correct"]
+		Hugh: Enough, Nathan. How could you not know about the policy, it has your name written on it as the beneficiary. This pays out to you and it has your signature.
+		Nathan: Ok... I knew about the policy. We discussed it before. I didn't knew this would happen so soon... Look I know this looks like I stand to gain from all of this. That doesn’t mean I wanted anything to happen to her! I loved Isabella!
+		Hugh: Did you? Because it sounds like you had a lot to gain from her death. You were struggling financially, and this could wipe the slate clean.
+		Nathan: (voice rising) I’m not desperate enough to kill her! I would never hurt her!
+		jump End	
+	elif {Response} == "Cancel":
+		Hugh: Sorry about that.
+		jump Q3
+	else:
+		Nathan: This is not evidence, just slander.
+		jump End
+
+label End	
+Hugh: All signs are pointing towards you. The case against you is growing stronger by the minute. The choice is yours now—tell me the truth, or I’ll make sure the evidence speaks for itself.
+Nathan: How many times do I need to tell you that I'm being framed. Are you an amateur? Why would I do all of this and leave a trail going all the back to me? Is there someone else you're leaving out of the picture?
+Hugh: Do you happen to know someone named Martin Rose?
+Nathan: No I don't.
+[signal arg="O"]
+[signal arg="Complete"]

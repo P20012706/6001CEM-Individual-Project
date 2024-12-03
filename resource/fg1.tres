@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InfoData" load_steps=2 format=3 uid="uid://twi4h2i1iyhv"]
+
+[ext_resource type="Script" path="res://interactables/info_data.gd" id="1_y4bpb"]
+
+[resource]
+script = ExtResource("1_y4bpb")
+name = "Martin Rose"
+description = "Martin Rose, a name scribbled on a receipt for an expensive piece of jewellery found in the victim’s handbag. His connection to the victim remains unclear. A friend? A lover? A client? Whoever he is, his name is a loose thread that needs pulling."
+path = "res://Dialogic/Character Portraits/FG1Portrait.png"
+length = 80
+height = 80
+category = "People"
+extracted = false

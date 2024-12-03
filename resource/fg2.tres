@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InfoData" load_steps=2 format=3 uid="uid://kt682hmij1i8"]
+
+[ext_resource type="Script" path="res://interactables/info_data.gd" id="1_3m0ba"]
+
+[resource]
+script = ExtResource("1_3m0ba")
+name = "Nathan Reed"
+description = "Nathan Reed, the victim’s husband and now one of the key suspects. His financial troubles and connection to the gambling debts paint a suspicious picture. Yet, his demeanor suggests there might be more to his story. Is he the desperate man some evidence suggests, or has he been caught in the crossfire of something bigger?"
+path = "res://Dialogic/Character Portraits/FG2Portrait.png"
+length = 80
+height = 80
+category = "People"
+extracted = false

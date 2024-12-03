@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InfoData" load_steps=2 format=3 uid="uid://ba7qyioo2064s"]
+
+[ext_resource type="Script" path="res://interactables/info_data.gd" id="1_0c0lw"]
+
+[resource]
+script = ExtResource("1_0c0lw")
+name = "Casino Manager"
+description = "The casino manager is a seasoned professional who doesn’t let much slip. He confirms Nathan was at the casino last night but left before 12 am. His observations of Nathan’s usual bad luck seem casual, but in this case, every detail matters."
+path = "res://Dialogic/Character Portraits/ManagerPortrait.png"
+length = 80
+height = 80
+category = "People"
+extracted = false

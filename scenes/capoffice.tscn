@@ -24,9 +24,8 @@ layer_1/tile_data = PackedInt32Array(262145, 393216, 12, 327681, 393216, 13, 262
 layer_2/name = "Details "
 layer_2/tile_data = PackedInt32Array(262148, 720896, 11, 262145, 589824, 9, 262146, 589824, 805306378, 262147, 589824, 805306379, 5, 65536, 12, 65541, 65536, 13, 6, 131072, 12, 65542, 131072, 13, 2, 589824, 8)
 layer_3/name = "Character"
-layer_3/tile_data = PackedInt32Array()
 
-[node name="cap" parent="." instance=ExtResource("2_f0jnh")]
+[node name="cap" parent="." groups=["npc"] instance=ExtResource("2_f0jnh")]
 position = Vector2(65, 59)
 
 [node name="Spawner" parent="." instance=ExtResource("3_ov8en")]

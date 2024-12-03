@@ -1,14 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://87g5q1adlmwb"]
+[gd_scene load_steps=13 format=3 uid="uid://87g5q1adlmwb"]
 
 [ext_resource type="TileSet" uid="uid://batk567u7rn3w" path="res://scenes/vhometileset.tres" id="1_2hpm3"]
 [ext_resource type="Script" path="res://scripts/vhome(in).gd" id="1_go2xu"]
 [ext_resource type="PackedScene" uid="uid://bh3x5s66i2sh7" path="res://character/fg1.tscn" id="2_p4kcl"]
 [ext_resource type="PackedScene" uid="uid://cb8vl66q1g7ix" path="res://interface/spawner.tscn" id="4_kb34g"]
+[ext_resource type="Resource" uid="uid://c4nl2tjtl0urv" path="res://resource/dd_fg1v1.tres" id="4_yuxwt"]
 [ext_resource type="PackedScene" uid="uid://5qtn01w84mc6" path="res://interactables/gamblingdebt.tscn" id="5_wojdd"]
 [ext_resource type="PackedScene" uid="uid://covych1mvid12" path="res://interactables/insuranceletter.tscn" id="6_qhvkh"]
 [ext_resource type="PackedScene" uid="uid://dqidjlx3snftx" path="res://interactables/phone.tscn" id="7_7v3ln"]
 [ext_resource type="PackedScene" uid="uid://dm3w1ae08qhf1" path="res://interactables/blackmail.tscn" id="8_0w1i4"]
 [ext_resource type="PackedScene" uid="uid://b2b7418elxxc0" path="res://interactables/wreckage.tscn" id="9_4mf63"]
+[ext_resource type="PackedScene" uid="uid://chy8x88p31ouh" path="res://interface/scene_transition.tscn" id="10_8hh3h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gcw5k"]
 size = Vector2(66.5, 18)
@@ -28,9 +30,10 @@ layer_1/tile_data = PackedInt32Array(-524285, 1441792, 15, -458749, 1441792, 16,
 layer_2/name = "Details"
 layer_2/tile_data = PackedInt32Array(393232, 983040, 16, 327696, 983040, 15, 458765, 0, 16, 458766, 65536, 16, -458737, 655360, 19)
 
-[node name="fg1" parent="." instance=ExtResource("2_p4kcl")]
+[node name="fg1" parent="." groups=["npc"] instance=ExtResource("2_p4kcl")]
 z_index = 1
 position = Vector2(227, -110)
+dialogues = ExtResource("4_yuxwt")
 
 [node name="Spawner" parent="." instance=ExtResource("4_kb34g")]
 position = Vector2(81, 92.5)
@@ -64,5 +67,10 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="exit"]
 position = Vector2(0.75, 4)
 shape = SubResource("RectangleShape2D_gcw5k")
+
+[node name="SceneTransition" parent="." instance=ExtResource("10_8hh3h")]
+z_index = 10
+position = Vector2(-32, -171)
+scale = Vector2(2, 2)
 
 [connection signal="body_entered" from="exit" to="." method="_on_exit_body_entered"]

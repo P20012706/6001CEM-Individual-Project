@@ -1,0 +1,7 @@
+- Arrest Martin
+	Hugh: Martin Rose, I am charging you with the first degree murder of Issabella Carrington.
+	[signal arg="O"]
+	[signal arg="Outro"]
+	[signal arg="Complete"]
+- Back
+	[signal arg="Complete"]

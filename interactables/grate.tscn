@@ -1,10 +1,19 @@
-[gd_scene load_steps=16 format=3 uid="uid://bbib1ry83putv"]
+[gd_scene load_steps=20 format=3 uid="uid://bbib1ry83putv"]
 
 [ext_resource type="Texture2D" uid="uid://bj8no4gol5kta" path="res://assets/sprites/Interactables.png" id="1_cpj8k"]
 [ext_resource type="Script" path="res://interactables/grate.gd" id="1_yfdxv"]
+[ext_resource type="Resource" path="res://Dialogic/timeline/observe.dtl" id="2_doiwi"]
 [ext_resource type="Resource" uid="uid://7tb4g73mmt48" path="res://resource/grate.tres" id="2_fydex"]
 [ext_resource type="Script" path="res://interactables/interactarea.gd" id="2_qsbqq"]
+[ext_resource type="Resource" path="res://Dialogic/timeline/repeat.dtl" id="3_858yi"]
 [ext_resource type="Texture2D" uid="uid://bcnomhs2fpmve" path="res://assets/sprites/spark.png" id="3_hlq3d"]
+[ext_resource type="Script" path="res://character/dialogue_data.gd" id="4_r0qlc"]
+
+[sub_resource type="Resource" id="Resource_o0way"]
+script = ExtResource("4_r0qlc")
+dialogue_array = Array[Resource]([ExtResource("2_doiwi"), ExtResource("3_858yi")])
+infodata_array = Array[Resource]([ExtResource("2_fydex")])
+index = 0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_trhmx"]
 atlas = ExtResource("1_cpj8k")
@@ -68,7 +77,7 @@ size = Vector2(15, 14)
 
 [node name="Grate" type="Node2D"]
 script = ExtResource("1_yfdxv")
-infodata = ExtResource("2_fydex")
+dialoguedata = SubResource("Resource_o0way")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_trhmx")

@@ -1,15 +1,25 @@
 extends Node2D
-@export var infodata: InfoData
+@export var dialoguedata: DialogueData
 
 func _on_interact_area_first_interaction():
-	if infodata.extracted == false:
-		#Add A Dialogic Timeline
-		GlobalEventBus.emit_signal("evidence_entry", infodata)
-		infodata.extracted = true
-		
-	else:
-		#Add another Dialogic Timeline(Self-Monologue) that says you checked this, Nothing New.
-		print("You have already interacted.")
+	if dialoguedata != null:
+		var new_info_found := false
 
+		for infodata in dialoguedata.infodata_array:
+			if infodata != null and not infodata.extracted:
+				GlobalEventBus.emit_signal("location_entry", dialoguedata.infodata_array[0])
+				infodata.extracted = true
+				new_info_found = true
+
+		if new_info_found:
+			DialogueManager.start_dialogue(dialoguedata)
+		else:
+			DialogueManager.start_dialogue(dialoguedata)
+			
 func get_infodata():
-	return infodata
+	return dialoguedata.infodata_array[0]
+
+
+func set_infodata():
+	dialoguedata.infodata_array[0].extracted = true
+	GlobalEventBus.emit_signal("location_entry", dialoguedata.infodata_array[0])

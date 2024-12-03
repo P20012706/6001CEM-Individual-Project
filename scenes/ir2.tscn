@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://cw2dpc6ujsain"]
+
+[ext_resource type="TileSet" uid="uid://ciiavrf4ir217" path="res://scenes/stationtileset.tres" id="1_4fqky"]
+[ext_resource type="Script" path="res://scripts/ir2.gd" id="1_nt315"]
+[ext_resource type="PackedScene" uid="uid://cb8vl66q1g7ix" path="res://interface/spawner.tscn" id="2_b7m40"]
+[ext_resource type="PackedScene" uid="uid://bkwctt3gs46rm" path="res://interactables/chair.tscn" id="3_4wq4w"]
+[ext_resource type="PackedScene" uid="uid://buw7ttbw6sext" path="res://character/fg2.tscn" id="4_7thew"]
+[ext_resource type="PackedScene" uid="uid://chy8x88p31ouh" path="res://interface/scene_transition.tscn" id="6_xedot"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2nij8"]
+size = Vector2(50, 6.25)
+
+[node name="Ir2" type="Node2D"]
+position = Vector2(400, 200)
+scale = Vector2(2, 2)
+script = ExtResource("1_nt315")
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(-10, 0)
+tile_set = ExtResource("1_4fqky")
+format = 2
+layer_0/name = "Tile"
+layer_0/tile_data = PackedInt32Array(196609, 0, 1, 262145, 0, 1, 327681, 0, 1, 393217, 0, 1, 393218, 0, 1, 327682, 0, 1, 262146, 0, 1, 196610, 0, 1, 196611, 0, 1, 262147, 0, 1, 327683, 0, 1, 393219, 0, 1, 393220, 0, 1, 393221, 0, 1, 327685, 0, 1, 262149, 0, 1, 196613, 0, 1, 196612, 0, 1, 262148, 0, 1, 327684, 0, 1, 393222, 0, 1, 327686, 0, 1, 327687, 0, 1, 262151, 0, 1, 262150, 0, 1, 196614, 0, 1, 393223, 0, 1, 196615, 0, 1, 196616, 0, 1, 262152, 0, 1, 327688, 0, 1, 393224, 0, 1, 196617, 0, 1, 262153, 0, 1, 327689, 0, 1, 393225, 0, 1, 196618, 0, 1, 262154, 0, 1, 327690, 0, 1, 393226, 0, 1, 458753, 0, 1, 458754, 0, 1, 458755, 0, 1, 458756, 0, 1, 458757, 0, 1, 458758, 0, 1, 458759, 0, 1, 458760, 0, 1, 458761, 0, 1, 458762, 0, 1, 65537, 131072, 1, 131073, 131072, 2, 65538, 196608, 1, 131074, 196608, 2, 65539, 196608, 1, 131075, 196608, 2, 65540, 196608, 1, 131076, 196608, 2, 65541, 196608, 1, 131077, 196608, 2, 65542, 196608, 1, 131078, 196608, 2, 65543, 196608, 1, 131079, 196608, 2, 65544, 196608, 1, 131080, 196608, 2, 65545, 196608, 1, 131081, 196608, 2, 65546, 262144, 1, 131082, 262144, 2, 65547, 524289, 2, 131083, 524289, 2, 196619, 524289, 2, 262155, 524289, 2, 327691, 524289, 2, 393227, 524289, 2, 458763, 524289, 2, 524299, 524289, 3, 524298, 458753, 3, 524297, 458753, 3, 524296, 458753, 3, 524295, 458753, 3, 524294, 458753, 3, 524293, 458753, 3, 524292, 458753, 3, 524288, 393217, 3, 458752, 393217, 2, 393216, 393217, 2, 327680, 393217, 2, 65536, 393217, 2, 1, 131072, 0, 2, 196608, 0, 3, 196608, 0, 4, 196608, 0, 5, 196608, 0, 6, 196608, 0, 7, 196608, 0, 8, 196608, 0, 9, 196608, 0, 10, 262144, 0, 11, 524289, 1, 0, 393217, 1, 131072, 393217, 2, 196608, 393217, 2, 262144, 393217, 2)
+layer_1/name = "Object"
+layer_1/tile_data = PackedInt32Array(262153, 327680, 9, 327689, 327680, 10, 65537, 655360, 8, 65543, 589824, 8, 262151, 393216, 9, 327687, 393216, 11, 262152, 524288, 9, 327688, 524288, 11, 393224, 524288, 10, 393223, 393216, 10)
+layer_2/name = "Character"
+
+[node name="ir_exit" type="Area2D" parent="."]
+position = Vector2(29.5, 129.5)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ir_exit"]
+position = Vector2(0.5, 1.625)
+shape = SubResource("RectangleShape2D_2nij8")
+
+[node name="Spawner" parent="ir_exit" instance=ExtResource("2_b7m40")]
+position = Vector2(0.5, -31.5)
+
+[node name="Chair" parent="." instance=ExtResource("3_4wq4w")]
+position = Vector2(92, 80)
+
+[node name="fg2" parent="." instance=ExtResource("4_7thew")]
+visible = false
+position = Vector2(140, 77)
+
+[node name="SceneTransition" parent="." instance=ExtResource("6_xedot")]
+z_index = 10
+
+[connection signal="body_entered" from="ir_exit" to="." method="_on_ir2_exit"]

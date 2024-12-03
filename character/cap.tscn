@@ -1,6 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddabgwr81jowt"]
+[gd_scene load_steps=17 format=3 uid="uid://ddabgwr81jowt"]
 
 [ext_resource type="Texture2D" uid="uid://dfdbxuvjs354a" path="res://assets/sprites/NPC Spritesheet.png" id="1_5dxc3"]
+[ext_resource type="Script" path="res://character/BaseNPC.gd" id="1_djx66"]
+[ext_resource type="Resource" path="res://Dialogic/timeline/briefing.dtl" id="2_baq77"]
+[ext_resource type="Resource" path="res://Dialogic/timeline/cap2.dtl" id="3_c2nb8"]
+[ext_resource type="Resource" uid="uid://bkv7mm2svat3w" path="res://resource/victim.tres" id="3_f8t5b"]
+[ext_resource type="Script" path="res://character/dialogue_data.gd" id="3_kjdp2"]
+[ext_resource type="Resource" uid="uid://gerdqgkee5ur" path="res://resource/crimescene.tres" id="3_mgb1y"]
+[ext_resource type="Resource" path="res://Dialogic/timeline/cap3.dtl" id="4_4bosw"]
+[ext_resource type="PackedScene" uid="uid://05fqjfy12onu" path="res://scripts/talk_area.tscn" id="5_5dvmd"]
+
+[sub_resource type="Resource" id="Resource_2nu6f"]
+script = ExtResource("3_kjdp2")
+dialogue_array = Array[Resource]([ExtResource("2_baq77"), ExtResource("3_c2nb8"), ExtResource("3_c2nb8"), ExtResource("4_4bosw")])
+infodata_array = Array[Resource]([ExtResource("3_f8t5b"), ExtResource("3_mgb1y")])
+index = 0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d4er8"]
 atlas = ExtResource("1_5dxc3")
@@ -41,7 +55,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rhubx"]
 size = Vector2(10, 19)
 
-[node name="cap" type="CharacterBody2D"]
+[node name="cap" type="CharacterBody2D" groups=["npc"]]
+script = ExtResource("1_djx66")
+dialogues = SubResource("Resource_2nu6f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xe2di")
@@ -49,3 +65,7 @@ sprite_frames = SubResource("SpriteFrames_xe2di")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6.5)
 shape = SubResource("RectangleShape2D_rhubx")
+
+[node name="TalkArea" parent="." instance=ExtResource("5_5dvmd")]
+
+[connection signal="start_talking" from="TalkArea" to="." method="_on_talk_area_start_talking"]

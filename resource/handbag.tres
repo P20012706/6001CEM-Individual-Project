@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InfoData" load_steps=2 format=3 uid="uid://bo0whls5e0d5g"]
+
+[ext_resource type="Script" path="res://interactables/info_data.gd" id="1_wtq6q"]
+
+[resource]
+script = ExtResource("1_wtq6q")
+name = "Victim's Handbag"
+description = "I found the handbag buried beneath a pile of trash—whoever tossed it here didn’t want it found. The smell of decay still lingers, but it’s not just the garbage that’s suspicious. Someone tried to hide this, but they weren’t careful enough. Whoever did this didn’t count on me digging through the mess. A quick glance inside, and I knew this wasn’t just trash. There’s more to this bag, and I’m going to find out what it’s hiding."
+path = "res://assets/sprites/notebookimg/handbagimg.png"
+length = 80
+height = 80
+category = "Evidence"
+extracted = false

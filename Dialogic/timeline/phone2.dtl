@@ -1,0 +1,5 @@
+Hugh: Operator, this is Detective Galloway. Can you tell me where the nearest casino is in this town?  
+Operator: Of course, Detective. The Dead Man's Gambit is your spot. It's over on Fifth and Main. Check your Notebook for the details.
+Operator: You should try to find the Manager. He's wear a suit and glasses.
+[signal arg="O"]
+[signal arg="Complete"]

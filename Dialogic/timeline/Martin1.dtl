@@ -1,0 +1,104 @@
+Hugh: Hold it right there! What do you think you’re doing in this house? Hands where I can see them.
+Martin (Shocked): (startled) Wait, wait! I can explain! This isn’t what it looks like.
+Hugh: Oh, it looks pretty clear to me. Rummaging through a crime scene? That’s an arrestable offence. Who are you, and why are you here?
+Martin (Default): My name is Martin. I... I just wanted to get rid of something that could hurt me. I didn’t do anything wrong, Detective! I swear!
+
+label Q1
+Hugh: Let’s start with the usual. Where were you yesterday at midnight?
+Martin: I was... I was at home, sleeping.
+- Persuade
+	Hugh: If you were just sleeping, you wouldn’t be so nervous. Tell me the truth.
+	Martin: I told you already. I was at home.
+	jump Q2
+
+- Pressure
+	Hugh: You’re lying. I can see it on your face. Just tell me where you were.
+	Martin: (nervous) I... Fine! I was with her. But I didn’t hurt her!
+	[signal arg="Correct"]
+	jump Q2
+
+- Accuse
+	[text_input var="Response"]
+	if {Response} == "Ariel's Witness":
+		Hugh: Don’t even try to play coy. The neighbour saw you with Isabella  going out last night. Care to explain that?
+		Martin: (stammering) Fine! I was with her, okay? We went out, but I didn’t hurt her!
+		[signal arg="Correct"]
+		jump Q2
+	elif {Response} == "Cancel":
+		Hugh: Sorry about that.
+		jump Q1
+	else:
+		Martin: I don't think you are making the correct accusations.
+		jump Q2
+	
+label Q2
+Hugh: Let’s move on. What’s your relationship with Miss Isabella?
+Martin: I barely knew her. She was just... a friend I’d occasionally say hello to.
+- Persuade
+	Hugh: If she was just a friend, what are you doing in her house? Start telling the truth.
+	Martin: I... It’s complicated. I don’t know what to say.
+	jump Q3
+
+- Pressure
+	Hugh: You’re lying. You’re in her house. You’re clearly more than just friends.
+	Martin: I don’t know what you’re trying to imply. I’m telling the truth!
+	jump Q3
+
+- Accuse
+	[text_input var="Response"]
+	if {Response} == "Jewellery Receipt":
+		Hugh: Don’t even try to deny it. I found a jewellery receipt with your name on it at the crime scene. You were clearly more than just acquaintances.
+		Martin: (sighs) Okay, fine. We were seeing each other. But that doesn’t mean I killed her!
+		Hugh: Then tell me what happened last night!
+		Martin: We went out for dinner and she wanted me to get something for her. I didn't want to but I don't have a choice.
+		Martin: Isabella is not the person you'd think she is...
+		Hugh: Did you brought her to Crime Alley?
+		Martin: She wanted to go there to meet someone and I left her to get some drinks at the bar across the street.
+		Martin: This was all a mistake.
+		Hugh: You being here right now is also a big mistake.
+		[signal arg="Correct"]
+		jump Q3
+	elif {Response} == "Cancel":
+		Hugh: Sorry about that.
+		jump Q2
+	else:
+		Martin: I don't think you are making the correct accusations.
+		jump Q3
+
+label Q3
+Hugh: One last thing. What exactly are you doing in Isabella’s house?
+Martin: I told you, I wasn’t doing anything bad! I was just... cleaning up.
+
+- Persuade
+	Hugh: Cleaning up? You’re in the middle of a crime scene. That’s a terrible excuse. Try again.
+	Martin: I-I don’t know what to tell you. That’s all I was doing.
+	jump End
+	
+- Pressure
+	Hugh: Cut the nonsense, Martin. You’re acting suspicious, and I’m not buying this “cleaning up” excuse. Were you trying to cover something up?
+	Martin: (nervous) No, I... Okay, yes. I was trying to get rid of something she had on me, but that’s all!
+	Hugh: Step aside! What's all this?!
+	Martin: Blackmailing... This is all Isabella's work.
+	[signal arg="Correct"]
+	jump End
+
+- Accuse
+	[text_input var="Response"]
+	if {Response} == "Blackmail Material":
+	Hugh: Cleaning up what? Evidence of your involvement? I think you’ve got a lot more explaining to do.
+	Martin: I didn't do it! What you're seeing right now is all Isabella's doing! She brought this to herself!
+	[signal arg="Correct"]
+	jump End
+	elif {Response} == "Cancel":
+		Hugh: Sorry about that.
+		jump Q3
+	else:
+		Martin: I don't think you are making the correct accusations.
+		jump End
+
+label End
+Hugh: I heard enough. Martin, you’re coming with me to the station for further questioning.
+[signal arg="O"]
+[signal arg="Complete"]
+[signal arg="Fade"]
+[end_timeline]

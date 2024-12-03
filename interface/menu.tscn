@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://cq47xktt31dfp"]
+
+[ext_resource type="Script" path="res://interface/menu.gd" id="1_ec8ob"]
+[ext_resource type="PackedScene" uid="uid://chy8x88p31ouh" path="res://interface/scene_transition.tscn" id="1_t3u2o"]
+[ext_resource type="FontFile" uid="uid://x256bhq1irbr" path="res://assets/fonts/Silver.ttf" id="2_va6ma"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_ec8ob")
+
+[node name="SceneTransition" parent="." instance=ExtResource("1_t3u2o")]
+position = Vector2(-57, -24)
+scale = Vector2(2, 2)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="start" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 750.0
+offset_top = 300.0
+offset_right = 1050.0
+offset_bottom = 420.0
+theme_override_fonts/font = ExtResource("2_va6ma")
+theme_override_font_sizes/font_size = 76
+text = "Start Game"
+
+[node name="exit" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 750.0
+offset_top = 500.0
+offset_right = 1050.0
+offset_bottom = 620.0
+theme_override_fonts/font = ExtResource("2_va6ma")
+theme_override_font_sizes/font_size = 76
+text = "Exit Game"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 64.0
+offset_top = 20.0
+offset_right = 1055.0
+offset_bottom = 262.0
+text = "Welcome to Cognito! This is a game about teaching people how to enhance their critical thinking skills.
+
+How does it work? Simple—by putting you, the player, in the shoes of a detective.
+As a detective, you'll rely on essential critical thinking skills like Observation, Analysis, Inference, Communication, and Evaluation to crack cases and uncover the truth."
+
+[connection signal="pressed" from="Control/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Control/exit" to="." method="_on_exit_pressed"]

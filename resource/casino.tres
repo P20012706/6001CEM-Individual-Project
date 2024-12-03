@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InfoData" load_steps=2 format=3 uid="uid://diw0xu1vu7j2e"]
+
+[ext_resource type="Script" path="res://interactables/info_data.gd" id="1_hpwtp"]
+
+[resource]
+script = ExtResource("1_hpwtp")
+name = "Dead Man's Gambit"
+description = "In this town, they call it ‘Dead Man’s Gambit’ for a reason. The house always wins—until it doesn’t. For those who take a seat at the tables, it’s a game of chance with more than money at stake. Old debts, desperate decisions, and a bad hand can lead to more than just a loss. If you’re looking for trouble, you’ll find it here, but tread carefully; you might not make it out with your life."
+path = "res://assets/sprites/notebookimg/casinoimg.png"
+length = 80
+height = 80
+category = "Location"
+extracted = false

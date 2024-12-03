@@ -1,23 +1,13 @@
 [gd_resource type="Resource" script_class="DialogueData" load_steps=6 format=3 uid="uid://c17acihrrflsp"]
 
-[ext_resource type="Resource" path="res://Dialogic/timeline/hobo.dtl" id="1_g6jw0"]
-[ext_resource type="Script" path="res://character/dialogue_data.gd" id="1_nnkek"]
-[ext_resource type="Resource" uid="uid://dr8dmhtj2neib" path="res://resource/earring_hobo.tres" id="2_yl40s"]
-[ext_resource type="Script" path="res://interactables/info_data.gd" id="3_62qer"]
-
-[sub_resource type="Resource" id="Resource_in24t"]
-script = ExtResource("3_62qer")
-name = "Suspicious Figure"
-description = "The hobo said he saw the victim arguing with an unknown male yesterday night. That could be our guy."
-path = ""
-length = 80
-height = 80
-category = "People"
-extracted = false
+[ext_resource type="Resource" path="res://Dialogic/timeline/hobo.dtl" id="1_4d5gu"]
+[ext_resource type="Resource" path="res://Dialogic/timeline/repeat.dtl" id="1_84kj6"]
+[ext_resource type="Resource" path="res://Dialogic/timeline/hobo2.dtl" id="2_dk814"]
+[ext_resource type="Resource" uid="uid://dr8dmhtj2neib" path="res://resource/earring_hobo.tres" id="3_m8mo4"]
+[ext_resource type="Script" path="res://character/dialogue_data.gd" id="4_qx8go"]
 
 [resource]
-script = ExtResource("1_nnkek")
-dialogue_array = Array[Resource]([ExtResource("1_g6jw0")])
-infodata = ExtResource("2_yl40s")
-infodata2 = SubResource("Resource_in24t")
+script = ExtResource("4_qx8go")
+dialogue_array = Array[Resource]([ExtResource("1_84kj6"), ExtResource("1_4d5gu"), ExtResource("2_dk814")])
+infodata_array = Array[Resource]([ExtResource("3_m8mo4")])
 index = 0

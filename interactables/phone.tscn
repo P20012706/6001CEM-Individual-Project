@@ -1,8 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqidjlx3snftx"]
+[gd_scene load_steps=12 format=3 uid="uid://dqidjlx3snftx"]
 
 [ext_resource type="Script" path="res://interactables/phone.gd" id="1_e4mjr"]
+[ext_resource type="Resource" path="res://Dialogic/timeline/phone2.dtl" id="2_bakmj"]
 [ext_resource type="Texture2D" uid="uid://bj8no4gol5kta" path="res://assets/sprites/Interactables.png" id="2_obb64"]
+[ext_resource type="Resource" path="res://Dialogic/timeline/repeat.dtl" id="3_f4f7m"]
 [ext_resource type="Script" path="res://interactables/interactarea.gd" id="3_k4lhm"]
+[ext_resource type="Resource" uid="uid://diw0xu1vu7j2e" path="res://resource/casino.tres" id="4_nfnu0"]
+[ext_resource type="Resource" uid="uid://ba7qyioo2064s" path="res://resource/manager.tres" id="5_2f55b"]
+[ext_resource type="Script" path="res://character/dialogue_data.gd" id="5_6sshy"]
+
+[sub_resource type="Resource" id="Resource_do7ta"]
+script = ExtResource("5_6sshy")
+dialogue_array = Array[Resource]([ExtResource("2_bakmj"), ExtResource("3_f4f7m")])
+infodata_array = Array[Resource]([ExtResource("4_nfnu0"), ExtResource("5_2f55b")])
+index = 0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1qtqg"]
 atlas = ExtResource("2_obb64")
@@ -13,6 +24,7 @@ size = Vector2(32, 32)
 
 [node name="phone" type="Node2D"]
 script = ExtResource("1_e4mjr")
+dialoguedata = SubResource("Resource_do7ta")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_1qtqg")
@@ -25,3 +37,5 @@ script = ExtResource("3_k4lhm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
 shape = SubResource("RectangleShape2D_4i31c")
 debug_color = Color(0.823529, 0.160784, 0.890196, 0.419608)
+
+[connection signal="first_interaction" from="InteractArea" to="." method="_on_interact_area_first_interaction"]

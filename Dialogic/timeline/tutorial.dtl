@@ -1,0 +1,41 @@
+Hugh: Detective Roy, it’s a pleasure to meet you.
+Roy: Nice to see another helping hand here. You seem eager to get started.
+Roy: So, what do you want to know?
+label Q
+
+- The Basics
+	Roy: Alright, the basics are simple enough. Movement’s standard—W, A, S, and D to move around. Press E to interact with objects and people. Use Q to open your notebook, where all your evidence and notes are stored. And P brings up the pause menu.
+	Roy: It won’t take long to get the hang of it. Spend a few minutes exploring, and you’ll see how things work.
+	Roy: Anything Else?
+	jump Q
+
+- Gathering Information
+	Roy: A detective’s most important tools? Observation and Analysis. If you can’t spot the small details, you’re already losing the game.
+	Hugh: (nodding) So, you mean finding evidence?
+	Roy: Exactly. But it’s more than just collecting clues. Searching a scene isn’t merely about what you find; it’s about understanding what each item signifies. What story does this piece of evidence tell? How does it fit into the broader narrative?
+	Roy: Remember, small things can make or break a case. A seemingly insignificant detail—a misplaced object, a scuff mark on the floor—can lead you to the breakthrough you need.
+	Roy: Trust your instincts, but also train your mind to think critically. Every scene has its secrets; it’s your job to uncover them.
+	Operator: Tip: Anything you can interact with will show an animated icon when you’re facing it. Approach carefully, take your time, and don’t miss the details.
+	Hugh: Got it. I'll keep my eyes peeled.
+	Roy: Anything Else?
+	jump Q
+
+- Questioning Suspects
+	Roy:  Interrogations? That’s where your other critical thinking skills come into play — Inference, Communication, and Evaluation. It’s not just about asking questions; it’s about reading people, spotting the cracks in their stories, and knowing when to apply pressure.
+	Hugh: And if they lie?
+	Roy: (smirking slightly) That’s where your evidence comes into play. Collect first, question later. You need to walk into every interrogation armed with the facts, ready to counter lies with the truth — literally.
+	Hugh: (curious) How so?
+	Roy: It’s simple. If someone lies, you call them out by entering the EXACT name of the evidence from your notebook. It’s like a verbal chess match—stay one step ahead, anticipate their moves.
+	Hugh: Sounds intense.
+	Roy: (nodding) It is. But that’s the thrill of it. Trust me, the more thorough you are in gathering evidence, the stronger your position will be when questioning a person of interest. Preparation makes all the difference.
+	Operator: Tip: When you're questioning a person. Three choices will be presented. Persuade, Pressure and Accuse.
+	Operator: Tip: You use Persuade when you sense the target is telling the truth.
+	Operator: Tip: You use Pressure when you sense the target is hiding something but you don't have the evidence to counter it.
+	Operator: Tip: Finally, Accuse. Choosing this will opens a Text Input and will require you to enter the EXACT name of the relevant evidence.
+	Operator: Tip: If you accidentally choose Accuse and made a mistake, Type in "Cancel" to back out from an accusation. 
+	Roy: Anything Else?
+	jump Q
+
+- End Conversation
+	[signal arg="O"]
+	[signal arg="Complete"]
